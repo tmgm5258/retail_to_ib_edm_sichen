@@ -30,7 +30,7 @@
 html { scroll-behavior:smooth; }
 body { font-family:var(--font); color:var(--dark); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; }
 
-/* ============ SECTION 7 — RE-ENTRY RULES ============ */
+/* ============ SECTION 8 — RE-ENTRY RULES ============ */
 
 /* Re-Entry Cycle Timeline (horizontal step visualizer) */
 .s7-timeline-wrapper {
@@ -165,7 +165,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   color:#92400E;
 }
 
-/* ============ SECTION 6 — GOAL & EXIT CONDITIONS ============ */
+/* ============ SECTION 7 — GOAL & EXIT CONDITIONS ============ */
 
 /* The Workflow Goal — prominent definition card */
 .s6-goal-card {
@@ -1453,9 +1453,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .nd-tech-grid { grid-template-columns:1fr; }
 }
 
-/* ============ SECTION 5 — TRIGGERING LOGIC ============ */
+/* ============ SECTION 6 — TRIGGERING LOGIC ============ */
 
-/* Section 5 Send Window + Personalization — stacked single column for easier scanning */
+/* Section 6 Send Window + Personalization — stacked single column for easier scanning */
 .s5-twocol {
   display:grid;
   grid-template-columns:1fr;
@@ -1613,7 +1613,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   color:#B91C1C;
 }
 
-/* Section 3 HubSpot Platform Requirements - white card grid (3 cols) */
+/* Section 4 HubSpot Platform Requirements - white card grid (3 cols) */
 .s3-platform-grid {
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -1637,9 +1637,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .s3-platform-grid { grid-template-columns:1fr; }
 }
 
-/* ============ SECTION 4 — DATA FIELDS REQUIRED ============ */
+/* ============ SECTION 5 — DATA FIELDS REQUIRED ============ */
 
-/* Stat strip at top of Section 4 */
+/* Stat strip at top of Section 5 */
 .s4-stats {
   display:flex;
   gap:12px;
@@ -1931,7 +1931,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .s4-action-grid { grid-template-columns:1fr; }
 }
 
-/* ============ SECTION 3 — ENTRY CRITERIA & FILTER LOGIC ============ */
+/* ============ SECTION 4 — ENTRY CRITERIA & FILTER LOGIC ============ */
 
 /* Sub-section label inside a section body */
 .s3-sub-title {
@@ -2472,11 +2472,11 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .s3-source-de { flex-direction:column; }
 }
 
-/* ============ SECTION 2 — JOURNEY FLOW DIAGRAM ============ */
+/* ============ SECTION 3 — JOURNEY FLOW DIAGRAM ============ */
 
 /* Section card wrapper — REMOVED, info-card handles this now */
 
-/* Tip banner at top of Section 2 — now also carries the journey-level goal */
+/* Tip banner at top of Section 3 — now also carries the journey-level goal */
 .s2-tip {
   display:flex;
   flex-direction:column;
@@ -2859,6 +2859,283 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .s2-legend { gap:12px; }
 }
 
+/* ============ SECTION 2 — QUICK JOURNEY FLOW (HubSpot branching, v2 compact) ============ */
+.qf-container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+  padding:20px 0 10px;
+  position:relative;
+}
+.qf-upper-label {
+  font-size:10px;
+  font-weight:800;
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding:4px 12px;
+  background:var(--blue-light);
+  border-radius:20px;
+  margin-bottom:8px;
+  display:inline-block;
+}
+.qf-box {
+  padding:10px 20px;
+  border-radius:10px;
+  text-align:center;
+  position:relative;
+  min-width:280px;
+  cursor:help;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.qf-box:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); z-index:100; }
+.qf-box-title { font-size:12px; font-weight:700; color:var(--dark); }
+.qf-box-sub { font-size:10px; color:var(--grey-500); margin-top:1px; }
+.qf-upstream {
+  background:linear-gradient(135deg,#EFF6FF,#F5F3FF);
+  border:1.5px dashed rgba(59,130,246,0.35);
+}
+.qf-upstream .qf-box-title { color:var(--blue); }
+.qf-checkpoint {
+  background:linear-gradient(135deg,#ECFDF5,#FFFFFF);
+  border:1.5px dashed rgba(16,185,129,0.45);
+}
+.qf-checkpoint .qf-box-title { color:var(--green); }
+.qf-buffer {
+  background:linear-gradient(135deg,#FFFBEB,#FFFFFF);
+  border:1.5px dashed rgba(245,158,11,0.45);
+}
+.qf-buffer .qf-box-title { color:var(--amber); }
+.qf-entry {
+  background:var(--blue-light);
+  border:1.5px solid rgba(59,130,246,0.25);
+}
+.qf-entry .qf-box-title { color:var(--blue-dark); font-size:13px; }
+.qf-upstream-divider {
+  width:80%;
+  max-width:400px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--grey-300),transparent);
+  margin:14px auto 6px;
+  position:relative;
+}
+.qf-upstream-divider::after {
+  content:'\2193 matches filter \2192 enters journey';
+  position:absolute;
+  top:-6px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--white);
+  padding:0 10px;
+  font-size:9px;
+  color:var(--grey-500);
+  font-style:italic;
+  white-space:nowrap;
+}
+.qf-email {
+  background:var(--green-light);
+  border:1.5px solid rgba(16,185,129,0.25);
+  min-width:260px;
+}
+.qf-email .qf-box-title { color:var(--green); }
+.qf-rest {
+  background:var(--grey-50);
+  border:1.5px dashed var(--grey-300);
+  padding:8px 16px;
+  min-width:auto;
+}
+.qf-rest .qf-box-title { color:var(--grey-500); font-weight:600; font-size:11px; }
+.qf-decision {
+  background:var(--amber-light);
+  border:1.5px solid rgba(245,158,11,0.25);
+  padding:8px 20px;
+  border-radius:10px;
+  text-align:center;
+  cursor:help;
+  transition:transform 0.2s, box-shadow 0.2s;
+  position:relative;
+}
+.qf-decision:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); z-index:100; }
+.qf-decision .qf-box-title { color:var(--amber); font-size:12px; }
+.qf-exit-box {
+  background:var(--green-light);
+  border:1.5px solid rgba(16,185,129,0.25);
+  padding:8px 16px;
+  border-radius:10px;
+  text-align:center;
+  cursor:help;
+  transition:transform 0.2s, box-shadow 0.2s;
+  position:relative;
+}
+.qf-exit-box:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); z-index:100; }
+.qf-exit-box .qf-box-title { color:var(--green); font-size:11px; }
+.qf-cooldown-box {
+  background:var(--amber-light);
+  border:1.5px solid rgba(245,158,11,0.25);
+  padding:8px 16px;
+  border-radius:10px;
+  text-align:center;
+  cursor:help;
+  transition:transform 0.2s, box-shadow 0.2s;
+  position:relative;
+  min-width:auto;
+}
+.qf-cooldown-box:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); z-index:100; }
+.qf-cooldown-box .qf-box-title { color:var(--amber); font-size:11px; }
+.qf-vline { width:2px; height:12px; background:var(--grey-300); }
+.qf-label {
+  font-size:9px;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:4px;
+  margin:2px 0;
+}
+.qf-label.yes { background:var(--green-light); color:var(--green); }
+.qf-label.no { background:var(--red-light); color:var(--red); }
+.qf-branch {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  max-width:750px;
+}
+.qf-branch-t { display:flex; flex-direction:column; align-items:center; width:100%; }
+.qf-branch-stem { width:2px; height:8px; background:var(--grey-300); }
+.qf-branch-bar {
+  height:2px;
+  background:var(--grey-300);
+  width:75%;
+  min-width:450px;
+  position:relative;
+}
+.qf-branch-bar::before {
+  content:'';
+  position:absolute;
+  left:0; top:0;
+  width:2px; height:10px;
+  background:var(--grey-300);
+}
+.qf-branch-bar::after {
+  content:'';
+  position:absolute;
+  right:0; top:0;
+  width:2px; height:10px;
+  background:var(--grey-300);
+}
+.qf-branch-arms {
+  display:flex;
+  width:75%;
+  min-width:450px;
+  justify-content:space-between;
+  margin-top:10px;
+}
+.qf-branch-arm { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.qf-branch-arm-no { width:50%; }
+.qf-branch-arm-yes { width:50%; }
+.qf-rest-arrow { display:flex; flex-direction:column; align-items:center; gap:2px; margin-top:6px; }
+.qf-rest-arrow .qf-rest-line { width:2px; height:8px; background:var(--grey-300); }
+.qf-rest-arrow .qf-rest-label { font-size:9px; color:var(--grey-400); font-style:italic; }
+.qf-ib-arrow { display:flex; flex-direction:column; align-items:center; gap:2px; margin-top:6px; }
+.qf-ib-arrow .qf-ib-line { width:2px; height:8px; background:var(--green); opacity:0.4; }
+.qf-ib-arrow .qf-ib-label { font-size:9px; color:var(--green); font-style:italic; font-weight:600; }
+.qf-box .qf-tooltip,
+.qf-decision .qf-tooltip,
+.qf-exit-box .qf-tooltip,
+.qf-cooldown-box .qf-tooltip {
+  position:absolute;
+  bottom:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--grey-900);
+  color:var(--white);
+  font-size:11.5px;
+  font-weight:500;
+  line-height:1.5;
+  padding:10px 14px;
+  border-radius:8px;
+  white-space:normal;
+  width:260px;
+  text-align:left;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.2s, visibility 0.2s;
+  pointer-events:none;
+  z-index:9999;
+  box-shadow:var(--shadow-lg);
+}
+.qf-box .qf-tooltip::after,
+.qf-decision .qf-tooltip::after,
+.qf-exit-box .qf-tooltip::after,
+.qf-cooldown-box .qf-tooltip::after {
+  content:'';
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border:6px solid transparent;
+  border-top-color:var(--grey-900);
+}
+.qf-box .qf-tooltip.tip-below,
+.qf-decision .qf-tooltip.tip-below,
+.qf-exit-box .qf-tooltip.tip-below,
+.qf-cooldown-box .qf-tooltip.tip-below {
+  bottom:auto;
+  top:calc(100% + 8px);
+}
+.qf-box .qf-tooltip.tip-below::after,
+.qf-decision .qf-tooltip.tip-below::after,
+.qf-exit-box .qf-tooltip.tip-below::after,
+.qf-cooldown-box .qf-tooltip.tip-below::after {
+  top:auto;
+  bottom:100%;
+  border-top-color:transparent;
+  border-bottom-color:var(--grey-900);
+}
+.qf-box:hover .qf-tooltip,
+.qf-decision:hover .qf-tooltip,
+.qf-exit-box:hover .qf-tooltip,
+.qf-cooldown-box:hover .qf-tooltip {
+  opacity:1;
+  visibility:visible;
+}
+.qf-tooltip strong { color:#FCD34D; }
+.qf-tooltip code {
+  background:rgba(255,255,255,0.1);
+  padding:1px 5px;
+  border-radius:3px;
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:#FCD34D;
+}
+.qf-summary {
+  margin-top:18px;
+  padding:14px 16px;
+  background:var(--blue-light);
+  border:1px solid #BFDBFE;
+  border-left:3px solid var(--blue);
+  border-radius:8px;
+  font-size:12.5px;
+  color:var(--grey-700);
+  line-height:1.6;
+}
+.qf-summary code {
+  font-family:var(--font-mono);
+  font-size:11px;
+  background:var(--white);
+  padding:1px 6px;
+  border-radius:4px;
+  border:1px solid var(--grey-200);
+  color:var(--grey-700);
+}
+@media (max-width: 768px) {
+  .qf-box, .qf-email { min-width:0; width:100%; }
+  .qf-branch, .qf-branch-bar, .qf-branch-arms { min-width:0; max-width:100%; width:100%; }
+  .qf-branch-bar { width:90%; }
+  .qf-branch-arms { width:90%; }
+  .qf-tooltip { width:200px; }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .header { padding:18px 20px 0; }
@@ -3123,7 +3400,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qr-stat-tooltip">
           <strong>7-Day Drip Journey</strong><br>
           Total journey duration: Day 0 (E1 immediate) → Day 7 (E5). Includes 5 email sends + 3 rest day waits. Send timing configured per HubSpot Send email action.
-          <span class="qr-stat-tooltip-ref">→ See Section 5 (Triggering Logic)</span>
+          <span class="qr-stat-tooltip-ref">→ See Section 6 (Triggering Logic)</span>
         </div>
         <span class="qr-stat-icon">📅</span>
         <div class="qr-stat-number">7</div>
@@ -3133,7 +3410,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qr-stat-tooltip">
           <strong>3 Rest Days (D1, D3, D5)</strong><br>
           Intentional 24-hour pauses between emails. Configure each as an HubSpot <code>Delay action</code> set to 24 hours. Prevents send fatigue, lets each message land.
-          <span class="qr-stat-tooltip-ref">→ See Section 5 (Triggering Logic)</span>
+          <span class="qr-stat-tooltip-ref">→ See Section 6 (Triggering Logic)</span>
         </div>
         <span class="qr-stat-icon">😴</span>
         <div class="qr-stat-number">3</div>
@@ -3143,7 +3420,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qr-stat-tooltip">
           <strong>8 Filter Conditions</strong><br>
           All 8 must be true for a client to enter the journey: KYC verified, FTD completed, 7-day buffer met, not existing IB, not IB-referred, not Sales-acquired, not Partnership, valid country.
-          <span class="qr-stat-tooltip-ref">→ See Section 3 (Filter Logic — full HubSpot syntax)</span>
+          <span class="qr-stat-tooltip-ref">→ See Section 4 (Filter Logic — full HubSpot syntax)</span>
         </div>
         <span class="qr-stat-icon">🚦</span>
         <div class="qr-stat-number">8</div>
@@ -3153,7 +3430,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qr-stat-tooltip">
           <strong>30-Day Cool-Down Loop</strong><br>
           After E5, non-converted clients enter a 30-day wait. After that, filter conditions are re-evaluated — if still eligible AND <code>is_ib = false</code>, client re-enters from E1. Indefinite monthly loop.
-          <span class="qr-stat-tooltip-ref">→ See Section 7 (Re-Entry Rules)</span>
+          <span class="qr-stat-tooltip-ref">→ See Section 8 (Re-Entry Rules)</span>
         </div>
         <span class="qr-stat-icon">🔄</span>
         <div class="qr-stat-number">30</div>
@@ -3245,10 +3522,280 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   </div><!-- /info-collapsible -->
 </div><!-- /info-card (section-1) -->
 
-<!-- ============ SECTION 2 — JOURNEY FLOW DIAGRAM ============ -->
-<div class="section-title">Section 2 — Journey Flow Diagram</div>
+<!-- ============ SECTION 2 — QUICK JOURNEY FLOW ============ -->
+<div class="section-title">Section 2 — Quick Journey Flow</div>
 
 <div id="section-2" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">⚡</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Quick Journey Flow</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">The whole journey at a glance · upstream pipeline → entry → 5 emails → exits → 30-day loop</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Overview</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <div class="qf-container">
+
+        <!-- ===== UPSTREAM PIPELINE ===== -->
+        <div class="qf-upper-label">🔼 Upstream — Pre-Journey Pipeline</div>
+
+        <div class="qf-box qf-upstream">
+          <div class="qf-tooltip tip-below">The starting point of the pipeline. A new retail client opens a trading account through the TMGM portal.</div>
+          <div class="qf-box-title">🌐 Retail Client Signs Up</div>
+          <div class="qf-box-sub">Via TMGM Portal</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <div class="qf-box qf-checkpoint">
+          <div class="qf-tooltip tip-below">Contact completes KYC verification — <code>id_verified = Verified</code>. Regulatory gate required before any marketing email can be sent.</div>
+          <div class="qf-box-title">✅ KYC Verified</div>
+          <div class="qf-box-sub"><code style="font-family:var(--font-mono);font-size:10px;">id_verified = Verified</code></div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <div class="qf-box qf-checkpoint">
+          <div class="qf-tooltip tip-below">Contact has made their First Time Deposit — <code>ta_first_deposit_time</code> is captured. Property owned by Nick Gao.</div>
+          <div class="qf-box-title">💰 FTD Completed</div>
+          <div class="qf-box-sub"><code style="font-family:var(--font-mono);font-size:10px;">ta_first_deposit_time is known</code></div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <div class="qf-box qf-buffer">
+          <div class="qf-tooltip tip-below"><strong>7-day wait period after FTD.</strong> Gives the KYC-FTD onboarding journey time to finish and lets the contact actually trade before we pitch the IB program.</div>
+          <div class="qf-box-title">🕐 7-Day Buffer Period</div>
+          <div class="qf-box-sub"><code style="font-family:var(--font-mono);font-size:10px;">ta_first_deposit_time is more than 7 days ago</code></div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <div class="qf-box qf-upstream">
+          <div class="qf-tooltip tip-below">HubSpot continuously re-evaluates every contact against the Phase 1.0 Active List criteria. The moment a contact matches all 8 filter conditions, they automatically enroll in the workflow.</div>
+          <div class="qf-box-title">⏳ Continuous Filter Check</div>
+          <div class="qf-box-sub">All 8 filter conditions matched? (real-time)</div>
+        </div>
+
+        <div class="qf-upstream-divider"></div>
+
+        <!-- ===== ENTRY ===== -->
+        <div class="qf-box qf-entry">
+          <div class="qf-tooltip tip-below"><strong>Day 0 of the 5-email journey starts here.</strong> Each contact enrolls on their own timeline — whenever they match the full Active List filter.</div>
+          <div class="qf-box-title">📥 Contact Enrolls in Journey</div>
+          <div class="qf-box-sub">Automated · SEA · North Asia · MENA · EN</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- ===== E1 ===== -->
+        <div class="qf-box qf-email">
+          <div class="qf-tooltip tip-below"><strong>Stage 1 · Awareness.</strong> First email, sent immediately on enrollment. Introduces the IB Program — what it is and how it works.</div>
+          <div class="qf-box-title">E1 — IB Program Explained</div>
+          <div class="qf-box-sub">Day 0 · Curiosity</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- DECISION 1 -->
+        <div class="qf-branch">
+          <div class="qf-decision">
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-box-title">Converted to IB?</div>
+          </div>
+          <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
+          <div class="qf-branch-arms">
+            <div class="qf-branch-arm qf-branch-arm-no">
+              <span class="qf-label no">NO</span>
+              <div class="qf-vline"></div>
+              <div class="qf-box qf-rest">
+                <div class="qf-tooltip tip-below">No email sent. 24-hour rest day to let E1 sink in.</div>
+                <div class="qf-box-title">💤 Rest — Day 1</div>
+              </div>
+              <div class="qf-rest-arrow"><div class="qf-rest-line"></div>↓<div class="qf-rest-label">to E2</div></div>
+            </div>
+            <div class="qf-branch-arm qf-branch-arm-yes">
+              <span class="qf-label yes">YES</span>
+              <div class="qf-vline"></div>
+              <div class="qf-exit-box">
+                <div class="qf-tooltip tip-below"><strong>Exit point — the contact has become an IB.</strong> They leave this journey and are picked up by the separate Newly-IB welcome workflow.</div>
+                <div class="qf-box-title">✅ Newly-IB Welcome</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--green);margin-top:1px;">Separate workflow · MKTOP-7576</div>
+              </div>
+              <div class="qf-ib-arrow"><div class="qf-ib-line"></div>↓<div class="qf-ib-label">IB onboarding</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- ===== E2 ===== -->
+        <div class="qf-box qf-email">
+          <div class="qf-tooltip tip-below"><strong>Stage 2 · Consideration.</strong> Sent 2 days after enrollment. Explains how rebates may be calculated — illustrative ranges by product.</div>
+          <div class="qf-box-title">E2 — The Math Behind</div>
+          <div class="qf-box-sub">Day 2 · Trust</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- DECISION 2 -->
+        <div class="qf-branch">
+          <div class="qf-decision">
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-box-title">Converted to IB?</div>
+          </div>
+          <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
+          <div class="qf-branch-arms">
+            <div class="qf-branch-arm qf-branch-arm-no">
+              <span class="qf-label no">NO</span>
+              <div class="qf-vline"></div>
+              <div class="qf-box qf-rest">
+                <div class="qf-tooltip tip-below">No email sent. 24-hour rest day — gives doubts time to form so E3's answers land well.</div>
+                <div class="qf-box-title">💤 Rest — Day 3</div>
+              </div>
+              <div class="qf-rest-arrow"><div class="qf-rest-line"></div>↓<div class="qf-rest-label">to E3</div></div>
+            </div>
+            <div class="qf-branch-arm qf-branch-arm-yes">
+              <span class="qf-label yes">YES</span>
+              <div class="qf-vline"></div>
+              <div class="qf-exit-box">
+                <div class="qf-tooltip tip-below"><strong>Exit point — the contact has become an IB.</strong> They leave this journey and are picked up by the separate Newly-IB welcome workflow.</div>
+                <div class="qf-box-title">✅ Newly-IB Welcome</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--green);margin-top:1px;">Separate workflow · MKTOP-7576</div>
+              </div>
+              <div class="qf-ib-arrow"><div class="qf-ib-line"></div>↓<div class="qf-ib-label">IB onboarding</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- ===== E3 ===== -->
+        <div class="qf-box qf-email">
+          <div class="qf-tooltip tip-below"><strong>Stage 3 · Confidence.</strong> Sent 4 days after enrollment. Answers 3 common questions about the IB Program.</div>
+          <div class="qf-box-title">E3 — Common Questions</div>
+          <div class="qf-box-sub">Day 4 · Confidence</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- DECISION 3 -->
+        <div class="qf-branch">
+          <div class="qf-decision">
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-box-title">Converted to IB?</div>
+          </div>
+          <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
+          <div class="qf-branch-arms">
+            <div class="qf-branch-arm qf-branch-arm-no">
+              <span class="qf-label no">NO</span>
+              <div class="qf-vline"></div>
+              <div class="qf-box qf-rest">
+                <div class="qf-tooltip tip-below">No email sent. Final rest day before the closing pair (E4 + E5 back-to-back).</div>
+                <div class="qf-box-title">💤 Rest — Day 5</div>
+              </div>
+              <div class="qf-rest-arrow"><div class="qf-rest-line"></div>↓<div class="qf-rest-label">to E4</div></div>
+            </div>
+            <div class="qf-branch-arm qf-branch-arm-yes">
+              <span class="qf-label yes">YES</span>
+              <div class="qf-vline"></div>
+              <div class="qf-exit-box">
+                <div class="qf-tooltip tip-below"><strong>Exit point — the contact has become an IB.</strong> They leave this journey and are picked up by the separate Newly-IB welcome workflow.</div>
+                <div class="qf-box-title">✅ Newly-IB Welcome</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--green);margin-top:1px;">Separate workflow · MKTOP-7576</div>
+              </div>
+              <div class="qf-ib-arrow"><div class="qf-ib-line"></div>↓<div class="qf-ib-label">IB onboarding</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- ===== E4 ===== -->
+        <div class="qf-box qf-email" style="border-color:rgba(232,131,58,0.3);">
+          <div class="qf-tooltip tip-below"><strong>Stage 4 · Scarcity.</strong> Sent 6 days after enrollment. A quick recap of the IB Program at a glance.</div>
+          <div class="qf-box-title" style="color:#e8833a;">E4 — At a Glance</div>
+          <div class="qf-box-sub">Day 6 · Scarcity</div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- DECISION 4 -->
+        <div class="qf-branch">
+          <div class="qf-decision">
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-box-title">Converted to IB?</div>
+          </div>
+          <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
+          <div class="qf-branch-arms">
+            <div class="qf-branch-arm qf-branch-arm-no">
+              <span class="qf-label no">NO</span>
+              <div class="qf-vline"></div>
+              <div class="qf-box qf-email" style="padding:8px 16px;min-width:auto;border-color:rgba(211,47,47,0.3);">
+                <div class="qf-tooltip tip-below"><strong>Stage 5 · Decision · Final.</strong> Back-to-back with E4 (no rest day). Soft close — sets the expectation of a monthly check-in.</div>
+                <div class="qf-box-title" style="color:#d32f2f;font-size:11px;">E5 — Step Back Note</div>
+                <div class="qf-box-sub">Day 7 · No rest</div>
+              </div>
+            </div>
+            <div class="qf-branch-arm qf-branch-arm-yes">
+              <span class="qf-label yes">YES</span>
+              <div class="qf-vline"></div>
+              <div class="qf-exit-box">
+                <div class="qf-tooltip tip-below"><strong>Exit point — the contact has become an IB.</strong> They leave this journey and are picked up by the separate Newly-IB welcome workflow.</div>
+                <div class="qf-box-title">✅ Newly-IB Welcome</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--green);margin-top:1px;">Separate workflow · MKTOP-7576</div>
+              </div>
+              <div class="qf-ib-arrow"><div class="qf-ib-line"></div>↓<div class="qf-ib-label">IB onboarding</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="qf-vline"></div>
+
+        <!-- DECISION 5 (after E5) -->
+        <div class="qf-branch">
+          <div class="qf-decision">
+            <div class="qf-tooltip">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-box-title">Converted to IB?</div>
+          </div>
+          <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
+          <div class="qf-branch-arms">
+            <div class="qf-branch-arm qf-branch-arm-no">
+              <span class="qf-label no">NO</span>
+              <div class="qf-vline"></div>
+              <div class="qf-cooldown-box">
+                <div class="qf-tooltip">If a contact completes all 5 emails without converting, they enter a <strong>30-day cool-down</strong>. After 30 days they re-enroll at E1 and the cycle restarts — the monthly re-blast logic for Phase 1.0. See Section 8 for the re-enrollment mechanics.</div>
+                <div class="qf-box-title">30-Day Cool-down</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--amber);margin-top:1px;">Then re-enrolls at E1</div>
+              </div>
+            </div>
+            <div class="qf-branch-arm qf-branch-arm-yes">
+              <span class="qf-label yes">YES</span>
+              <div class="qf-vline"></div>
+              <div class="qf-exit-box">
+                <div class="qf-tooltip"><strong>Exit point — the contact has become an IB.</strong> They leave this journey and are picked up by the separate Newly-IB welcome workflow.</div>
+                <div class="qf-box-title">✅ Newly-IB Welcome</div>
+                <div class="qf-box-sub" style="font-size:9px;color:var(--green);margin-top:1px;">Separate workflow · MKTOP-7576</div>
+              </div>
+              <div class="qf-ib-arrow"><div class="qf-ib-line"></div>↓<div class="qf-ib-label">IB onboarding</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="qf-summary">
+        A quick overview of the full journey logic — the upstream pipeline, 5 emails, continuous <code>is_ib</code> conversion checks, exit points, and the monthly re-blast loop. For the detailed entry filters see Section 4; for the email-by-email breakdown see Section 3; and for full exit and re-entry logic see Sections 7 and 8.
+      </div>
+
+    </div><!-- /info-body -->
+  </div><!-- /info-collapsible -->
+</div><!-- /info-card (section-2) -->
+
+<!-- ============ SECTION 3 — JOURNEY FLOW DIAGRAM ============ -->
+<div class="section-title">Section 3 — Journey Flow Diagram</div>
+
+<div id="section-3" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">🔄</div>
@@ -3275,7 +3822,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   <div class="s2-tip">
     <div class="s2-tip-row">
       <span class="s2-tip-icon">🎯</span>
-      <div><strong>Journey-level goal (always-on):</strong> If a client's <code>is_ib</code> flag becomes <code>true</code> at <em>any</em> point during the journey, they exit immediately and are routed to the Newly IB welcome journey (<code>MKTOP-7576</code>). See Section 6 for full goal &amp; exit configuration.</div>
+      <div><strong>Journey-level goal (always-on):</strong> If a client's <code>is_ib</code> flag becomes <code>true</code> at <em>any</em> point during the journey, they exit immediately and are routed to the Newly IB welcome journey (<code>MKTOP-7576</code>). See Section 7 for full goal &amp; exit configuration.</div>
     </div>
   </div>
 
@@ -3388,7 +3935,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   </div>
 
   <!-- 30-day cool-down — consolidated (cool-down + loop indicator in one card) -->
-  <a href="#section-7-reentry" class="j-cooldown">
+  <a href="#section-8-reentry" class="j-cooldown">
     <div class="j-cooldown-top">
       <div class="j-cooldown-left">
         <span class="j-cooldown-icon">🔄</span>
@@ -3419,7 +3966,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       </div>
 
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📌</span>Goal</div><div class="nd-field-value">Introduce the TMGM IB Program in plain language. Goal is <strong>education and curiosity</strong>, not conversion at this stage.</div></div>
-      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">👥</span>WHO · Sent To</div><div class="nd-field-value">Retail clients who have completed <strong>KYC + made FTD at least 7 days ago</strong>, are not already IBs, are not IB/Sales/Partnership-tagged, and are in eligible markets (see Section 3 for full filter).</div></div>
+      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">👥</span>WHO · Sent To</div><div class="nd-field-value">Retail clients who have completed <strong>KYC + made FTD at least 7 days ago</strong>, are not already IBs, are not IB/Sales/Partnership-tagged, and are in eligible markets (see Section 4 for full filter).</div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">⏰</span>WHEN · Send Timing</div><div class="nd-field-value"><strong>Day 0</strong> — sent immediately when the client matches the entry filter.</div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📧</span>WHAT · Subject Line</div><div class="nd-field-value"><strong>The TMGM IB Program — explained in 60 seconds</strong></div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📨</span>Preview Text</div><div class="nd-field-value">A quick look at how the program works</div></div>
@@ -3430,7 +3977,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="nd-tech-setup-sub">for Sichen &amp; Nick (HubSpot)</div>
         <div class="nd-tech-grid">
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code> <span class="tbd-flag">TBC with Nick</span></div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Automated filter — Section 3 entry criteria match</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Automated filter — Section 4 entry criteria match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">None — sends immediately on filter match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value">N/A (first email)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Fields Checked</div><div class="nd-tech-value"><code>id_verified</code> <code>is_ib</code> <code>source_marketing_campaign</code> <code>country</code> <code>ta_first_deposit_time</code></div></div>
@@ -3652,10 +4199,10 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   </div>
 </div>
 
-<!-- ============ SECTION 3 — ENTRY CRITERIA & FILTER LOGIC ============ -->
-<div class="section-title">Section 3 — Entry Criteria &amp; Filter Logic</div>
+<!-- ============ SECTION 4 — ENTRY CRITERIA & FILTER LOGIC ============ -->
+<div class="section-title">Section 4 — Entry Criteria &amp; Filter Logic</div>
 
-<div id="section-3" class="info-card">
+<div id="section-4" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">🚪</div>
@@ -3990,7 +4537,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
             <div class="filter-note">
               <div class="filter-section-label">🚪 Also serves as Exit Trigger</div>
-              <div class="filter-note-text">This same field is monitored continuously throughout the journey. If <code>is_ib</code> flips to <code>true</code> mid-journey → client exits and is routed to the <strong>Newly IB welcome journey</strong>. See Section 6.</div>
+              <div class="filter-note-text">This same field is monitored continuously throughout the journey. If <code>is_ib</code> flips to <code>true</code> mid-journey → client exits and is routed to the <strong>Newly IB welcome journey</strong>. See Section 7.</div>
             </div>
 
             <div class="filter-tbd">
@@ -4365,7 +4912,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a"><strong>Handled by HubSpot global suppression</strong> — the unsub flag suppresses all future sends automatically. No filter logic needed in this journey. See Section 6 for full exit conditions.</div>
+          <div class="s3-faq-a"><strong>Handled by HubSpot global suppression</strong> — the unsub flag suppresses all future sends automatically. No filter logic needed in this journey. See Section 7 for full exit conditions.</div>
         </div>
       </div>
 
@@ -4395,18 +4942,18 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a"><strong>Continuously.</strong> HubSpot Active Lists update in <strong>real-time</strong> — the moment a contact's properties change to match (or stop matching) the filter conditions, list membership is updated. Newly-eligible contacts enroll in the workflow within minutes of becoming eligible, not on a daily batch. See Section 5 for full workflow triggering logic.</div>
+          <div class="s3-faq-a"><strong>Continuously.</strong> HubSpot Active Lists update in <strong>real-time</strong> — the moment a contact's properties change to match (or stop matching) the filter conditions, list membership is updated. Newly-eligible contacts enroll in the workflow within minutes of becoming eligible, not on a daily batch. See Section 6 for full workflow triggering logic.</div>
         </div>
       </div>
 
     </div><!-- /info-body -->
   </div><!-- /info-collapsible -->
-</div><!-- /info-card (section-3) -->
+</div><!-- /info-card (section-4) -->
 
-<!-- ============ SECTION 4 — DATA FIELDS REQUIRED ============ -->
-<div class="section-title">Section 4 — Data Fields Required</div>
+<!-- ============ SECTION 5 — DATA FIELDS REQUIRED ============ -->
+<div class="section-title">Section 5 — Data Fields Required</div>
 
-<div id="section-4" class="info-card">
+<div id="section-5" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">📋</div>
@@ -4431,7 +4978,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
       <!-- Intro -->
       <div class="s4-intro">
-        <strong>For Nick Gao (HubSpot Contacts list owner).</strong> Every field this journey needs from the source <code>HubSpot Contacts</code>. Used by Section 3 filter conditions, personalization tokens in E4/E5, and continuous exit triggers. Items flagged <strong>TBD</strong> need confirmation from Nick before HubSpot build can start.
+        <strong>For Nick Gao (HubSpot Contacts list owner).</strong> Every field this journey needs from the source <code>HubSpot Contacts</code>. Used by Section 4 filter conditions, personalization tokens in E4/E5, and continuous exit triggers. Items flagged <strong>TBD</strong> need confirmation from Nick before HubSpot build can start.
       </div>
 
       <!-- Stat strip -->
@@ -4500,7 +5047,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <tr class="tbd-row">
               <td><span class="s4-field-name">id_verified</span></td>
               <td><span class="s4-field-type-pill tbd-type">String? (TBC)</span></td>
-              <td><div class="s4-field-purpose">Filter 1 — KYC gate (Section 3)</div></td>
+              <td><div class="s4-field-purpose">Filter 1 — KYC gate (Section 4)</div></td>
               <td><span class="s4-status-tbd">TBD</span></td>
               <td><div class="s4-field-notes"><strong>Confirm with Nick:</strong> exact field name (may be <code>kyc_status</code>, etc.) and value format — string <code>"Verified"</code> vs boolean <code>true</code>.</div></td>
             </tr>
@@ -4590,12 +5137,12 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
     </div><!-- /info-body -->
   </div><!-- /info-collapsible -->
-</div><!-- /info-card (section-4) -->
+</div><!-- /info-card (section-5) -->
 
-<!-- ============ SECTION 5 — TRIGGERING LOGIC ============ -->
-<div class="section-title">Section 5 — Triggering Logic</div>
+<!-- ============ SECTION 6 — TRIGGERING LOGIC ============ -->
+<div class="section-title">Section 6 — Triggering Logic</div>
 
-<div id="section-5" class="info-card">
+<div id="section-6" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">⏱</div>
@@ -4640,13 +5187,13 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
               <td><span class="s4-field-name">Entry Source</span></td>
               <td><span class="s4-field-type-pill">HubSpot Contacts list</span></td>
               <td>1</td>
-              <td><div class="s4-field-notes">Source: filtered Entry list — output of the Workflow enrollment filter from Section 3. First send (E1) fires immediately on entry.</div></td>
+              <td><div class="s4-field-notes">Source: filtered Entry list — output of the Workflow enrollment filter from Section 4. First send (E1) fires immediately on entry.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">Email Send</span></td>
               <td><span class="s4-field-type-pill">Send email action</span></td>
               <td>5</td>
-              <td><div class="s4-field-notes">E1 → E2 → E3 → E4 → E5. Subjects, preview text &amp; content from Section 2 detail panels.</div></td>
+              <td><div class="s4-field-notes">E1 → E2 → E3 → E4 → E5. Subjects, preview text &amp; content from Section 3 detail panels.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">Rest Day Wait</span></td>
@@ -4838,12 +5385,12 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
 
     </div><!-- /info-body -->
   </div><!-- /info-collapsible -->
-</div><!-- /info-card (section-5) -->
+</div><!-- /info-card (section-6) -->
 
-<!-- ============ SECTION 6 — GOAL & EXIT CONDITIONS ============ -->
-<div class="section-title">Section 6 — Goal &amp; Exit Conditions</div>
+<!-- ============ SECTION 7 — GOAL & EXIT CONDITIONS ============ -->
+<div class="section-title">Section 7 — Goal &amp; Exit Conditions</div>
 
-<div id="section-6" class="info-card">
+<div id="section-7" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">🎯</div>
@@ -5059,12 +5606,12 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
 
     </div><!-- /info-body -->
   </div><!-- /info-collapsible -->
-</div><!-- /info-card (section-6) -->
+</div><!-- /info-card (section-7) -->
 
-<!-- ============ SECTION 7 — RE-ENTRY RULES ============ -->
-<div class="section-title">Section 7 — Re-Entry Rules</div>
+<!-- ============ SECTION 8 — RE-ENTRY RULES ============ -->
+<div class="section-title">Section 8 — Re-Entry Rules</div>
 
-<div id="section-7" class="info-card">
+<div id="section-8" class="info-card">
   <div class="info-header" onclick="toggleInfoCard(this)">
     <div class="info-header-left">
       <div class="info-icon">🔁</div>
@@ -5089,7 +5636,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
 
       <!-- Intro -->
       <div class="s4-intro">
-        <strong>How non-converting contacts return to the workflow.</strong> Section 6 covered the four exit pathways at a high level. This section is the <strong>deep dive on re-entry mechanics</strong> — the HubSpot configuration, the 30-day cool-down, the monthly re-blast cadence, and edge case behaviors.
+        <strong>How non-converting contacts return to the workflow.</strong> Section 7 covered the four exit pathways at a high level. This section is the <strong>deep dive on re-entry mechanics</strong> — the HubSpot configuration, the 30-day cool-down, the monthly re-blast cadence, and edge case behaviors.
       </div>
 
       <!-- The Re-Entry Pattern (Visual Timeline) -->
@@ -5209,7 +5756,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">Depends on Nick's pipeline behavior (see Section 4 action item).<br><br><strong>If <code>ta_first_deposit_time</code> resets</strong> to the new FTD date: Filter 3's 7-day buffer applies fresh — contact re-enters 7 days after the new FTD.<br><br><strong>If it carries over</strong> from the original account: contact is already past the buffer → re-enters as soon as the <code>last_retail_to_ib_send</code> cool-down lapses (or immediately if first time).</div>
+          <div class="s3-faq-a">Depends on Nick's pipeline behavior (see Section 5 action item).<br><br><strong>If <code>ta_first_deposit_time</code> resets</strong> to the new FTD date: Filter 3's 7-day buffer applies fresh — contact re-enters 7 days after the new FTD.<br><br><strong>If it carries over</strong> from the original account: contact is already past the buffer → re-enters as soon as the <code>last_retail_to_ib_send</code> cool-down lapses (or immediately if first time).</div>
         </div>
       </div>
 
@@ -5283,7 +5830,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
 
     </div><!-- /info-body -->
   </div><!-- /info-collapsible -->
-</div><!-- /info-card (section-7) -->
+</div><!-- /info-card (section-8) -->
 
 </div>
 
