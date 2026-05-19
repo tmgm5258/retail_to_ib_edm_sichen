@@ -409,251 +409,6 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   color:var(--grey-700);
 }
 
-/* ============ BUILD READINESS DASHBOARD (standalone, above Section 1) ============ */
-
-.dashboard-block {
-  background:var(--white);
-  border:1px solid var(--grey-200);
-  border-radius:var(--radius);
-  padding:22px 26px;
-  margin-bottom:28px;
-  box-shadow:var(--shadow-sm);
-}
-
-.dashboard-header {
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
-  padding-bottom:16px;
-  margin-bottom:18px;
-  border-bottom:1px solid var(--grey-100);
-}
-.dashboard-header-left { flex:1; min-width:0; }
-.dashboard-title {
-  font-size:16px;
-  font-weight:800;
-  color:var(--dark);
-  letter-spacing:-0.2px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.dashboard-subtitle {
-  font-size:12px;
-  color:var(--grey-500);
-  margin-top:4px;
-  line-height:1.5;
-}
-.dashboard-count-strip {
-  display:flex;
-  gap:8px;
-  flex-shrink:0;
-}
-.dashboard-count-pill {
-  padding:4px 11px;
-  background:var(--grey-50);
-  border:1px solid var(--grey-200);
-  border-radius:14px;
-  font-size:11px;
-  font-weight:700;
-  color:var(--grey-700);
-  white-space:nowrap;
-}
-
-/* Two-column grid */
-.dashboard-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-@media (max-width: 768px) {
-  .dashboard-grid { grid-template-columns:1fr; }
-}
-
-.dashboard-col {
-  background:var(--grey-50);
-  border:1px solid var(--grey-200);
-  border-radius:10px;
-  padding:16px 18px;
-}
-
-.dashboard-col-header {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding-bottom:12px;
-  margin-bottom:12px;
-  border-bottom:1px solid var(--grey-200);
-}
-.dashboard-col-icon {
-  width:34px;
-  height:34px;
-  border-radius:8px;
-  background:var(--white);
-  border:1px solid var(--grey-200);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:17px;
-  flex-shrink:0;
-}
-.dashboard-col-meta { flex:1; min-width:0; }
-.dashboard-col-name {
-  font-size:13px;
-  font-weight:800;
-  color:var(--dark);
-  line-height:1.2;
-}
-.dashboard-col-role {
-  font-size:10.5px;
-  color:var(--grey-500);
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  margin-top:3px;
-}
-.dashboard-col-count {
-  padding:3px 10px;
-  background:var(--white);
-  border:1px solid var(--grey-300);
-  border-radius:12px;
-  font-size:10.5px;
-  font-weight:700;
-  color:var(--grey-700);
-  white-space:nowrap;
-}
-
-/* Items list */
-.dashboard-items {
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.dashboard-item {
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  padding:9px 12px;
-  background:var(--white);
-  border:1px solid var(--grey-200);
-  border-radius:7px;
-  transition:border-color 0.15s, box-shadow 0.15s, background 0.15s;
-  position:relative;
-  cursor:pointer;
-  user-select:none;
-}
-.dashboard-item:hover {
-  border-color:var(--grey-400);
-  box-shadow:0 1px 3px rgba(0,0,0,0.06);
-  background:var(--grey-50);
-}
-.dashboard-item:active {
-  transform:translateY(1px);
-}
-
-/* Hover tooltip - dark popover with context for Sichen/Nick/Ryan */
-.dashboard-item-tooltip {
-  position:absolute;
-  top:calc(100% + 8px);
-  left:0;
-  right:0;
-  background:var(--grey-900);
-  color:var(--white);
-  font-size:11.5px;
-  font-weight:400;
-  line-height:1.6;
-  padding:12px 14px;
-  border-radius:8px;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity 0.2s, visibility 0.2s;
-  pointer-events:none;
-  z-index:500;
-  box-shadow:var(--shadow-lg);
-  text-transform:none;
-  letter-spacing:0;
-}
-.dashboard-item-tooltip::after {
-  content:'';
-  position:absolute;
-  bottom:100%;
-  left:30px;
-  border:6px solid transparent;
-  border-bottom-color:var(--grey-900);
-}
-.dashboard-item:hover .dashboard-item-tooltip {
-  opacity:1;
-  visibility:visible;
-}
-.dashboard-item-tooltip strong {
-  color:#FCD34D;
-  font-weight:700;
-}
-.dashboard-item-tooltip em {
-  color:#FDE68A;
-  font-style:normal;
-  font-weight:600;
-}
-.dashboard-item-tooltip code {
-  font-family:var(--font-mono);
-  font-size:10.5px;
-  background:rgba(255,255,255,0.12);
-  color:#FED7AA;
-  padding:1px 5px;
-  border-radius:3px;
-}
-.dashboard-item-tooltip .tt-row {
-  margin-top:8px;
-}
-.dashboard-item-tooltip .tt-row:first-child { margin-top:0; }
-.dashboard-item-tooltip .tt-label {
-  color:#FCD34D;
-  font-weight:700;
-}
-.dashboard-checkbox {
-  width:16px;
-  height:16px;
-  border:1.5px solid var(--grey-300);
-  border-radius:4px;
-  flex-shrink:0;
-  margin-top:1px;
-  position:relative;
-  background:var(--white);
-}
-.dashboard-checkbox.confirmed {
-  background:var(--green);
-  border-color:var(--green);
-}
-.dashboard-checkbox.confirmed::after {
-  content:'✓';
-  position:absolute;
-  color:var(--white);
-  font-size:11px;
-  font-weight:700;
-  top:-3px;
-  left:2px;
-  line-height:1;
-}
-.dashboard-item-content { flex:1; min-width:0; }
-.dashboard-item-title {
-  font-size:12px;
-  font-weight:700;
-  color:var(--dark);
-  line-height:1.3;
-}
-.dashboard-item-desc {
-  font-size:11px;
-  color:var(--grey-600);
-  margin-top:2px;
-  line-height:1.45;
-}
-.dashboard-item.done .dashboard-item-title,
-.dashboard-item.done .dashboard-item-desc {
-  color:var(--grey-400);
-  text-decoration:line-through;
-}
-
 /* ============ HEADER ============ */
 .header {
   background:var(--white);
@@ -3183,180 +2938,6 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 <!-- ============ MAIN (sections will be added below) ============ -->
 <div class="main">
 
-  <!-- ============ BUILD READINESS DASHBOARD ============ -->
-<div class="dashboard-block">
-  <div class="dashboard-header">
-    <div class="dashboard-header-left">
-      <div class="dashboard-title">🎯 Build Readiness Dashboard</div>
-      <div class="dashboard-subtitle">14 items pending confirmation across Data &amp; Workflow · review before Nick / Sichen meetings</div>
-    </div>
-    <div class="dashboard-count-strip">
-      <span class="dashboard-count-pill">14 Pending</span>
-      <span class="dashboard-count-pill">0 Confirmed</span>
-    </div>
-  </div>
-
-  <div class="dashboard-grid">
-
-    <!-- NICK COLUMN -->
-    <div class="dashboard-col">
-      <div class="dashboard-col-header">
-        <div class="dashboard-col-icon">👤</div>
-        <div class="dashboard-col-meta">
-          <div class="dashboard-col-name">For Nick Gao</div>
-          <div class="dashboard-col-role">Data &amp; Properties Owner</div>
-        </div>
-        <div class="dashboard-col-count">7 items</div>
-      </div>
-      <div class="dashboard-items">
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">KYC Field</div>
-            <div class="dashboard-item-desc">Confirm field name + value format (string <code>"Verified"</code> vs boolean <code>true</code>)</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Filter 1 is the regulatory gate — no marketing emails can fire before KYC is complete. Non-negotiable for compliance.<br><br><strong>What we need:</strong> Exact HubSpot property name + value format (string <code>"Verified"</code> vs boolean <code>true</code>?).<br><br><strong>Currently assumed:</strong> <code>id_verified = "Verified"</code> based on legacy v4 hub — but never confirmed.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">is_ib Flag</div>
-            <div class="dashboard-item-desc">Field name + data type + must be queryable in near-real-time for continuous exit</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Used in two places — Filter 4 (block existing IBs at entry) <em>and</em> continuous exit checks during the journey.<br><br><strong>What we need:</strong> Property name + data type (boolean / string / integer) + confirmation it updates in near-real-time.<br><br><strong>Impact if slow:</strong> Contacts may receive Retail-to-IB emails after they've already become IBs.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Country Field</div>
-            <div class="dashboard-item-desc">Field name + value format (ISO-2 vs full names) + full ASIC exclusion list</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Filter 8 excludes regulatory-restricted markets (CN, HK, GB, ASIC). Sending to wrong markets is a compliance issue.<br><br><strong>What we need:</strong> Property name + value format (ISO-2 like <code>"AU"</code> vs full names like <code>"Australia"</code>) + full ASIC exclusion list (just AU? AU + NZ? others?).</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Active List &amp; Property Latency</div>
-            <div class="dashboard-item-desc">List name + how fast upstream property changes push into HubSpot</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> The Active List is the workflow's enrollment trigger. Property-update latency determines how quickly new clients reach the workflow after FTD.<br><br><strong>What we need:</strong> List name + measured latency from Nick's upstream pipeline (seconds, minutes, hours?).<br><br><strong>Impact if slow:</strong> Delayed first email + downstream timing issues.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Contact De-duplication</div>
-            <div class="dashboard-item-desc">Sanity-check upstream pipeline doesn't create duplicate contacts per email</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> HubSpot natively dedupes contacts by email — but if Nick's upstream pipeline creates multiple contacts per person (e.g. one per trading account), each will receive emails.<br><br><strong>What we need:</strong> Sanity-check that the pipeline maintains 1 HubSpot contact per email address.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Re-opened Accounts</div>
-            <div class="dashboard-item-desc">Does <code>ta_first_deposit_time</code> reset on account reopen, or carry over?</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Affects the 7-day buffer (Filter 3). If <code>ta_first_deposit_time</code> resets on account reopen, a returning client waits 7 days from the new FTD. If it carries over, they may qualify immediately.<br><br><strong>What we need:</strong> Confirm property behavior on account reopen.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Marketing Contact Auto-set</div>
-            <div class="dashboard-item-desc">Are clients auto-flipped to "Marketing Contact" status on FTD completion?</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> HubSpot only sends marketing emails to contacts flagged as "Marketing Contact" (paid distinction). Non-Marketing Contacts are silently suppressed even if they match all 8 filters.<br><br><strong>What we need:</strong> Confirm contacts auto-flip to Marketing Contact on FTD, OR confirm a manual step that Nick will handle.</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SICHEN COLUMN -->
-    <div class="dashboard-col">
-      <div class="dashboard-col-header">
-        <div class="dashboard-col-icon">👤</div>
-        <div class="dashboard-col-meta">
-          <div class="dashboard-col-name">For Sichen Zhang</div>
-          <div class="dashboard-col-role">HubSpot Workflow &amp; Templates</div>
-        </div>
-        <div class="dashboard-col-count">7 items</div>
-      </div>
-      <div class="dashboard-items">
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Send Window</div>
-            <div class="dashboard-item-desc">Confirm 09:00–11:00 local + any day-of-week restrictions (weekends?)</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Email send time affects engagement and deliverability. 09:00–11:00 local is the standard B2C window.<br><br><strong>What we need:</strong> Confirm preferred timing + any day-of-week restrictions (weekends?).<br><br><strong>Recommendation:</strong> 09:00–11:00 local, any day.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Time Zone Strategy</div>
-            <div class="dashboard-item-desc">Local-by-country, single zone (UTC/Sydney), or HubSpot Send Time Optimization?</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> Clients span MY, SEA, MENA, AU. Sending at 10am UTC means 6pm in Sydney, 1pm in Dubai, 6am in Mexico — very different engagement.<br><br><strong>Options:</strong> Local-by-country (uses Country property), single zone (UTC or Sydney), or HubSpot's Send Time Optimization if licensed.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Continuous Exit Method</div>
-            <div class="dashboard-item-desc">Option A (if/then branches before each email) vs Option B (Suppression List)</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> When <code>is_ib</code> flips to true, contact must exit this workflow and enter MKTOP-7576 (newly-IB welcome).<br><br><strong>Options:</strong> Option A — if/then branch before each of 5 emails. Option B — Suppression List on the workflow.<br><br><strong>Recommendation:</strong> Option A for v1 (simpler, all Marketing Hub tiers).</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">First Name Fallback</div>
-            <div class="dashboard-item-desc">Built-in default value field (UI) vs HubL <code>|default</code> filter?</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> <code>{{contact.firstname}}</code> is used in E4 and E5 subject lines. If NULL, fallback to <em>"there"</em>.<br><br><strong>Options:</strong> Built-in default value field in the HubSpot personalization UI (recommended, no code) OR HubL <code>|default</code> filter for advanced cases.</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Email Type</div>
-            <div class="dashboard-item-desc">Confirm classification (Marketing) + appropriate sending domain / sender setup</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> HubSpot classifies emails as Marketing or Transactional — affects deliverability, sending domain, and opt-in requirements.<br><br><strong>What we need:</strong> Confirm classification (Marketing) + sender setup (from-name, reply-to, sending domain).</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Re-Enrollment Logic</div>
-            <div class="dashboard-item-desc">"Allow re-enrollment" toggle + verify re-match behavior with a test contact</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> After the 30-day cool-down, contacts who still match the Active List should re-enter the workflow for a monthly re-blast.<br><br><strong>What we need:</strong> Enable "Allow re-enrollment" on the trigger + verify with a test contact (HubSpot re-enrolls on re-match, not on a timer).</div>
-        </div>
-
-        <div class="dashboard-item" onclick="toggleDashboardItem(this)">
-          <div class="dashboard-checkbox"></div>
-          <div class="dashboard-item-content">
-            <div class="dashboard-item-title">Email Subscription Type</div>
-            <div class="dashboard-item-desc">Existing type or new one (e.g. <em>"IB Program Updates"</em>) for these 5 emails?</div>
-          </div>
-          <div class="dashboard-item-tooltip"><strong>Why this matters:</strong> HubSpot requires every marketing email to belong to a Subscription Type for granular unsubscribe handling.<br><br><strong>Options:</strong> Use existing "Marketing Communications" type OR create new "IB Program Updates" for this campaign.<br><br><strong>Impact:</strong> Affects unsubscribe granularity and compliance.</div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <!-- ============ SECTION 1 — QUICK REFERENCE ============ -->
 <div class="section-title">Section 1 — Quick Reference</div>
 
@@ -3429,7 +3010,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="qr-stat theme-teal">
         <div class="qr-stat-tooltip">
           <strong>30-Day Cool-Down Loop</strong><br>
-          After E5, non-converted clients enter a 30-day wait. After that, filter conditions are re-evaluated — if still eligible AND <code>is_ib = false</code>, client re-enters from E1. Indefinite monthly loop.
+          After E5, non-converted clients enter a 30-day wait. After that, filter conditions are re-evaluated — if still eligible AND <code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>, client re-enters from E1. Indefinite monthly loop.
           <span class="qr-stat-tooltip-ref">→ See Section 8 (Re-Entry Rules)</span>
         </div>
         <span class="qr-stat-icon">🔄</span>
@@ -3560,9 +3141,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qf-vline"></div>
 
         <div class="qf-box qf-checkpoint">
-          <div class="qf-tooltip tip-below">Contact completes KYC verification — <code>id_verified = Verified</code>. Regulatory gate required before any marketing email can be sent.</div>
+          <div class="qf-tooltip tip-below">Contact completes KYC verification — <code>portal - client_status = Live KYC Complete</code>. Regulatory gate required before any marketing email can be sent.</div>
           <div class="qf-box-title">✅ KYC Verified</div>
-          <div class="qf-box-sub"><code style="font-family:var(--font-mono);font-size:10px;">id_verified = Verified</code></div>
+          <div class="qf-box-sub"><code style="font-family:var(--font-mono);font-size:10px;">portal - client_status = Live KYC Complete</code></div>
         </div>
         <div class="qf-vline"></div>
 
@@ -3607,7 +3188,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <!-- DECISION 1 -->
         <div class="qf-branch">
           <div class="qf-decision">
-            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>portal - user_type</strong> property. If it equals <strong>"IB"</strong> or <strong>"IB + Client"</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
             <div class="qf-box-title">Converted to IB?</div>
           </div>
           <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
@@ -3646,7 +3227,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <!-- DECISION 2 -->
         <div class="qf-branch">
           <div class="qf-decision">
-            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>portal - user_type</strong> property. If it equals <strong>"IB"</strong> or <strong>"IB + Client"</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
             <div class="qf-box-title">Converted to IB?</div>
           </div>
           <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
@@ -3685,7 +3266,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <!-- DECISION 3 -->
         <div class="qf-branch">
           <div class="qf-decision">
-            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>portal - user_type</strong> property. If it equals <strong>"IB"</strong> or <strong>"IB + Client"</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
             <div class="qf-box-title">Converted to IB?</div>
           </div>
           <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
@@ -3724,7 +3305,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <!-- DECISION 4 -->
         <div class="qf-branch">
           <div class="qf-decision">
-            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-tooltip tip-below">At every step, HubSpot checks the <strong>portal - user_type</strong> property. If it equals <strong>"IB"</strong> or <strong>"IB + Client"</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
             <div class="qf-box-title">Converted to IB?</div>
           </div>
           <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
@@ -3755,7 +3336,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <!-- DECISION 5 (after E5) -->
         <div class="qf-branch">
           <div class="qf-decision">
-            <div class="qf-tooltip">At every step, HubSpot checks the <strong>is_ib</strong> property. If <strong>true</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
+            <div class="qf-tooltip">At every step, HubSpot checks the <strong>portal - user_type</strong> property. If it equals <strong>"IB"</strong> or <strong>"IB + Client"</strong>, the contact exits this journey and is picked up by the Newly-IB welcome workflow (<code>MKTOP-7576</code>).</div>
             <div class="qf-box-title">Converted to IB?</div>
           </div>
           <div class="qf-branch-t"><div class="qf-branch-stem"></div><div class="qf-branch-bar"></div></div>
@@ -3785,7 +3366,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       </div>
 
       <div class="qf-summary">
-        A quick overview of the full journey logic — the upstream pipeline, 5 emails, continuous <code>is_ib</code> conversion checks, exit points, and the monthly re-blast loop. For the detailed entry filters see Section 4; for the email-by-email breakdown see Section 3; and for full exit and re-entry logic see Sections 7 and 8.
+        A quick overview of the full journey logic — the upstream pipeline, 5 emails, continuous IB-conversion checks via <code>portal - user_type</code>, exit points, and the monthly re-blast loop. For the detailed entry filters see Section 4; for the email-by-email breakdown see Section 3; and for full exit and re-entry logic see Sections 7 and 8.
       </div>
 
     </div><!-- /info-body -->
@@ -3822,7 +3403,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   <div class="s2-tip">
     <div class="s2-tip-row">
       <span class="s2-tip-icon">🎯</span>
-      <div><strong>Journey-level goal (always-on):</strong> If a client's <code>is_ib</code> flag becomes <code>true</code> at <em>any</em> point during the journey, they exit immediately and are routed to the Newly IB welcome journey (<code>MKTOP-7576</code>). See Section 7 for full goal &amp; exit configuration.</div>
+      <div><strong>Journey-level goal (always-on):</strong> If a client's <code>portal - user_type</code> becomes <code>\"IB\"</code> or <code>\"IB + Client\"</code> at <em>any</em> point during the journey, they exit immediately and are routed to the Newly IB welcome journey (<code>MKTOP-7576</code>). See Section 7 for full goal &amp; exit configuration.</div>
     </div>
   </div>
 
@@ -3948,7 +3529,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
     </div>
     <div class="j-cooldown-loop">
       <span class="j-cooldown-loop-icon">↺</span>
-      <span><strong>Then:</strong> if still eligible AND <code>is_ib = false</code> → re-enter journey from E1 (indefinite monthly loop).</span>
+      <span><strong>Then:</strong> if still eligible AND <code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code> → re-enter journey from E1 (indefinite monthly loop).</span>
     </div>
   </a>
 
@@ -3970,18 +3551,18 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">⏰</span>WHEN · Send Timing</div><div class="nd-field-value"><strong>Day 0</strong> — sent immediately when the client matches the entry filter.</div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📧</span>WHAT · Subject Line</div><div class="nd-field-value"><strong>The TMGM IB Program — explained in 60 seconds</strong></div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📨</span>Preview Text</div><div class="nd-field-value">A quick look at how the program works</div></div>
-      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">🚪</span>Exit Condition</div><div class="nd-field-value">Client converts to IB (<code>is_ib = true</code>) → exits journey, routed to Newly IB welcome (<code>MKTOP-7576</code>).</div></div>
+      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">🚪</span>Exit Condition</div><div class="nd-field-value">Client converts to IB (<code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code>) → exits journey, routed to Newly IB welcome (<code>MKTOP-7576</code>).</div></div>
 
       <div class="nd-tech-setup">
         <div class="nd-tech-setup-title">⚙️ HOW · Technical Setup</div>
         <div class="nd-tech-setup-sub">for Sichen &amp; Nick (HubSpot)</div>
         <div class="nd-tech-grid">
-          <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code> <span class="tbd-flag">TBC with Nick</span></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code> · synced from CRM every 4 hours (confirmed)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Automated filter — Section 4 entry criteria match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">None — sends immediately on filter match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value">N/A (first email)</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Fields Checked</div><div class="nd-tech-value"><code>id_verified</code> <code>is_ib</code> <code>source_marketing_campaign</code> <code>country</code> <code>ta_first_deposit_time</code></div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>is_ib</code> changes <code>false → true</code> → route to <code>MKTOP-7576</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Fields Checked</div><div class="nd-tech-value"><code>portal - client_status</code> <code>portal - user_type</code> <code>source_marketing_campaign</code> <code>portal - country</code> <code>ta_first_deposit_time</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>portal - user_type</code> becomes <code>"IB"</code> or <code>"IB + Client"</code> → route to <code>MKTOP-7576</code></div></div>
         </div>
       </div>
     </div>
@@ -4007,7 +3588,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="nd-tech-grid">
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Journey Step</div><div class="nd-tech-value">HubSpot <code>Delay action</code> (no email)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Duration</div><div class="nd-tech-value">24 hours</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>is_ib = true</code>? → exit immediately (don't wait for E2)</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code>? → exit immediately (don't wait for E2)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
         </div>
       </div>
@@ -4037,9 +3618,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Journey step — after D1 wait completes</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">24h from E1 send (1 day)</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>is_ib = false</code>? If true, exit</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Field Monitored</div><div class="nd-tech-value"><code>is_ib</code> — checked continuously</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>is_ib = true</code> → route to <code>MKTOP-7576</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>? If true, exit</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Field Monitored</div><div class="nd-tech-value"><code>portal - user_type</code> — checked continuously</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code> → route to <code>MKTOP-7576</code></div></div>
         </div>
       </div>
     </div>
@@ -4065,7 +3646,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="nd-tech-grid">
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Journey Step</div><div class="nd-tech-value">HubSpot <code>Delay action</code> (no email)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Duration</div><div class="nd-tech-value">24 hours</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>is_ib = true</code>? → exit immediately</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code>? → exit immediately</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
         </div>
       </div>
@@ -4095,9 +3676,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Journey step — after D3 wait completes</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">24h from E2 send</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>is_ib = false</code>? If true, exit</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Field Monitored</div><div class="nd-tech-value"><code>is_ib</code> — checked continuously</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>is_ib = true</code> → route to <code>MKTOP-7576</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>? If true, exit</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Field Monitored</div><div class="nd-tech-value"><code>portal - user_type</code> — checked continuously</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code> → route to <code>MKTOP-7576</code></div></div>
         </div>
       </div>
     </div>
@@ -4123,7 +3704,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="nd-tech-grid">
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Journey Step</div><div class="nd-tech-value">HubSpot <code>Delay action</code> (no email)</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Duration</div><div class="nd-tech-value">24 hours</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>is_ib = true</code>? → exit immediately</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Check During Wait</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code>? → exit immediately</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
         </div>
       </div>
@@ -4154,9 +3735,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Journey step — after D5 wait completes</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">24h from E3 send</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>is_ib = false</code>? If true, exit</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>? If true, exit</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🎨 Personalization</div><div class="nd-tech-value"><code>{{contact.firstname}}</code> in subject line</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>is_ib = true</code> → route to <code>MKTOP-7576</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>portal - user_type</code> = <code>"IB"</code> or <code>"IB + Client"</code> → route to <code>MKTOP-7576</code></div></div>
         </div>
       </div>
     </div>
@@ -4177,7 +3758,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📧</span>WHAT · Subject Line</div><div class="nd-field-value"><strong>{{contact.firstname}}, just a quick note before we step back</strong></div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">📨</span>Preview Text</div><div class="nd-field-value">We'll check back in with you next month</div></div>
       <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">🚪</span>Exit Condition</div><div class="nd-field-value">Client converts to IB → exits journey.</div></div>
-      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">🔄</span>Post-Email Logic</div><div class="nd-field-value">If not converted → enters <strong>30-day cool-down</strong> → re-evaluates filter → if still eligible AND <code>is_ib = false</code>, re-enters from E1 (monthly re-blast). See cool-down card above.</div></div>
+      <div class="nd-field"><div class="nd-field-label"><span class="nd-field-label-icon">🔄</span>Post-Email Logic</div><div class="nd-field-value">If not converted → enters <strong>30-day cool-down</strong> → re-evaluates filter → if still eligible AND <code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>, re-enters from E1 (monthly re-blast). See cool-down card above.</div></div>
 
       <div class="nd-tech-setup">
         <div class="nd-tech-setup-title">⚙️ HOW · Technical Setup</div>
@@ -4186,7 +3767,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="nd-tech-field"><div class="nd-tech-label">📊 Data Source</div><div class="nd-tech-value"><code>HubSpot Contacts</code></div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Journey step — back-to-back after E4</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">24h from E4 send (no rest day)</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>is_ib = false</code>? If true, exit</div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value"><code>portal - user_type</code> not <code>"IB"</code> / <code>"IB + Client"</code>? If true, exit</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🎨 Personalization</div><div class="nd-tech-value"><code>{{contact.firstname}}</code> in subject + banner</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🔁 Next Activity</div><div class="nd-tech-value">30-day cool-down → re-entry decision</div></div>
         </div>
@@ -4208,7 +3789,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="info-icon">🚪</div>
       <div class="info-meta">
         <h2 onclick="event.stopPropagation()">Entry Criteria &amp; Filter Logic</h2>
-        <div class="info-subtitle" onclick="event.stopPropagation()">8 filter conditions · point-and-click setup · edge cases · TBD flags for Nick</div>
+        <div class="info-subtitle" onclick="event.stopPropagation()">8 filter conditions · point-and-click setup · edge cases · all 8 confirmed · ready for build</div>
       </div>
     </div>
     <div class="info-header-right">
@@ -4231,10 +3812,10 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="s3-source-de-content">
           <div class="s3-source-de-title">Source List / Property Filter</div>
           <dl class="s3-source-de-grid">
-            <dt>DE Name</dt>
-            <dd><code>HubSpot Contacts</code> <span style="color:var(--amber);font-size:10.5px;">⚠️ TBC with Nick</span></dd>
+            <dt>Source</dt>
+            <dd><code>HubSpot Contacts</code> — synced from CRM (not Salesforce), managed by data team</dd>
             <dt>Refresh</dt>
-            <dd>HubSpot Active List — <strong>real-time</strong>. Membership updates the moment a contact property changes <span style="color:var(--amber);font-size:10.5px;">⚠️ TBC the property-update latency from upstream system with Nick</span></dd>
+            <dd><strong>Every 4 hours</strong> via the CRM → HubSpot pipeline · confirmed by Nick. <span style="color:var(--grey-500);font-size:11px;">Note: HubSpot Active Lists themselves re-evaluate in near-real-time once underlying properties update — the 4-hour cadence is how fast property changes arrive.</span></dd>
             <dt>Re-evaluation</dt>
             <dd>Continuous — contacts enroll/leave the list the instant their properties match (or stop matching) the filter conditions</dd>
             <dt>Filter type</dt>
@@ -4257,7 +3838,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             </div>
           </div>
           <div class="filter-header-right">
-            <span class="filter-status tbd">TBD</span>
+            <span class="filter-status confirmed">Confirmed</span>
             <span class="expand-hint">Expand</span>
             <div class="filter-toggle">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -4270,17 +3851,17 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="filter-builder-block">
               <div class="filter-section-label">🎛️ HubSpot Workflow enrollment filter — point &amp; click setup (no code)</div>
               <div class="filter-builder">
-                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>id_verified</code></div></div>
+                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>portal - client_status</code></div></div>
                 <div class="fb-row"><div class="fb-key">Operator</div><div class="fb-val"><span class="fb-operator">is equal to</span></div></div>
-                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">Verified</span></div></div>
+                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">Live KYC Complete</span></div></div>
               </div>
             </div>
 
             <div class="filter-twocol">
               <div class="filter-block">
                 <div class="filter-section-label">🔧 Technical Spec</div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>id_verified</code></span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>portal - client_status</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code> (synced from CRM)</span></div>
                 <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">String</span></div>
                 <div class="filter-spec-row"><span class="filter-spec-key">Operator:</span><span class="filter-spec-val"><code>is equal to</code></span></div>
               </div>
@@ -4290,14 +3871,13 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
                 <div class="filter-values-group">
                   <div class="filter-values-heading allowed">✅ Allowed</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill allowed">"Verified"</span>
+                    <span class="filter-value-pill allowed">"Live KYC Complete"</span>
                   </div>
                 </div>
                 <div class="filter-values-group">
                   <div class="filter-values-heading blocked">❌ Blocked</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill blocked">"Pending"</span>
-                    <span class="filter-value-pill blocked">"Rejected"</span>
+                    <span class="filter-value-pill blocked">Any other status</span>
                     <span class="filter-value-pill null-pill">NULL</span>
                   </div>
                 </div>
@@ -4306,17 +3886,12 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
             <div class="filter-note">
               <div class="filter-section-label">📋 NULL Handling</div>
-              <div class="filter-note-text"><strong>Rejected.</strong> Client must have explicit <code>"Verified"</code> status. NULL or unverified clients are excluded — this is a regulatory gate.</div>
+              <div class="filter-note-text"><strong>Rejected.</strong> Client must have explicit <code>"Live KYC Complete"</code> status. NULL or any other status excluded — this is a regulatory gate.</div>
             </div>
 
             <div class="filter-note">
               <div class="filter-section-label">🎯 Why This Filter Exists</div>
               <div class="filter-note-text">KYC is a regulatory pre-requisite — no marketing emails about financial products can be sent before identity verification is complete.</div>
-            </div>
-
-            <div class="filter-tbd">
-              <span class="filter-tbd-icon">⚠️</span>
-              <div class="filter-tbd-text"><strong>TBD with Nick:</strong> Confirm exact field name (could be <code>kyc_status</code>, <code>id_verified</code>, etc.) and value format — may be boolean <code>true/false</code> instead of string <code>"Verified"</code>.</div>
             </div>
 
           </div>
@@ -4479,7 +4054,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             </div>
           </div>
           <div class="filter-header-right">
-            <span class="filter-status tbd">TBD</span>
+            <span class="filter-status confirmed">Confirmed</span>
             <span class="expand-hint">Expand</span>
             <div class="filter-toggle">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -4492,34 +4067,35 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="filter-builder-block">
               <div class="filter-section-label">🎛️ HubSpot Workflow enrollment filter — point &amp; click setup (no code)</div>
               <div class="filter-builder">
-                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>is_ib</code></div></div>
-                <div class="fb-row"><div class="fb-key">Operator</div><div class="fb-val"><span class="fb-operator">is equal to</span></div></div>
-                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">False</span> <span class="fb-na">(NULL records pass through — see NULL Handling below)</span></div></div>
+                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>portal - user_type</code></div></div>
+                <div class="fb-row"><div class="fb-key">Operator</div><div class="fb-val"><span class="fb-operator">is not any of</span></div></div>
+                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">IB</span> <span class="fb-value-pill">IB + Client</span></div></div>
               </div>
             </div>
 
             <div class="filter-twocol">
               <div class="filter-block">
                 <div class="filter-section-label">🔧 Technical Spec</div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>is_ib</code></span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code></span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">Boolean / Bit</span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Operator:</span><span class="filter-spec-val"><code>is equal to false</code> OR <code>is unknown</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>portal - user_type</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code> (synced from CRM)</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">String</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Operator:</span><span class="filter-spec-val"><code>is not any of</code></span></div>
               </div>
 
               <div class="filter-block">
                 <div class="filter-section-label">📥 Allowed / ❌ Blocked Values</div>
                 <div class="filter-values-group">
-                  <div class="filter-values-heading allowed">✅ Allowed</div>
+                  <div class="filter-values-heading allowed">✅ Allowed (passes the filter — eligible to enrol)</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill allowed">0 / false</span>
-                    <span class="filter-value-pill null-pill">NULL</span>
+                    <span class="filter-value-pill allowed">"Client"</span>
+                    <span class="filter-value-pill allowed">Any non-IB user type</span>
                   </div>
                 </div>
                 <div class="filter-values-group">
-                  <div class="filter-values-heading blocked">❌ Blocked</div>
+                  <div class="filter-values-heading blocked">❌ Blocked (existing IB — excluded from journey)</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill blocked">1 / true</span>
+                    <span class="filter-value-pill blocked">"IB"</span>
+                    <span class="filter-value-pill blocked">"IB + Client"</span>
                   </div>
                 </div>
               </div>
@@ -4527,7 +4103,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
             <div class="filter-note">
               <div class="filter-section-label">📋 NULL Handling</div>
-              <div class="filter-note-text"><strong>Allowed.</strong> NULL is treated as "not an IB" (default). Only clients with explicit <code>is_ib = true</code> are excluded.</div>
+              <div class="filter-note-text"><strong>Allowed.</strong> NULL is treated as "not an IB" by default — only contacts explicitly tagged as <code>"IB"</code> or <code>"IB + Client"</code> are excluded.</div>
             </div>
 
             <div class="filter-note">
@@ -4537,12 +4113,12 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
             <div class="filter-note">
               <div class="filter-section-label">🚪 Also serves as Exit Trigger</div>
-              <div class="filter-note-text">This same field is monitored continuously throughout the journey. If <code>is_ib</code> flips to <code>true</code> mid-journey → client exits and is routed to the <strong>Newly IB welcome journey</strong>. See Section 7.</div>
+              <div class="filter-note-text">This same field is monitored continuously throughout the journey. If <code>portal - user_type</code> flips to <code>"IB"</code> or <code>"IB + Client"</code> mid-journey → client exits and is routed to the <strong>Newly IB welcome journey</strong>. See Section 7.</div>
             </div>
 
-            <div class="filter-tbd">
-              <span class="filter-tbd-icon">⚠️</span>
-              <div class="filter-tbd-text"><strong>TBD with Nick:</strong> Confirm field name (could be <code>is_ib</code>, <code>IB_Status</code>, <code>Account_Type = 'IB'</code>, etc.) and data type (boolean vs string vs integer).</div>
+            <div class="filter-note" style="background:#ECFDF5;border-color:#A7F3D0;">
+              <div class="filter-section-label" style="color:#047857;">✅ Resolution (19 May 2026)</div>
+              <div class="filter-note-text">Sichen and Nick confirmed that <code>portal - user_type</code> already serves the IB-check purpose — no new field needed and no data team ticket required. The previously raised ticket has been closed. Filter is ready to build.</div>
             </div>
 
           </div>
@@ -4780,7 +4356,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             </div>
           </div>
           <div class="filter-header-right">
-            <span class="filter-status tbd">TBD</span>
+            <span class="filter-status confirmed">Confirmed</span>
             <span class="expand-hint">Expand</span>
             <div class="filter-toggle">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -4793,18 +4369,18 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="filter-builder-block">
               <div class="filter-section-label">🎛️ HubSpot Workflow enrollment filter — point &amp; click setup (no code)</div>
               <div class="filter-builder">
-                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>country</code></div></div>
+                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>portal - country</code></div></div>
                 <div class="fb-row"><div class="fb-key">Operator</div><div class="fb-val"><span class="fb-operator">is not any of</span></div></div>
-                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">CN</span> <span class="fb-value-pill">HK</span> <span class="fb-value-pill">GB</span> <span class="fb-value-pill">AU</span> <span class="fb-value-pill">NZ</span></div></div>
+                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">China</span> <span class="fb-value-pill">Hong Kong</span> <span class="fb-value-pill">United Kingdom</span> <span class="fb-value-pill">Australia</span> <span class="fb-value-pill">New Zealand</span></div></div>
               </div>
             </div>
 
             <div class="filter-twocol">
               <div class="filter-block">
                 <div class="filter-section-label">🔧 Technical Spec</div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>country</code></span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code></span></div>
-                <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">String (ISO-2 code)</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>portal - country</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code> (synced from CRM)</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">String (full country name)</span></div>
                 <div class="filter-spec-row"><span class="filter-spec-key">Operator:</span><span class="filter-spec-val"><code>is not any of</code></span></div>
               </div>
 
@@ -4813,18 +4389,18 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
                 <div class="filter-values-group">
                   <div class="filter-values-heading allowed">✅ Allowed Markets</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill allowed">SEA (MY, SG, TH, VN, ID, PH, KR)</span>
-                    <span class="filter-value-pill allowed">MENA (SA, AE, EG, KW, QA, BH, OM, JO, LB)</span>
+                    <span class="filter-value-pill allowed">SEA (Malaysia, Singapore, Thailand, Vietnam, Indonesia, Philippines, South Korea)</span>
+                    <span class="filter-value-pill allowed">MENA (Saudi Arabia, UAE, Egypt, Kuwait, Qatar, Bahrain, Oman, Jordan, Lebanon)</span>
                     <span class="filter-value-pill allowed">English markets (excl. UK)</span>
                   </div>
                 </div>
                 <div class="filter-values-group">
                   <div class="filter-values-heading blocked">❌ Blocked Markets</div>
                   <div class="filter-values-list">
-                    <span class="filter-value-pill blocked">CN (Mainland China)</span>
-                    <span class="filter-value-pill blocked">HK (Hong Kong)</span>
-                    <span class="filter-value-pill blocked">GB (United Kingdom)</span>
-                    <span class="filter-value-pill blocked">AU, NZ (ASIC regions)</span>
+                    <span class="filter-value-pill blocked">China (Mainland)</span>
+                    <span class="filter-value-pill blocked">Hong Kong</span>
+                    <span class="filter-value-pill blocked">United Kingdom</span>
+                    <span class="filter-value-pill blocked">Australia, New Zealand (ASIC regions)</span>
                   </div>
                 </div>
               </div>
@@ -4832,7 +4408,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 
             <div class="filter-note">
               <div class="filter-section-label">📋 NULL Handling</div>
-              <div class="filter-note-text"><strong>TBD.</strong> Recommend rejecting NULL country to be safe — confirm with Nick whether NULL country records exist and how to treat them.</div>
+              <div class="filter-note-text"><strong>Recommend rejecting NULL country.</strong> Confirm with Nick whether NULL country records exist in practice — if so, exclude them as a precaution.</div>
             </div>
 
             <div class="filter-note">
@@ -4843,11 +4419,6 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
                 <li><strong>UK:</strong> FCA marketing restrictions for retail derivatives</li>
                 <li><strong>ASIC (AU/NZ):</strong> ASIC restrictions on IB-style structures</li>
               </ul></div>
-            </div>
-
-            <div class="filter-tbd">
-              <span class="filter-tbd-icon">⚠️</span>
-              <div class="filter-tbd-text"><strong>TBD with Nick:</strong> Confirm (a) field name — could be <code>country</code>, <code>country_code</code>, <code>residence_country</code>; (b) value format — ISO-2 codes (<code>CN</code>) vs ISO-3 (<code>CHN</code>) vs full names (<code>China</code>); (c) full ASIC list — is it just <code>AU</code> or also <code>NZ</code> and others?</div>
             </div>
 
           </div>
@@ -4863,7 +4434,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s3-platform-icon">👥</div>
             <div class="s4-action-title">Marketing Contact Status</div>
           </div>
-          <div class="s4-action-body">Only contacts set to <strong>"Marketing Contact"</strong> can receive marketing emails in HubSpot.<br><br>Even if a contact passes all 8 filters, they'll be silently suppressed if not a Marketing Contact.<br><br><strong>Confirm with Nick:</strong> are clients automatically set to Marketing Contact when they complete FTD, or is this a manual step?</div>
+          <div class="s4-action-body">Only contacts set to <strong>"Marketing Contact"</strong> can receive marketing emails in HubSpot.<br><br>✅ <strong>Auto-handled.</strong> Sichen confirmed: emails will be set as <em>"Marketing information"</em> type, which auto-suppresses non-Marketing Contacts, unsubscribed contacts, and not-opted-in contacts at send time.</div>
         </div>
 
         <div class="s4-action-card">
@@ -4871,7 +4442,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s3-platform-icon">📬</div>
             <div class="s4-action-title">Email Subscription Type</div>
           </div>
-          <div class="s4-action-body">Every HubSpot marketing email must be tied to a <strong>Subscription Type</strong> (e.g. <em>"IB Program Updates"</em>).<br><br>Contacts who unsubscribed from that type won't receive emails.<br><br><strong>Confirm with Sichen:</strong> use an existing subscription type or create a new one for this campaign?</div>
+          <div class="s4-action-body">Every HubSpot marketing email must be tied to a <strong>Subscription Type</strong> (e.g. <em>"IB Program Updates"</em>).<br><br>✅ <strong>Confirmed by Sichen:</strong> a new subscription type can be created for this campaign. Specific name TBD during build.</div>
         </div>
 
         <div class="s4-action-card">
@@ -4932,7 +4503,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a"><strong>HubSpot auto-deduplicates contacts by email</strong> — one Marketing Contact per email address. Sichen and Nick should sanity-check that Nick's upstream pipeline doesn't create duplicate contacts (e.g. one per trading account, one per email), but on the HubSpot side this isn't a concern.</div>
+          <div class="s3-faq-a"><strong>HubSpot auto-deduplicates contacts by email</strong> — one Marketing Contact per email address. <strong>Confirmed by Nick:</strong> there are no duplicate emails in CRM, so no dup risk on the HubSpot side either.</div>
         </div>
       </div>
 
@@ -4959,7 +4530,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="info-icon">📋</div>
       <div class="info-meta">
         <h2 onclick="event.stopPropagation()">Data Fields Required</h2>
-        <div class="info-subtitle" onclick="event.stopPropagation()">7 fields total · 4 confirmed/standard · 3 TBD with Nick · master reference</div>
+        <div class="info-subtitle" onclick="event.stopPropagation()">7 fields total · all confirmed · ready for build</div>
       </div>
     </div>
     <div class="info-header-right">
@@ -4989,26 +4560,24 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="s4-stat-pill-tooltip">
             <strong>All fields read by the journey.</strong><br>
             • <strong>2 HubSpot standard:</strong> <code>email</code>, <code>firstname</code><br>
-            • <strong>5 business fields:</strong> <code>id_verified</code>, <code>ta_first_deposit_time</code>, <code>is_ib</code>, <code>source_marketing_campaign</code>, <code>country</code>
+            • <strong>5 business fields:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>
           </div>
         </div>
         <div class="s4-stat-pill confirmed">
-          <div class="s4-stat-pill-num">4</div>
-          <div class="s4-stat-pill-label">✅ Confirmed / Standard</div>
+          <div class="s4-stat-pill-num">7</div>
+          <div class="s4-stat-pill-label">✅ All Confirmed / Standard</div>
           <div class="s4-stat-pill-tooltip">
-            <strong>Ready to use in build.</strong><br>
+            <strong>All fields ready to use in build.</strong><br>
             • <strong>2 HubSpot standard</strong> (always present): <code>email</code>, <code>firstname</code><br>
-            • <strong>2 confirmed by Nick:</strong> <code>ta_first_deposit_time</code>, <code>source_marketing_campaign</code>
+            • <strong>5 confirmed by Nick &amp; Sichen:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>
           </div>
         </div>
-        <div class="s4-stat-pill tbd">
-          <div class="s4-stat-pill-num">3</div>
-          <div class="s4-stat-pill-label">⚠️ TBD with Nick</div>
+        <div class="s4-stat-pill confirmed">
+          <div class="s4-stat-pill-num">0</div>
+          <div class="s4-stat-pill-label">Open Items</div>
           <div class="s4-stat-pill-tooltip">
-            <strong>Blocking build until confirmed.</strong><br>
-            • <code>id_verified</code> — KYC field name + value format<br>
-            • <code>is_ib</code> — field name + data type (must be near-real-time)<br>
-            • <code>country</code> — field name + value format + ASIC list
+            <strong>No outstanding field requirements.</strong><br>
+            Previously raised data team ticket for an <code>portal - user_type</code> field has been closed — <code>portal - user_type</code> serves the same purpose.
           </div>
         </div>
       </div>
@@ -5044,12 +4613,12 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             </tr>
 
             <!-- Filter fields -->
-            <tr class="tbd-row">
-              <td><span class="s4-field-name">id_verified</span></td>
-              <td><span class="s4-field-type-pill tbd-type">String? (TBC)</span></td>
+            <tr>
+              <td><span class="s4-field-name">portal - client_status</span></td>
+              <td><span class="s4-field-type-pill">String</span></td>
               <td><div class="s4-field-purpose">Filter 1 — KYC gate (Section 4)</div></td>
-              <td><span class="s4-status-tbd">TBD</span></td>
-              <td><div class="s4-field-notes"><strong>Confirm with Nick:</strong> exact field name (may be <code>kyc_status</code>, etc.) and value format — string <code>"Verified"</code> vs boolean <code>true</code>.</div></td>
+              <td><span class="s4-status-confirmed">Confirmed</span></td>
+              <td><div class="s4-field-notes">Confirmed by Nick. Value <code>"Live KYC Complete"</code>. Synced from CRM every 4 hours.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">ta_first_deposit_time</span></td>
@@ -5058,12 +4627,12 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
               <td><span class="s4-status-confirmed">Confirmed</span></td>
               <td><div class="s4-field-notes">Confirmed by Nick. ISO datetime format (e.g. <code>2026-04-15 09:32:11</code>).</div></td>
             </tr>
-            <tr class="tbd-row">
-              <td><span class="s4-field-name">is_ib</span></td>
-              <td><span class="s4-field-type-pill tbd-type">Boolean? (TBC)</span></td>
+            <tr>
+              <td><span class="s4-field-name">portal - user_type</span></td>
+              <td><span class="s4-field-type-pill">String</span></td>
               <td><div class="s4-field-purpose">Filter 4 — exclude existing IBs · Also <strong>continuous exit trigger</strong> throughout journey</div></td>
-              <td><span class="s4-status-tbd">TBD</span></td>
-              <td><div class="s4-field-notes"><strong>Confirm with Nick:</strong> exact field name (may be <code>is_ib</code>, <code>IB_Status</code>, <code>Account_Type='IB'</code>) and data type (boolean / string / integer). <strong>Must be queryable in near-real-time</strong> for exit checks.</div></td>
+              <td><span class="s4-status-confirmed">Confirmed</span></td>
+              <td><div class="s4-field-notes">Confirmed by Sichen &amp; Nick (19 May 2026) — replaces the originally proposed <code>portal - user_type</code> field. Values <code>"IB"</code> or <code>"IB + Client"</code> identify a contact as an IB. Synced via the standard 4-hour CRM pipeline.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">source_marketing_campaign</span></td>
@@ -5072,26 +4641,26 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
               <td><span class="s4-status-confirmed">Confirmed</span></td>
               <td><div class="s4-field-notes">Confirmed. Values include <code>NULL</code> (organic), <code>"IB-*"</code>, <code>"Sales-*"</code>, <code>"*Partnership*"</code>, <code>"Refer Friend"</code>, <code>"MKT-*"</code>.</div></td>
             </tr>
-            <tr class="tbd-row">
-              <td><span class="s4-field-name">Country</span></td>
-              <td><span class="s4-field-type-pill tbd-type">String? (TBC)</span></td>
-              <td><div class="s4-field-purpose">Filter 8 — regulatory exclusions (CN/HK/GB/AU/NZ)</div></td>
-              <td><span class="s4-status-tbd">TBD</span></td>
-              <td><div class="s4-field-notes"><strong>Confirm with Nick:</strong> (a) field name — could be <code>country</code>, <code>country_code</code>, <code>residence_country</code>; (b) value format — ISO-2 codes (<code>CN</code>) vs ISO-3 (<code>CHN</code>) vs full names (<code>China</code>).</div></td>
+            <tr>
+              <td><span class="s4-field-name">portal - country</span></td>
+              <td><span class="s4-field-type-pill">String</span></td>
+              <td><div class="s4-field-purpose">Filter 8 — regulatory exclusions (China/Hong Kong/UK/Australia/New Zealand)</div></td>
+              <td><span class="s4-status-confirmed">Confirmed</span></td>
+              <td><div class="s4-field-notes">Confirmed by Nick. <strong>Full country names</strong> (not ISO-2 codes) — e.g. <code>"China"</code>, <code>"Hong Kong"</code>, <code>"United Kingdom"</code>. Synced from CRM every 4 hours.</div></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <!-- Action Items for Nick -->
-      <div class="s3-sub-title"><span class="s3-sub-icon">🚨</span>Action Items — for Nick to Confirm Before Build</div>
+      <div class="s3-sub-title"><span class="s3-sub-icon">✅</span>Field Specs — All Confirmed by Nick &amp; Sichen</div>
       <div class="s4-action-grid">
         <div class="s4-action-card">
           <div class="s4-action-card-header">
             <div class="s4-action-num">1</div>
             <div class="s4-action-title">KYC Field</div>
           </div>
-          <div class="s4-action-body">Confirm field name for <code>id_verified</code> + value format (string <code>"Verified"</code> vs boolean <code>true</code>).</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> field is <code>portal - client_status</code>, value <code>"Live KYC Complete"</code> (string).</div>
         </div>
 
         <div class="s4-action-card">
@@ -5099,7 +4668,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s4-action-num">2</div>
             <div class="s4-action-title">IB Flag</div>
           </div>
-          <div class="s4-action-body">Confirm field name for <code>is_ib</code> + data type (boolean / string / integer). Confirm it's queryable in <strong>near-real-time</strong> for continuous exit checks.</div>
+          <div class="s4-action-body">✅ <strong>Resolved (19 May).</strong> No new field needed — Sichen and Nick confirmed that the existing <code>portal - user_type</code> field serves the IB-check purpose. Values <code>"IB"</code> or <code>"IB + Client"</code> identify a contact as an IB. The previously raised data team ticket has been closed.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5107,15 +4676,15 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s4-action-num">3</div>
             <div class="s4-action-title">Country Field</div>
           </div>
-          <div class="s4-action-body">Confirm field name + value format (ISO-2 vs ISO-3 vs full names). Confirm full ASIC exclusion list (<code>AU</code> only, or also <code>NZ</code> + others?).</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> field is <code>portal - country</code>, value format is <strong>full country names</strong> (not ISO codes). ASIC list: <code>Australia</code> + <code>New Zealand</code>.</div>
         </div>
 
         <div class="s4-action-card">
           <div class="s4-action-card-header">
             <div class="s4-action-num">4</div>
-            <div class="s4-action-title">DE Name &amp; Refresh</div>
+            <div class="s4-action-title">Source &amp; Refresh</div>
           </div>
-          <div class="s4-action-body">Confirm HubSpot Active List name + the <strong>property-update latency</strong> from upstream (how fast does Nick's pipeline push property changes into HubSpot — seconds, minutes, hours?).</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> HubSpot data is synced from CRM (not Salesforce) and managed by the data team. Refreshes <strong>every 4 hours</strong>.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5123,7 +4692,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s4-action-num">5</div>
             <div class="s4-action-title">De-duplication</div>
           </div>
-          <div class="s4-action-body">HubSpot natively deduplicates contacts by <code>email</code> — one Marketing Contact per person. Sanity-check with Nick that his upstream pipeline doesn't create duplicate contacts (e.g. one per account, one per email).</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> no duplicate emails in CRM — no dup risk for HubSpot contacts.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5131,7 +4700,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
             <div class="s4-action-num">6</div>
             <div class="s4-action-title">Re-opened Accounts</div>
           </div>
-          <div class="s4-action-body">Confirm whether <code>ta_first_deposit_time</code> resets if a client closes and re-opens, or carries over from the original account.</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> <code>ta_first_deposit_time</code> doesn't change when a client closes and re-opens — the 7-day buffer (Filter 3) stays anchored to the original FTD.</div>
         </div>
       </div>
 
@@ -5199,19 +4768,19 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
               <td><span class="s4-field-name">Rest Day Wait</span></td>
               <td><span class="s4-field-type-pill">Delay (duration)</span></td>
               <td>3</td>
-              <td><div class="s4-field-notes">24 hours each (D1, D3, D5). Use <em>Delay (duration)</em>. See "Continuous Exit Logic" below for how to monitor <code>is_ib</code> during the wait.</div></td>
+              <td><div class="s4-field-notes">24 hours each (D1, D3, D5). Use <em>Delay (duration)</em>. See "Continuous Exit Logic" below for how to monitor <code>portal - user_type</code> during the wait.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">Cool-Down Wait</span></td>
               <td><span class="s4-field-type-pill">Delay (duration)</span></td>
               <td>1</td>
-              <td><div class="s4-field-notes">30 days — placed after E5. After cool-down completes, HubSpot's <strong>re-enrollment</strong> handles re-entry (see Re-Enrollment Action Item below) if the contact still matches the Active List.</div></td>
+              <td><div class="s4-field-notes">30 days — placed after E5. Contact stays in workflow during the delay; once the workflow ends, HubSpot re-enrolls the contact if they still match the Active List and "Allow re-enrollment" is on. See Section 8 for the full mechanic.</div></td>
             </tr>
             <tr>
               <td><span class="s4-field-name">Exit Check</span></td>
               <td><span class="s4-field-type-pill">If/then branch</span></td>
               <td>5</td>
-              <td><div class="s4-field-notes"><code>is_ib = true</code> → exit path → routes to <code>MKTOP-7576</code>. Placed before each email send.</div></td>
+              <td><div class="s4-field-notes"><code>portal - user_type</code> is any of <code>"IB"</code> or <code>"IB + Client"</code> → exit path → routes to <code>MKTOP-7576</code>. Placed before each email send.</div></td>
             </tr>
           </tbody>
         </table>
@@ -5228,23 +4797,23 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="s5-card-body">
             <div class="s5-row">
               <div class="s5-key">Window</div>
-              <div class="s5-val">09:00–11:00 local <span class="s5-tbc">TBC</span></div>
+              <div class="s5-val">09:00–11:00 contact hour <span style="background:#DCFCE7;color:#15803D;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:4px;">Confirmed</span></div>
             </div>
             <div class="s5-row">
               <div class="s5-key">Day of Week</div>
-              <div class="s5-val">Any (no weekend exclusion for v1) <span class="s5-tbc">TBC</span></div>
+              <div class="s5-val">Any (no weekend exclusion for v1) <span style="background:#DCFCE7;color:#15803D;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:4px;">Confirmed</span></div>
             </div>
             <div class="s5-row">
               <div class="s5-key">Time Zone</div>
-              <div class="s5-val">Local by <code>country</code> field <span class="s5-tbc">TBC — confirm with Sichen</span></div>
+              <div class="s5-val"><strong>AEST</strong> (single zone) <span style="background:#DCFCE7;color:#15803D;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:4px;">Confirmed by Sichen</span><br><span style="color:var(--grey-500);font-size:11px;">Rationale: contact-level time zone data may be unreliable, so a single zone is the safer call.</span></div>
             </div>
             <div class="s5-row">
               <div class="s5-key">Optimization</div>
-              <div class="s5-val">HubSpot Send Time Optimization (STO) — if licensed <span class="s5-tbc">TBC</span></div>
+              <div class="s5-val">Not required — AEST send window is sufficient for v1</div>
             </div>
             <div class="s5-row">
               <div class="s5-key">Classification</div>
-              <div class="s5-val">Commercial <span class="s5-tbc">TBC</span></div>
+              <div class="s5-val"><strong>Marketing information</strong> <span style="background:#DCFCE7;color:#15803D;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:4px;">Confirmed by Sichen</span><br><span style="color:var(--grey-500);font-size:11px;">Auto-suppresses non-Marketing Contacts, unsubscribed, and not-opted-in contacts at send.</span></div>
             </div>
           </div>
         </div>
@@ -5271,59 +4840,39 @@ Hi {{ <span class="ampscript-var">contact.firstname</span>|<span class="ampscrip
 <span class="ampscript-comment">{# Equivalent with explicit if/else: #}</span>
 Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">contact.firstname</span> %}{{ <span class="ampscript-var">contact.firstname</span> }}{% <span class="ampscript-keyword">else</span> %}<span class="ampscript-string">there</span>{% <span class="ampscript-keyword">endif</span> %}, the IB Program at a glance</div>
 
-            <div style="margin-top:8px;font-size:11.5px;color:var(--grey-500);"><span class="s5-tbc">Sichen to choose:</span> built-in UI default (simpler) vs HubL fallback (more flexible).</div>
+            <div style="margin-top:8px;font-size:11.5px;color:var(--grey-500);"><span style="background:#DCFCE7;color:#15803D;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;">Confirmed by Sichen:</span> using HubSpot's built-in system fallback. Default value = <strong>"Valued clients"</strong> when first name is unknown.</div>
           </div>
         </div>
 
       </div>
 
       <!-- Continuous Exit Logic -->
-      <div class="s3-sub-title"><span class="s3-sub-icon">🚪</span>Continuous Exit Logic — is_ib Monitoring</div>
+      <div class="s3-sub-title"><span class="s3-sub-icon">🚪</span>Continuous Exit Logic — IB Conversion Monitoring</div>
       <div class="s5-card" style="margin-bottom:24px;">
         <div class="s5-card-body">
-          When a client converts to IB mid-journey (<code>is_ib</code> flips <code>false → true</code>), they should immediately stop receiving Retail-to-IB emails and be routed to the Newly IB welcome journey (<code>MKTOP-7576</code>). <strong>Two ways to configure this in HubSpot</strong> — choose based on your instance's capability:
 
-          <div class="s5-options">
-            <div class="s5-option">
-              <div class="s5-option-label">🅰️ Option A</div>
-              <div class="s5-option-title">If/Then Branch Before Each Email</div>
-              <div class="s5-option-body">
-                In the HubSpot Workflow, add an <code>If/then branch</code> action before each of E1–E5. Branch criteria: <code>is_ib</code> property equals <code>true</code> → route to <strong>Unenroll from workflow</strong> + trigger enrollment in the <code>MKTOP-7576</code> workflow.
-                <div class="s5-option-pros">
-                  <div><span class="s5-option-pros-label">✓ Pros:</span> Available in all HubSpot Marketing Hub tiers. Easy to audit.</div>
-                  <div><span class="s5-option-cons-label">✗ Cons:</span> 5 branches to maintain. Does <strong>not</strong> catch IB conversions <em>during</em> the delay — only at the next email send.</div>
-                </div>
-              </div>
-            </div>
+          When a client converts to IB mid-journey (<code>portal - user_type</code> flips to <code>"IB"</code> or <code>"IB + Client"</code>), they should immediately stop receiving Retail-to-IB emails and be routed to the Newly IB welcome journey (<code>MKTOP-7576</code>).
 
-            <div class="s5-option">
-              <div class="s5-option-label">🅱️ Option B</div>
-              <div class="s5-option-title">Workflow Goal (Suppression List)</div>
-              <div class="s5-option-body">
-                Set the Workflow's <strong>Suppression list</strong> to a list where <code>is_ib = true</code>. HubSpot continuously evaluates suppression and auto-unenrolls the contact the moment the property flips — including during delays. Pair with an Active list that auto-enrolls them in <code>MKTOP-7576</code>.
-                <div class="s5-option-pros">
-                  <div><span class="s5-option-pros-label">✓ Pros:</span> One config point. Catches IB conversions <em>during</em> delays in near-real-time.</div>
-                  <div><span class="s5-option-cons-label">✗ Cons:</span> Requires a Marketing Hub plan that supports workflow suppression. Re-enrollment in <code>MKTOP-7576</code> uses a paired list trigger (slight delay vs immediate).</div>
-                </div>
-              </div>
-            </div>
+          <div style="margin-top:14px;padding:12px 14px;background:#F0F9FF;border:1px solid #BAE6FD;border-left:3px solid #0EA5E9;border-radius:6px;font-size:12px;color:var(--grey-700);">
+            <strong style="color:#0369A1;">Sichen's confirmed approach:</strong> use HubSpot's <strong>filter batch</strong> at each step in the workflow — when <code>portal - user_type</code> is <code>"IB"</code> or <code>"IB + Client"</code>, the contact exits the journey. Continuous evaluation runs on the same 4-hour data refresh cycle as the rest of the journey, so worst-case lag between conversion and exclusion is ~4 hours.
           </div>
 
-          <div style="margin-top:14px;padding:10px 14px;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #8B5CF6;border-radius:6px;font-size:12px;color:var(--grey-700);">
-            <strong style="color:#6D28D9;">💬 My lean (totally open to your call):</strong> For v1, Option A (if/then branch before each email) feels safer since it works in any Marketing Hub tier and is straightforward to audit. For the <code>MKTOP-7576</code> routing — I was wondering if it might be tidier to let <code>MKTOP-7576</code> trigger off its own Active List (where <code>is_ib = true</code>), so this workflow just unenrolls and <code>MKTOP-7576</code> picks the contact up on its own. But you'll know better than me whether that's how you'd architect it. Happy to bounce ideas around 🙏
+          <div style="margin-top:10px;padding:10px 14px;background:#ECFDF5;border:1px solid #A7F3D0;border-left:3px solid #10B981;border-radius:6px;font-size:11.5px;color:var(--grey-700);">
+            <strong style="color:#047857;">✅ Build-ready:</strong> field exists and is in use, no data team dependency. (Originally raised ticket for a new <code>portal - user_type</code> field has been closed — <code>portal - user_type</code> serves the same purpose.)
           </div>
+
         </div>
       </div>
 
       <!-- Action Items for Sichen -->
-      <div class="s3-sub-title"><span class="s3-sub-icon">🚨</span>Action Items — for Sichen to Confirm Before Build</div>
+      <div class="s3-sub-title"><span class="s3-sub-icon">✅</span>Workflow Specs — All Confirmed by Sichen</div>
       <div class="s4-action-grid">
         <div class="s4-action-card">
           <div class="s4-action-card-header">
             <div class="s4-action-num">1</div>
             <div class="s4-action-title">Send Window</div>
           </div>
-          <div class="s4-action-body">Confirm <code>09:00–11:00 local</code> or different? Day-of-week restrictions (e.g. no weekends)?</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> 09:00–11:00 contact hour. Any day of week (no weekend exclusion for v1).</div>
         </div>
 
         <div class="s4-action-card">
@@ -5331,7 +4880,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">2</div>
             <div class="s4-action-title">Time Zone Strategy</div>
           </div>
-          <div class="s4-action-body">Local-by-<code>country</code> field, single zone (UTC/Sydney), or HubSpot Send Time Optimization if licensed?</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> <strong>AEST</strong> (single zone). Contact-level time zone data may be unreliable, so AEST is the safer call for v1.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5339,7 +4888,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">3</div>
             <div class="s4-action-title">Continuous Exit Method</div>
           </div>
-          <div class="s4-action-body">Option A (5 if/then branches) or Option B (Workflow Goal)? Recommend Option A for v1.</div>
+          <div class="s4-action-body">✅ <strong>Confirmed &amp; ready to build.</strong> Sichen will use HubSpot's filter batch at each workflow step — when <code>portal - user_type</code> is <code>"IB"</code> or <code>"IB + Client"</code>, contact exits the journey and is routed to <code>MKTOP-7576</code>.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5347,15 +4896,15 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">4</div>
             <div class="s4-action-title">First Name Fallback</div>
           </div>
-          <div class="s4-action-body">Use HubSpot's <strong>built-in default value field</strong> in the personalization token UI (simpler, recommended), or use the HubL <code>|default</code> filter for advanced cases?</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> using HubSpot's built-in system fallback. Default = <em>"Valued clients"</em> when first name is unknown.</div>
         </div>
 
         <div class="s4-action-card">
           <div class="s4-action-card-header">
             <div class="s4-action-num">5</div>
-            <div class="s4-action-title">Email type</div>
+            <div class="s4-action-title">Email Type</div>
           </div>
-          <div class="s4-action-body">Confirm classification (Commercial vs Marketing) and the appropriate delivery profile/IP pool.</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> <strong>Marketing information</strong>. Auto-suppresses non-Marketing Contacts, unsubscribed contacts, and not-opted-in contacts at send time.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5363,7 +4912,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">6</div>
             <div class="s4-action-title">Re-Enrollment Logic</div>
           </div>
-          <div class="s4-action-body">Enable <strong>"Allow re-enrollment"</strong> on the workflow trigger. After the 30-day cool-down ends and the contact still matches the Active List, HubSpot will re-enroll them. Confirm with Sichen: re-enrollment fires when contact <em>re-matches</em> the trigger criteria, not on a timer — verify this behaviour with a test contact.</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> 30-day duration step at the end of the workflow. Contacts must exit before they can re-enroll — they can't re-enter while already in the workflow. See Section 8 for the full mechanic.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5371,7 +4920,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">7</div>
             <div class="s4-action-title">Marketing Contact Status</div>
           </div>
-          <div class="s4-action-body">Confirm with Nick: are clients flipped to <strong>"Marketing Contact"</strong> status automatically when they complete FTD? If not, non-Marketing Contacts will be silently suppressed even if they match all 8 filters.</div>
+          <div class="s4-action-body">✅ <strong>Auto-handled.</strong> Setting email type to <em>"Marketing information"</em> automatically suppresses non-Marketing Contacts at send. No separate manual step needed.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5379,7 +4928,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">8</div>
             <div class="s4-action-title">Email Subscription Type</div>
           </div>
-          <div class="s4-action-body">Confirm with Sichen: which HubSpot <strong>Subscription Type</strong> these 5 emails belong to (existing one, or new — e.g. <em>"IB Program Updates"</em>)? Contacts who unsubscribed from that type won't receive emails.</div>
+          <div class="s4-action-body">✅ <strong>Confirmed:</strong> a new subscription type can be created for this campaign. Specific name to be agreed during build (suggested: <em>"IB Program Updates"</em>).</div>
         </div>
       </div>
 
@@ -5432,12 +4981,12 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
         </div>
 
         <div class="s6-goal-body">
-          When a contact's <code>is_ib</code> property becomes <code>true</code>, HubSpot recognizes this as the workflow's <strong>goal conversion</strong>, automatically unenrolls the contact, and counts it toward the workflow's performance metrics. The contact is then picked up by the Newly IB welcome journey (<code>MKTOP-7576</code>) via its own enrollment trigger.
+          When a contact's <code>portal - user_type</code> property becomes <code>"IB"</code> or <code>"IB + Client"</code>, HubSpot recognizes this as the workflow's <strong>goal conversion</strong>, automatically unenrolls the contact, and counts it toward the workflow's performance metrics. The contact is then picked up by the Newly IB welcome journey (<code>MKTOP-7576</code>) via its own enrollment trigger.
         </div>
 
         <dl class="s6-goal-grid">
-          <dt>Goal criteria</dt><dd><code>is_ib</code> is equal to <code>true</code></dd>
-          <dt>Trigger source</dt><dd>Property change — HubSpot evaluates continuously, in real-time</dd>
+          <dt>Goal criteria</dt><dd><code>portal - user_type</code> is any of <code>"IB"</code> or <code>"IB + Client"</code></dd>
+          <dt>Trigger source</dt><dd>Property change — HubSpot evaluates continuously, on the 4-hour CRM refresh cycle</dd>
           <dt>Effect on contact</dt><dd>Auto-unenrolled from this workflow + counted as a goal conversion</dd>
           <dt>Next workflow</dt><dd><code>MKTOP-7576</code> picks the contact up automatically via its own Active List trigger</dd>
           <dt>Reporting</dt><dd>Visible in HubSpot Workflow Performance dashboard as <em>Goal Conversion Rate</em></dd>
@@ -5461,7 +5010,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
           <div class="s6-path-rows">
             <div class="s6-path-row">
               <div class="s6-path-key">Trigger</div>
-              <div class="s6-path-val"><code>is_ib</code> flips from <code>false</code> to <code>true</code> at any point — during entry, between emails, or mid-delay.</div>
+              <div class="s6-path-val"><code>portal - user_type</code> becomes <code>"IB"</code> or <code>"IB + Client"</code> at any point — during entry, between emails, or mid-delay.</div>
             </div>
             <div class="s6-path-row">
               <div class="s6-path-key">Next Step</div>
@@ -5583,7 +5132,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <tr>
               <td><span class="path-name">🏆 Goal Achieved</span></td>
               <td><span class="reentry-pill no">No</span></td>
-              <td>N/A — contact is now an IB and lives in <code>MKTOP-7576</code>. Re-entry to this workflow would only happen if <code>is_ib</code> flips back to <code>false</code> (unlikely / edge case).</td>
+              <td>N/A — contact is now an IB and lives in <code>MKTOP-7576</code>. Re-entry to this workflow would only happen if <code>portal - user_type</code> reverts away from <code>"IB"</code> / <code>"IB + Client"</code> (unlikely / edge case).</td>
             </tr>
             <tr>
               <td><span class="path-name">🏁 Workflow Completed</span></td>
@@ -5684,26 +5233,36 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
         </div>
       </div>
 
-      <!-- Re-Enrollment Mechanics — collaborative Q&A with Sichen -->
-      <div class="s3-sub-title"><span class="s3-sub-icon">💬</span>Re-Enrollment Mechanics — A Couple of Things to Sanity-Check With You</div>
+      <!-- Re-Enrollment Mechanics — confirmed approach -->
+      <div class="s3-sub-title"><span class="s3-sub-icon">✅</span>Re-Enrollment Mechanics — Confirmed Approach (Sichen)</div>
 
       <div class="s3-faq-card">
         <div class="s3-faq-header" onclick="toggleFaqCard(this)">
-          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>Quick sanity check — how does HubSpot re-enrollment actually trigger?</div>
+          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>How does the 30-day re-enrollment loop actually work in HubSpot?</div>
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">My understanding (please correct me if I'm off here): HubSpot re-enrolls a contact when the enrollment trigger <strong>fires again</strong> — so for an Active-List-based trigger, the contact has to leave the list and rejoin. Just staying on the list continuously doesn't count as a re-trigger.<br><br>If that's right, then for our workflow — where contacts will stay on the Active List as long as they still match all 8 filters — the workflow wouldn't auto-re-enroll them, even with <em>"Allow re-enrollment"</em> turned on. Wanted to flag this early so we can think about it together before we build.</div>
+          <div class="s3-faq-a"><strong>Confirmed by Sichen:</strong> use a <strong>30-day duration step at the end of the workflow</strong>.<br><br>After E5 sends, the workflow includes a 30-day delay action. The contact <em>stays inside the workflow</em> during this delay — they can't be re-enrolled while already in. Once the 30 days elapse and the workflow ends, if the contact still matches the Active List enrollment trigger (and "Allow re-enrollment" is enabled), HubSpot re-enrolls them and they start a fresh cycle from E1.<br><br>Sichen's words: <em>"Re-enroll means they have to exit to rejoin, they can't enter the workflow when they already in the workflow."</em></div>
         </div>
       </div>
 
       <div class="s3-faq-card">
         <div class="s3-faq-header" onclick="toggleFaqCard(this)">
-          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>What's the cleanest way to handle the 30-day re-blast then?</div>
+          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>Why a duration step instead of a date property like <code>last_send_date</code>?</div>
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">One pattern that came to mind — totally open to better ideas if you have them:<br><br>Add a date property like <code>last_retail_to_ib_send</code> (or maybe HubSpot's built-in <code>hs_email_last_send_date</code> if that fits better), and include it in the Active List criteria — something like <em>"...AND last_retail_to_ib_send is unknown OR more than 30 days ago"</em>.<br><br>At the end of the workflow (after E5, or after the cool-down delay), a workflow action sets the property to today's date. That should nudge the contact off the Active List during the cool-down, then back on after 30 days — which would fire the enrollment trigger again and re-enroll them.<br><br>I think it uses HubSpot's native mechanism without anything custom, but you'll know better than me if there's a simpler approach in your toolkit. Happy to bounce ideas around.</div>
+          <div class="s3-faq-a">We initially considered adding a date property (e.g. <code>last_send_date</code>) into the Active List criteria, but Sichen confirmed this isn't how TMGM's HubSpot workflows handle cool-downs.<br><br>Sichen's words: <em>"No, there're no <code>last_send_date</code> in criteria. Usually we use duration, adding 30 days for them to exit."</em><br><br>The duration step is HubSpot-native, doesn't require a new property, and is simpler to maintain. Going with this approach.</div>
+        </div>
+      </div>
+
+      <div class="s3-faq-card">
+        <div class="s3-faq-header" onclick="toggleFaqCard(this)">
+          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>What needs to be configured in HubSpot for this to work?</div>
+          <span class="s3-faq-toggle">⌄</span>
+        </div>
+        <div class="s3-faq-collapsible">
+          <div class="s3-faq-a">Two things on the workflow itself:<br><br>1. <strong>30-day Delay (duration) action</strong> placed after E5, before the workflow ends.<br>2. <strong>"Allow re-enrollment" toggled on</strong> on the enrollment trigger, so contacts who still match the Active List after the workflow ends get re-enrolled into a fresh cycle.<br><br>No custom date property, no Active List criteria changes. Worth a test contact through the full cycle during build to verify behavior before production launch.</div>
         </div>
       </div>
 
@@ -5756,7 +5315,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">Depends on Nick's pipeline behavior (see Section 5 action item).<br><br><strong>If <code>ta_first_deposit_time</code> resets</strong> to the new FTD date: Filter 3's 7-day buffer applies fresh — contact re-enters 7 days after the new FTD.<br><br><strong>If it carries over</strong> from the original account: contact is already past the buffer → re-enters as soon as the <code>last_retail_to_ib_send</code> cool-down lapses (or immediately if first time).</div>
+          <div class="s3-faq-a">Depends on Nick's pipeline behavior — <strong>confirmed by Nick:</strong> <code>ta_first_deposit_time</code> <em>doesn't change</em> when a client closes and re-opens. So Filter 3's 7-day buffer stays anchored to the original FTD. A returning client doesn't get a fresh 7-day wait — they re-enter on the next cycle after the 30-day cool-down (assuming they still match all 8 filters and aren't already an IB).</div>
         </div>
       </div>
 
@@ -5772,11 +5331,11 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
 
       <div class="s3-faq-card">
         <div class="s3-faq-header" onclick="toggleFaqCard(this)">
-          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>What if a contact converts to IB then somehow "unconverts" (<code>is_ib</code> flips back to false)?</div>
+          <div class="s3-faq-q"><span class="s3-faq-q-icon">Q</span>What if a contact converts to IB then somehow "unconverts" (<code>portal - user_type</code> reverts away from <code>"IB"</code>)?</div>
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">Edge case — unlikely in practice but worth flagging.<br><br>If <code>is_ib</code> reverts to <code>false</code>, the contact technically re-matches all 8 entry filters and could re-enter the Retail-to-IB workflow. <strong>Recommendation:</strong> add an additional Active List criterion <em>"is_ib has never been true"</em> (using HubSpot's "has ever been" operator) so a former IB doesn't get re-pitched. Worth a brief conversation with Compliance.</div>
+          <div class="s3-faq-a">Edge case — unlikely in practice but worth flagging.<br><br>If <code>portal - user_type</code> reverts away from <code>"IB"</code> / <code>"IB + Client"</code>, the contact technically re-matches all 8 entry filters and could re-enter the Retail-to-IB workflow. <strong>Recommendation:</strong> add an additional Active List criterion <em>"<code>portal - user_type</code> has never been any of IB or IB + Client"</em> (using HubSpot's "has ever been" operator) so a former IB doesn't get re-pitched. Worth a brief conversation with Compliance.</div>
         </div>
       </div>
 
@@ -5797,9 +5356,9 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
         <div class="s4-action-card">
           <div class="s4-action-card-header">
             <div class="s4-action-num">1</div>
-            <div class="s4-action-title">Re-Enrollment Property Setup</div>
+            <div class="s4-action-title">Workflow Setup</div>
           </div>
-          <div class="s4-action-body"><strong>Sichen + Nick:</strong> create a date property (e.g. <code>last_retail_to_ib_send</code>) OR identify a built-in HubSpot property to use. Add to Active List criteria. Add a workflow action that updates this property at the end of each cycle.</div>
+          <div class="s4-action-body"><strong>Sichen:</strong> ✅ approach confirmed. Add a <strong>30-day Delay (duration)</strong> action after E5 in the workflow, and toggle <strong>"Allow re-enrollment"</strong> on the enrollment trigger. No date property or Active List criteria changes needed.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5807,7 +5366,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">2</div>
             <div class="s4-action-title">Frequency Cap Decision</div>
           </div>
-          <div class="s4-action-body"><strong>Marketing / Lucas:</strong> decide if there should be an annual or lifetime cap on re-entries (e.g. max 4-6 cycles/year). Without a cap, a non-converter could receive ~50 emails/year from this campaign.</div>
+          <div class="s4-action-body"><strong>Marketing / Lucas:</strong> decide if there should be an annual or lifetime cap on re-entries (e.g. max 4–6 cycles/year). Without a cap, a non-converter could receive ~50 emails/year from this campaign.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5815,7 +5374,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">3</div>
             <div class="s4-action-title">Former-IB Guard</div>
           </div>
-          <div class="s4-action-body"><strong>Sichen + Compliance:</strong> add Active List criterion <em>"is_ib has never been true"</em> so a former IB whose status reverts isn't re-pitched into the Retail-to-IB workflow.</div>
+          <div class="s4-action-body"><strong>Sichen + Compliance:</strong> consider adding an Active List criterion — e.g. <em>"<code>portal - user_type</code> has never been any of IB or IB + Client"</em> (using HubSpot's "has ever been" operator) — so a former IB whose status reverts isn't re-pitched into the Retail-to-IB workflow.</div>
         </div>
 
         <div class="s4-action-card">
@@ -5823,7 +5382,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
             <div class="s4-action-num">4</div>
             <div class="s4-action-title">Test the Cycle</div>
           </div>
-          <div class="s4-action-body"><strong>Sichen:</strong> create a test contact, run them through E1-E5 + cool-down, verify the contact re-enrolls after 30 days. Confirm the property flow works as designed before production launch.</div>
+          <div class="s4-action-body"><strong>Sichen:</strong> create a test contact, run them through E1–E5 + 30-day delay, verify the contact re-enrolls cleanly after the workflow ends. Confirms the duration step + re-enrollment toggle behave as expected before production launch.</div>
         </div>
 
       </div>
@@ -5879,96 +5438,6 @@ function switchLang(btn, emailId, lang) {
   document.getElementById(emailId + '-' + lang).classList.add('active');
 }
 
-// ============ BUILD READINESS DASHBOARD — clickable items + localStorage ============
-const DASHBOARD_STORAGE_KEY = 'tmgm_dashboard_state_v1';
-
-function toggleDashboardItem(item) {
-  const checkbox = item.querySelector('.dashboard-checkbox');
-  const isDone = item.classList.contains('done');
-  if (isDone) {
-    item.classList.remove('done');
-    checkbox.classList.remove('confirmed');
-  } else {
-    item.classList.add('done');
-    checkbox.classList.add('confirmed');
-  }
-  updateDashboardCounts();
-  saveDashboardState();
-}
-
-function updateDashboardCounts() {
-  // Overall counts in top-right pills
-  const allItems = document.querySelectorAll('.dashboard-item');
-  const doneItems = document.querySelectorAll('.dashboard-item.done');
-  const totalCount = allItems.length;
-  const confirmedCount = doneItems.length;
-  const pendingCount = totalCount - confirmedCount;
-
-  const pills = document.querySelectorAll('.dashboard-count-pill');
-  if (pills.length >= 2) {
-    pills[0].textContent = pendingCount + ' Pending';
-    pills[1].textContent = confirmedCount + ' Confirmed';
-  }
-
-  // Subtitle line
-  const subtitle = document.querySelector('.dashboard-subtitle');
-  if (subtitle) {
-    subtitle.innerHTML = pendingCount + ' items pending confirmation across Data &amp; Workflow · review before Nick / Sichen meetings';
-  }
-
-  // Per-column counts ("X items" badge)
-  document.querySelectorAll('.dashboard-col').forEach(col => {
-    const colItems = col.querySelectorAll('.dashboard-item');
-    const colDone = col.querySelectorAll('.dashboard-item.done');
-    const colPending = colItems.length - colDone.length;
-    const countEl = col.querySelector('.dashboard-col-count');
-    if (countEl) {
-      countEl.textContent = colPending + ' pending · ' + colDone.length + ' done';
-    }
-  });
-}
-
-function saveDashboardState() {
-  const state = {};
-  document.querySelectorAll('.dashboard-item').forEach(item => {
-    const titleEl = item.querySelector('.dashboard-item-title');
-    if (!titleEl) return;
-    const title = titleEl.textContent.trim();
-    state[title] = item.classList.contains('done');
-  });
-  try {
-    localStorage.setItem(DASHBOARD_STORAGE_KEY, JSON.stringify(state));
-  } catch (e) {
-    console.warn('Could not save dashboard state:', e);
-  }
-}
-
-function loadDashboardState() {
-  try {
-    const raw = localStorage.getItem(DASHBOARD_STORAGE_KEY);
-    if (!raw) {
-      updateDashboardCounts();
-      return;
-    }
-    const state = JSON.parse(raw);
-    document.querySelectorAll('.dashboard-item').forEach(item => {
-      const titleEl = item.querySelector('.dashboard-item-title');
-      if (!titleEl) return;
-      const title = titleEl.textContent.trim();
-      if (state[title]) {
-        item.classList.add('done');
-        const cb = item.querySelector('.dashboard-checkbox');
-        if (cb) cb.classList.add('confirmed');
-      }
-    });
-    updateDashboardCounts();
-  } catch (e) {
-    console.warn('Could not load dashboard state:', e);
-  }
-}
-
-// Initialize dashboard on page load
-document.addEventListener('DOMContentLoaded', loadDashboardState);
 
 // V2-style: clicking a journey node shows ONE inline detail panel.
 // Click another node → switches. Click ✕ or the same node again → closes.
