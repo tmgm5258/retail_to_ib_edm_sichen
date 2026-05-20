@@ -2900,6 +2900,100 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
   .audience-strip { flex-direction:column; align-items:flex-start; gap:8px; }
   .compliance-strip-divider { display:none; }
 }
+/* ============ EMAIL CONTENT SECTIONS (Section 9–13: E1–E5) ============ */
+.lang-tabs { display:flex; gap:0; border-bottom:1px solid var(--grey-200); background:var(--grey-50); border-radius:8px 8px 0 0; overflow:hidden; }
+.lang-tab { flex:1; padding:10px 20px; font-size:12px; font-weight:600; color:var(--grey-500); cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s; background:transparent; border-top:none; border-left:none; border-right:none; font-family:var(--font); text-align:center; }
+.lang-tab.active { color:var(--blue); border-bottom-color:var(--blue); background:var(--white); }
+.lang-tab:hover { color:var(--dark); }
+.lang-content { display:none; padding:20px 0; }
+.lang-content.active { display:block; }
+.lang-content[dir="rtl"] { text-align:right; }
+
+.email-fields { margin-bottom:18px; }
+.email-field { margin-bottom:14px; display:flex; align-items:flex-start; gap:12px; }
+.email-field-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--grey-400); min-width:110px; padding-top:4px; flex-shrink:0; }
+.email-field-value { font-size:14px; color:var(--dark); line-height:1.6; flex:1; word-break:break-word; }
+.email-field-value.subject { font-weight:700; font-size:15px; }
+
+.email-preview { background:var(--grey-50); border:1px solid var(--grey-200); border-radius:var(--radius); padding:24px 28px; }
+.email-preview .banner { font-size:18px; font-weight:800; color:var(--dark); margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--grey-200); }
+.email-preview .salutation { font-size:14px; color:var(--grey-600); margin-bottom:12px; }
+.email-preview .content-block { font-size:14px; color:var(--grey-700); line-height:1.7; margin-bottom:16px; white-space:pre-line; }
+.email-preview .content-block.cb-header { font-weight:700; font-size:16px; color:var(--dark); }
+.email-preview .content-block.cb-subhead { font-weight:700; font-size:15px; color:var(--dark); }
+.email-preview .content-block.cb-question { font-weight:700; font-size:15px; color:var(--dark); }
+.email-preview .content-block.secondary { margin-top:16px; font-size:12px; color:var(--grey-500); }
+.email-preview .cta-block { display:inline-block; padding:10px 24px; background:#000B50; color:var(--white); border-radius:8px; font-size:13px; font-weight:700; text-decoration:none; margin:8px 0; cursor:pointer; transition:background 0.2s, transform 0.2s; }
+.email-preview .cta-block:hover { background:#1a2570; transform:translateY(-1px); color:var(--white); }
+.email-preview .disclaimer { font-size:11px; color:var(--grey-400); margin-top:16px; padding-top:12px; border-top:1px solid var(--grey-200); line-height:1.6; }
+
+.email-preview .calc-formula {
+  background:#EEF2FF;
+  border-left:3px solid #000B50;
+  padding:12px 16px;
+  border-radius:6px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:#000B50;
+  font-weight:600;
+  margin:10px 0;
+  text-align:center;
+}
+.email-preview .illustrative-note {
+  background:var(--amber-light);
+  border-left:3px solid var(--amber);
+  padding:10px 14px;
+  border-radius:6px;
+  font-size:12px;
+  color:var(--grey-700);
+  font-style:italic;
+  margin:12px 0;
+  line-height:1.6;
+}
+.email-preview .content-block.tertiary {
+  font-size:12px;
+  color:var(--grey-500);
+  font-style:italic;
+}
+.email-preview .content-block.post-cta { margin-top:20px; }
+
+/* Illustrative rebate table for E2 — matches compliance/Ryan hub */
+.email-preview .rebate-table {
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13px;
+  background:var(--white);
+  border:1px solid var(--grey-200);
+  border-radius:8px;
+  overflow:hidden;
+}
+.email-preview .rebate-table thead th {
+  background:#000B50;
+  color:var(--white);
+  padding:10px 12px;
+  text-align:start;
+  font-size:12px;
+  font-weight:700;
+}
+.email-preview .rebate-table tbody td {
+  padding:10px 12px;
+  border-bottom:1px solid var(--grey-200);
+  color:var(--grey-700);
+  vertical-align:top;
+}
+.email-preview .rebate-table tbody tr:last-child td { border-bottom:none; }
+.email-preview .rebate-table tbody td:first-child {
+  font-weight:700;
+  color:var(--dark);
+}
+.lang-content[dir="rtl"] .email-preview .rebate-table thead th { text-align:right; }
+.lang-content[dir="rtl"] .email-preview .rebate-table tbody td { text-align:right; }
+
+.lang-content[dir="rtl"] .email-preview { text-align:right; }
+.lang-content[dir="rtl"] .email-field-label { min-width:auto; }
+.lang-content[dir="rtl"] .email-field { flex-direction:row-reverse; }
+
 </style>
 </head>
 <body>
@@ -5391,6 +5485,1029 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
   </div><!-- /info-collapsible -->
 </div><!-- /info-card (section-8) -->
 
+<!-- ============ SECTION 9 — EMAIL E1 ============ -->
+<div class="section-title">Section 9 — Email E1</div>
+
+<div id="section-9" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">📧</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Email E1 — The IB Program Explained</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">First email in the journey · 6 language variants · regional teams proofread &amp; signed off</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Phase 1.0</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <!-- Language tabs -->
+      <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang(this,'e1','en')">EN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e1','id')">ID</button>
+        <button class="lang-tab" onclick="switchLang(this,'e1','ko')">KO</button>
+        <button class="lang-tab" onclick="switchLang(this,'e1','vn')">VN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e1','th')">TH</button>
+        <button class="lang-tab" onclick="switchLang(this,'e1','ar')">AR</button>
+      </div>
+
+      <!-- EN -->
+      <div id="e1-en" class="lang-content active" lang="en">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">The TMGM IB Program — explained in 60 seconds</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">A quick look at how the program works</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Learn More About the Program</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">The TMGM IB Program — Explained in 60 Seconds</div>
+          <div class="salutation">Dear [Name],</div>
+          <div class="content-block">You&#x27;re already trading with TMGM. If you&#x27;ve ever wondered how our Introducing Broker (IB) Program works, here&#x27;s a quick overview.</div>
+          <div class="content-block cb-header">What is the TMGM IB Program?</div>
+          <div class="content-block">It&#x27;s a program where eligible partners may earn rebates from the trading activity of clients they introduce to TMGM. Whether you have a small circle of trading friends or a wider network, the program is designed to scale with your involvement.</div>
+          <div class="content-block cb-header">How It Works — In 3 Steps</div>
+          <div class="content-block">1. Apply to become a TMGM Introducing Broker (Application is subject to eligibility and program terms.) 
+2. Share your unique referral link with your network (Friends, trading communities, or anyone who may be interested in TMGM.) 
+3. Earn rebates from the trading activity of your referred clients (Rebates may be paid based on the schedule outlined in your IB agreement, where applicable.)</div>
+          <div class="content-block cb-header">Why Consider the TMGM IB Program?</div>
+          <div class="content-block">You already know the platform. You already understand the trading experience. The IB Program offers a structured way for partners to participate in the value created by their referred clients — subject to program terms.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Learn More About the Program →</a>
+          <div class="content-block secondary">Not sure if the IB role suits you? Ask us about the TMGM Finfluencer program — designed for creators and content-led partners.</div>
+          <div class="disclaimer">Investing in CFDs carries significant risks and is not suitable for all investors. Rebates and program features are subject to eligibility, account type, region, and your IB agreement. Actual results may vary. Refer to your IB agreement for full terms. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- ID -->
+      <div id="e1-id" class="lang-content " lang="id">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">Program IB TMGM — dijelaskan dalam 60 detik</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Penjelasan singkat tentang cara kerja program ini</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Pelajari Program Lebih Lanjut</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Program IB TMGM — Dijelaskan dalam 60 Detik</div>
+          <div class="salutation">Yth. [Name],</div>
+          <div class="content-block">Anda sudah trading dengan TMGM. Jika Anda pernah penasaran bagaimana cara kerja Program Introducing Broker (IB) kami, berikut gambaran singkatnya.</div>
+          <div class="content-block cb-header">Apa itu Program IB TMGM?</div>
+          <div class="content-block">Ini adalah program di mana mitra yang memenuhi syarat dapat memperoleh rebate dari aktivitas trading klien yang mereka perkenalkan ke TMGM. Baik Anda memiliki lingkaran kecil teman trading atau jaringan yang lebih luas, program ini dirancang untuk berkembang sesuai tingkat keterlibatan Anda.</div>
+          <div class="content-block cb-header">Cara Kerjanya — Dalam 3 Langkah</div>
+          <div class="content-block">1. Daftar menjadi IB TMGM (Pendaftaran tergantung pada kelayakan dan ketentuan program.)
+
+2. Bagikan tautan referral unik Anda ke jaringan Anda (Teman, komunitas trading, atau siapa pun yang mungkin tertarik pada TMGM.)
+
+3. Dapatkan rebate dari aktivitas trading klien yang Anda referensikan (Rebate dapat dibayarkan berdasarkan jadwal yang tercantum dalam perjanjian IB Anda, jika berlaku.)</div>
+          <div class="content-block cb-header">Mengapa Mempertimbangkan Program IB TMGM?</div>
+          <div class="content-block">Anda sudah mengenal platform kami. Anda sudah memahami pengalaman tradingnya. Program IB menawarkan cara yang terstruktur bagi partner untuk berpartisipasi dalam nilai yang dihasilkan oleh klien referral mereka — sesuai dengan ketentuan program.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Pelajari Program Lebih Lanjut →</a>
+          <div class="content-block secondary">Belum yakin apakah peran IB cocok untuk Anda? Tanyakan kepada kami tentang program Finfluencer TMGM — dirancang untuk kreator dan mitra berbasis konten.</div>
+          <div class="disclaimer">Berinvestasi dalam CFD memiliki risiko yang signifikan dan tidak cocok untuk semua investor. Rebate dan fitur program tunduk pada persyaratan kelayakan, jenis akun, wilayah, dan perjanjian IB Anda. Hasil aktual dapat berbeda. Silakan merujuk pada perjanjian IB Anda untuk syarat dan ketentuan lengkap. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- KO -->
+      <div id="e1-ko" class="lang-content " lang="ko">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">TMGM IB 프로그램 — 60초 만에 알아보기</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">프로그램 운영 방식에 대한 빠른 요약</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">프로그램에 대해 더 알아보기</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">TMGM IB 프로그램 — 60초 만에 알아보기</div>
+          <div class="salutation">안녕하세요 [Name]님,</div>
+          <div class="content-block">이미 TMGM에서 거래하고 계시네요. 거래하시면서 혹시 IB 프로그램 운영 방식이 궁금하셨다면, 여기 간단한 요약이 있습니다.</div>
+          <div class="content-block cb-header">TMGM IB 프로그램이란 무엇인가요?</div>
+          <div class="content-block">자격 요건을 갖춘 파트너가 TMGM에 소개한 고객의 거래 활동으로부터 리베이트를 받을 수 있는 프로그램입니다. 소규모 지인 그룹이든 더 넓은 네트워크든, 본인의 참여 수준에 맞춰 확장할 수 있도록 설계되었습니다.</div>
+          <div class="content-block cb-header">운영 방식 — 3단계 안내</div>
+          <div class="content-block">1. TMGM IB 신청 (자격 요건 및 프로그램 약관이 적용됩니다.)
+2. 고유 추천 링크를 귀하의 네트워크에 공유하세요 (친구, 트레이딩 커뮤니티 등 TMGM에 관심 있는 모든 이들 포함.)
+3. 추천 고객의 거래 활동에 따른 리베이트를 적립하세요 (리베이트는 해당되는 경우 IB 계약서에 명시된 일정에 따라 지급될 수 있습니다.)</div>
+          <div class="content-block cb-header">TMGM IB 프로그램을 고려해야 하는 이유는 무엇인가요?</div>
+          <div class="content-block">귀하는 이미 저희 플랫폼과 트레이딩 경험을 이해하고 있습니다. IB 프로그램은 파트너가 추천한 고객을 통해 창출된 가치에 참여할 수 있는 구조화된 방법을 제공합니다 (프로그램 약관이 적용됩니다).</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">프로그램에 대해 더 알아보기 →</a>
+          <div class="content-block secondary">IB 역할이 본인에게 적합한지 확실하지 않으신가요? 크리에이터와 콘텐츠 기반 파트너를 위한 TMGM 핀플루언서 프로그램에 대해 문의해 주세요.</div>
+          <div class="disclaimer">CFD 투자는 상당한 위험을 수반하며 모든 투자자에게 적합하지 않을 수 있습니다. 리베이트 및 프로그램 기능은 자격 요건, 계정 유형, 지역 및 귀하의 IB 계약에 따라 달라집니다. 실제 결과는 달라질 수 있습니다. 전체 약관은 귀하의 IB 계약서를 참조하십시오. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- VN -->
+      <div id="e1-vn" class="lang-content " lang="vn">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">Chương trình IB của TMGM — giải thích trong 60 giây</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Tổng quan nhanh về cách chương trình hoạt động</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Tìm hiểu thêm về chương trình</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Chương trình IB của TMGM — Giải thích trong 60 giây</div>
+          <div class="salutation">Xin chào [Name],</div>
+          <div class="content-block">Bạn đã giao dịch cùng TMGM. Nếu bạn từng thắc mắc chương trình Introducing Broker (IB) của chúng tôi hoạt động thế nào, đây là bản tóm tắt nhanh.</div>
+          <div class="content-block cb-header">Chương trình IB của TMGM là gì?</div>
+          <div class="content-block">Đây là chương trình dành cho các đối tác đủ điều kiện để nhận tiền hoàn lại (rebates) từ hoạt động giao dịch của những khách hàng mà họ giới thiệu cho TMGM. Dù bạn có một nhóm bạn giao dịch nhỏ hay một mạng lưới rộng lớn, chương trình này được thiết kế để mở rộng theo sự tham gia của bạn.</div>
+          <div class="content-block cb-header">Cách thức hoạt động — Trong 3 bước</div>
+          <div class="content-block">1. Đăng ký trở thành IB của TMGM (Việc đăng ký tùy thuộc vào điều kiện và các điều khoản của chương trình.)
+2. Chia sẻ liên kết giới thiệu duy nhất của bạn với mạng lưới của mình (Bạn bè, cộng đồng giao dịch hoặc bất kỳ ai có thể quan tâm đến TMGM.)
+3. Nhận tiền hoàn lại từ hoạt động giao dịch của khách hàng mà bạn giới thiệu (Tiền hoàn lại có thể được thanh toán theo lịch trình nêu trong thỏa thuận IB của bạn, nếu có.)</div>
+          <div class="content-block cb-header">Tại sao nên cân nhắc Chương trình IB của TMGM?</div>
+          <div class="content-block">Bạn đã quen thuộc với nền tảng và hiểu rõ trải nghiệm giao dịch. Chương trình IB cung cấp một phương thức có cấu trúc để đối tác tham gia vào giá trị được tạo ra bởi khách hàng giới thiệu — tuân theo các điều khoản chương trình.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Tìm hiểu thêm về chương trình →</a>
+          <div class="content-block secondary">Bạn không chắc vai trò IB có phù hợp không? Hãy hỏi chúng tôi về chương trình TMGM Finfluencer — dành cho các nhà sáng tạo nội dung và đối tác định hướng nội dung.</div>
+          <div class="disclaimer">Đầu tư vào CFD mang lại rủi ro đáng kể và không phù hợp với tất cả các nhà đầu tư. Tiền hoàn lại và các tính năng của chương trình tùy thuộc vào điều kiện, loại tài khoản, khu vực và thỏa thuận IB của bạn. Kết quả thực tế có thể thay đổi. Tham khảo thỏa thuận IB để biết đầy đủ các điều khoản. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- TH -->
+      <div id="e1-th" class="lang-content " lang="th">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">โปรแกรม TMGM IB — อธิบายจบใน 60 วินาที</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">ข้อมูลสรุปสั้นๆ เกี่ยวกับวิธีการทำงานของโปรแกรม</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">เรียนรู้เพิ่มเติมเกี่ยวกับโปรแกรม</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">โปรแกรม TMGM IB — อธิบายจบใน 60 วินาที</div>
+          <div class="salutation">เรียนคุณ [Name],</div>
+          <div class="content-block">ถ้าคุณเทรดกับ TMGM อยู่แล้ว เคยสงสัยไหมว่าโปรแกรม Introducing Broker (IB) ช่วยสร้างโอกาสให้คุณได้อย่างไร?</div>
+          <div class="content-block cb-header">โปรแกรม TMGM IB คืออะไร?</div>
+          <div class="content-block">โปรแกรมที่ช่วยให้พาร์ทเนอร์ที่มีคุณสมบัติตามเกณฑ์สามารถรับค่าคอมมิชชั่น (Rebate) จากการเทรดของลูกค้าที่แนะนำให้กับ TMGM ไม่ว่าคุณจะเริ่มจากกลุ่มเล็ก ๆ หรือมีเครือข่ายขนาดใหญ่ ก็สามารถเติบโตไปพร้อมกันได้</div>
+          <div class="content-block cb-header">วิธีการทำงาน — ใน 3 ขั้นตอน</div>
+          <div class="content-block">1. สมัครเป็น TMGM IB (การสมัครขึ้นอยู่กับคุณสมบัติและข้อกำหนดของโปรแกรม)
+
+2. แชร์ลิงก์แนะนำของคุณกับเครือข่าย (เพื่อน, ชุมชนการเทรด หรือใครก็ตามที่สนใจ TMGM)
+
+3. รับค่าคอมมิชชั่นจากกิจกรรมการเทรดของลูกค้าที่คุณแนะนำ (ค่าคอมมิชชั่นจะจ่ายตามกำหนดการที่ระบุไว้ในสัญญา IB ของคุณ)</div>
+          <div class="content-block cb-header">ทำไมถึงควรพิจารณาโปรแกรม TMGM IB?</div>
+          <div class="content-block">คุณเข้าใจแพลตฟอร์มและการเทรดของ TMGM อยู่แล้ว โปรแกรม IB จึงช่วยต่อยอดโอกาสในการรับผลตอบแทนจากลูกค้าที่คุณแนะนำได้ — ภายใต้เงื่อนไขของโปรแกรม</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">เรียนรู้เพิ่มเติมเกี่ยวกับโปรแกรม →</a>
+          <div class="content-block secondary">ถ้ายังไม่แน่ใจว่าโปรแกรม IB เหมาะกับคุณไหม? ลองทำความรู้จักกับ TMGM Finfluencer — โปรแกรมสำหรับสายคอนเทนต์และครีเอเตอร์โดยเฉพาะ</div>
+          <div class="disclaimer">การลงทุนใน CFD มีความเสี่ยงสูงและอาจไม่เหมาะสำหรับนักลงทุนทุกคน ค่าคอมมิชชั่นและคุณสมบัติของโปรแกรมขึ้นอยู่กับคุณสมบัติ ประเภทบัญชี ภูมิภาค และสัญญา IB ของคุณ ผลลัพธ์จริงอาจแตกต่างกันไป โปรดดูข้อกำหนดทั้งหมดในสัญญา IB ของคุณ VFSC 40356</div>
+        </div>
+      </div>
+      <!-- AR -->
+      <div id="e1-ar" class="lang-content " dir="rtl" lang="ar">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">برنامج TMGM للشركاء المعرفين (IB) — شرح في 60 ثانية</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">نظرة سريعة على آلية عمل البرنامج</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">تعرف على المزيد حول البرنامج</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">برنامج TMGM للشركاء المعرفين (IB) — شرح في 60 ثانية</div>
+          <div class="salutation">عزيزي [Name]،</div>
+          <div class="content-block">أنت تتداول بالفعل مع TMGM. إذا كنت تتساءل عن كيفية عمل برنامج الوسطاء المعرفين (IB)، فإليك نظرة سريعة.</div>
+          <div class="content-block cb-header">ما هو برنامج TMGM IB؟</div>
+          <div class="content-block">هو برنامج يتيح للشركاء المؤهلين إمكانية كسب عمولات مستردة (Rebates) من نشاط التداول للعملاء الذين يقومون بإحالتهم إلى TMGM. سواء كان لديك دائرة صغيرة من المتداولين أو شبكة أوسع، فقد تم تصميم البرنامج لينمو مع مستوى مشاركتك.</div>
+          <div class="content-block cb-header">كيف يعمل البرنامج — في 3 خطوات</div>
+          <div class="content-block">1- قدم طلباً لتصبح شريكاً معرفاً (IB) لدى TMGM
+(يخضع الطلب لمعايير الأهلية وشروط البرنامج).
+
+
+2- شارك رابط الإحالة الخاص بك مع شبكتك
+(الأصدقاء، مجتمعات التداول، أو أي شخص قد يكون مهتماً بـ TMGM).
+
+
+3- اكسب عمولات مستردة من نشاط التداول للعملاء الذين قمت بإحالتهم
+(قد يتم دفع العمولات وفقاً للجدول المحدد في اتفاقية IB الخاصة بك، حيثما ينطبق ذلك).</div>
+          <div class="content-block cb-header">لماذا قد تنضم إلى برنامج TMGM IB؟</div>
+          <div class="content-block">أنت تعرف المنصة بالفعل وتفهم تجربة التداول. يوفّر برنامج IB طريقة منظّمة تتيح للشركاء الاستفادة من نشاط التداول للعملاء الذين يقومون بإحالتهم — وذلك وفقاً لشروط وأحكام البرنامج.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">تعرف على المزيد حول البرنامج ←</a>
+          <div class="content-block secondary">لست متأكداً مما إذا كان برنامج IB مناسباً لك؟
+اسألنا عن برنامج TMGM Finfluencer المصمم لصناع المحتوى والشركاء المعتمدين على المحتوى الرقمي.</div>
+          <div class="disclaimer">ينطوي تداول عقود الفروقات (CFDs) على مخاطر عالية وقد لا يكون مناسباً لجميع المستثمرين. تخضع العمولات وميزات البرنامج لمعايير الأهلية ونوع الحساب والمنطقة واتفاقية IB الخاصة بك. قد تختلف النتائج الفعلية. يرجى الرجوع إلى اتفاقية IB الخاصة بك للاطلاع على الشروط والأحكام الكاملة.
+VFSC 40356</div>
+        </div>
+      </div>
+
+    </div><!-- /info-body -->
+  </div><!-- /info-collapsible -->
+</div><!-- /info-card (section-9) -->
+<!-- ============ SECTION 10 — EMAIL E2 ============ -->
+<div class="section-title">Section 10 — Email E2</div>
+
+<div id="section-10" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">📧</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Email E2 — The Math Behind the IB Program</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">After 1 rest day · illustrative rebate examples · 6 language variants</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Phase 1.0</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <!-- Language tabs -->
+      <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang(this,'e2','en')">EN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e2','id')">ID</button>
+        <button class="lang-tab" onclick="switchLang(this,'e2','ko')">KO</button>
+        <button class="lang-tab" onclick="switchLang(this,'e2','vn')">VN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e2','th')">TH</button>
+        <button class="lang-tab" onclick="switchLang(this,'e2','ar')">AR</button>
+      </div>
+
+      <!-- EN -->
+      <div id="e2-en" class="lang-content active" lang="en">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">The math behind the TMGM IB Program</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Illustrative examples of how rebates may be calculated</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Learn More &amp; Apply</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">The Math Behind the TMGM IB Program</div>
+          <div class="salutation">Dear [Name],</div>
+          <div class="content-block">In our previous email, we introduced the TMGM IB Program. Here&#x27;s a closer look at how rebates may be calculated — with illustrative examples.</div>
+          <div class="content-block cb-header">How Rebates May Be Calculated</div>
+          <div class="content-block">Rebates in the TMGM IB Program are based on the trading activity of your referred clients. Each rebate calculation depends on: 
+• The product traded (Forex, Bullion, etc.) 
+• The client&#x27;s account type 
+• The trading volume (in lots) 
+• Your IB agreement</div>
+          <div class="content-block">For illustration purposes, the calculation generally follows this structure:</div>
+          <div class="calc-formula">Number of clients × Lots traded × Rebate per lot = Monthly rebate</div>
+          <div class="content-block cb-header">Illustrative Examples</div>
+          <div class="content-block">The table below shows illustrative monthly rebate ranges, assuming 5 referred clients trading the volumes shown.</div>
+          <div class="illustrative-note">These figures are illustrative only — actual rebates vary by IB agreement, account type, region, and applicable program terms.</div>
+          <table class="rebate-table"><thead><tr><th>Product</th><th>Per lot range</th><th>At 10 lots/month</th><th>At 20 lots/month</th></tr></thead><tbody><tr><td>Forex</td><td>$1 – $10 USD</td><td>$50 – $500</td><td>$100 – $1,000</td></tr><tr><td>Bullion (Gold)</td><td>$1 – $20 USD</td><td>$50 – $1,000</td><td>$100 – $2,000</td></tr></tbody></table>
+          <div class="content-block tertiary">Per-lot ranges shown reflect the minimum and maximum rates across applicable account types and volume tiers. Actual rates depend on your IB agreement and the client&#x27;s account configuration.</div>
+          <div class="content-block cb-header">Other Products Available</div>
+          <div class="content-block">The TMGM IB Program also includes rebates for other products such as Bitcoin (BTCUSD), Altcoins, Oil, Indices, Indices Asia, and Shares — with rates that may differ from the examples above. Refer to your IB agreement for the full product list and applicable rates.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Learn More &amp; Apply →</a>
+          <div class="disclaimer">Investing in CFDs carries significant risks and is not suitable for all investors. The figures shown are illustrative examples only. Actual rebates may vary and are subject to your IB agreement, account type, region, volume tier, applicable program terms, and other eligibility criteria. Refer to your IB agreement for full terms and applicable rebate rates. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- ID -->
+      <div id="e2-id" class="lang-content" lang="id">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">Perhitungan di balik Program IB TMGM</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Contoh ilustratif cara rebate dapat dihitung</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Pelajari Lebih Lanjut &amp; Daftar</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Perhitungan di Balik Program IB TMGM</div>
+          <div class="salutation">Yth. [Name],</div>
+          <div class="content-block">Dalam email sebelumnya, kami telah memperkenalkan Program IB TMGM. Kali ini, kami akan menjelaskan lebih lanjut mengenai bagaimana rebate dapat dihitung — beserta contoh ilustratifnya.</div>
+          <div class="content-block cb-header">Bagaimana Rebate Dapat Dihitung</div>
+          <div class="content-block">Rebate dalam Program IB TMGM didasarkan pada aktivitas trading klien yang Anda referensikan. Setiap perhitungan rebate tergantung pada: 
+- Produk yang diperdagangkan (Forex, Bullion, dll.)
+- Jenis akun klien
+- Volume trading (dalam lot)
+- Perjanjian IB Anda</div>
+          <div class="content-block">Untuk tujuan ilustrasi, perhitungannya secara umum mengikuti struktur berikut:</div>
+          <div class="calc-formula">Jumlah klien × Lot yang diperdagangkan × Rebate per lot = Rebate bulanan</div>
+          <div class="content-block cb-header">Contoh Ilustratif</div>
+          <div class="content-block">Tabel di bawah ini menunjukkan rentang rebate bulanan ilustratif, dengan asumsi 5 klien yang direferensikan melakukan trading dengan volume yang ditunjukkan.</div>
+          <div class="illustrative-note">Angka-angka ini hanya bersifat ilustratif — rebate aktual dapat berbeda tergantung pada perjanjian IB, jenis akun, wilayah, dan ketentuan program yang berlaku.</div>
+          <table class="rebate-table"><thead><tr><th>Produk</th><th>Kisaran per lot</th><th>Pada 10 lot/bulan</th><th>Pada 20 lot/bulan</th></tr></thead><tbody><tr><td>Forex</td><td>$1 – $10 USD</td><td>$50 – $500</td><td>$100 – $1,000</td></tr><tr><td>Bullion (Emas)</td><td>$1 – $20 USD</td><td>$50 – $1,000</td><td>$100 – $2,000</td></tr></tbody></table>
+          <div class="content-block tertiary">Kisaran per lot yang ditampilkan mencerminkan tarif minimum dan maksimum berdasarkan jenis akun dan tingkat volume yang berlaku. Tarif aktual bergantung pada perjanjian IB Anda dan konfigurasi akun klien.</div>
+          <div class="content-block cb-header">Produk Lain yang Tersedia</div>
+          <div class="content-block">Program IB TMGM juga mencakup rebate untuk produk lain seperti Bitcoin (BTCUSD), Altcoins, Minyak, Indeks, Indeks Asia, dan Saham — dengan tarif yang mungkin berbeda dari contoh di atas. Silakan merujuk pada perjanjian IB Anda untuk daftar produk lengkap dan tarif yang berlaku.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Pelajari Lebih Lanjut &amp; Daftar →</a>
+          <div class="disclaimer">Berinvestasi dalam CFD memiliki risiko yang signifikan dan tidak cocok untuk semua investor. Angka yang ditampilkan hanyalah contoh ilustratif. Rebate aktual dapat berbeda dan tunduk pada perjanjian IB Anda, jenis akun, wilayah, tier volume, ketentuan program yang berlaku, serta kriteria kelayakan lainnya. Silakan merujuk pada perjanjian IB Anda untuk syarat dan ketentuan lengkap serta tarif rebate yang berlaku. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- KO -->
+      <div id="e2-ko" class="lang-content" lang="ko">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">TMGM IB 프로그램 수익 구조 안내</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">리베이트 계산 방식에 대한 예시 안내</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">자세히 알아보기 및 신청하기</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">TMGM IB 프로그램 수익 구조</div>
+          <div class="salutation">안녕하세요 [Name]님,</div>
+          <div class="content-block">이전 이메일에서 TMGM IB 프로그램을 소개해 드렸습니다. 여기서는 리베이트가 어떻게 계산되는지 예시와 함께 자세히 살펴보겠습니다.</div>
+          <div class="content-block cb-header">리베이트 계산 방식</div>
+          <div class="content-block">TMGM IB 프로그램의 리베이트는 추천 고객의 거래 활동을 기반으로 합니다. 각 리베이트 계산은 다음에 따라 달라집니다:
+• 거래 상품 (외환, 현물 금 등)
+• 고객의 계정 유형
+• 거래량 (랏 단위)
+• 귀하의 IB 계약</div>
+          <div class="content-block">예시를 위한 계산 구조는 일반적으로 다음과 같습니다:</div>
+          <div class="calc-formula">공식: 고객 수 × 거래 랏(Lots) × 랏당 리베이트 = 월간 리베이트</div>
+          <div class="content-block cb-header">예시 안내</div>
+          <div class="content-block">아래는 5명의 추천 고객이 표시된 거래량만큼 거래한다고 가정했을 때의 예시적인 월간 리베이트 범위입니다.</div>
+          <div class="illustrative-note">표시된 수치는 예시 목적으로만 제공되며, 실제 리베이트는 IB 계약, 계정 유형, 지역 및 적용 가능한 프로그램 약관에 따라 달라질 수 있습니다.</div>
+          <table class="rebate-table"><thead><tr><th>상품</th><th>랏당 범위</th><th>월 10 lot 기준</th><th>월 20 lot 기준</th></tr></thead><tbody><tr><td>외환</td><td>$1 – $10 USD</td><td>$50 – $500</td><td>$100 – $1,000</td></tr><tr><td>귀금속 (금)</td><td>$1 – $20 USD</td><td>$50 – $1,000</td><td>$100 – $2,000</td></tr></tbody></table>
+          <div class="content-block tertiary">표시된 랏당 범위는 적용 가능한 계정 유형 및 거래량 구간에 따른 최소 및 최대 요율을 반영합니다. 실제 요율은 귀하의 IB 계약 및 고객 계정 설정에 따라 달라질 수 있습니다.</div>
+          <div class="content-block cb-header">거래 가능한 기타 상품</div>
+          <div class="content-block">TMGM IB 프로그램에는 비트코인(BTCUSD), 알트코인, 원유, 지수, 아시아 지수 및 주식과 같은 기타 상품에 대한 리베이트도 포함되어 있으며, 요율은 위의 예시와 다를 수 있습니다. 전체 상품 리스트 및 적용 요율은 IB 계약서를 참조하십시오.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">자세히 알아보기 및 신청하기 →</a>
+          <div class="disclaimer">CFD 투자는 상당한 위험을 수반하며 모든 투자자에게 적합하지 않을 수 있습니다. 표시된 수치는 예시 목적으로만 제공됩니다. 실제 리베이트는 달라질 수 있으며, 귀하의 IB 계약, 계정 유형, 지역, 거래량 등급, 적용 가능한 프로그램 약관 및 기타 자격 요건에 따라 달라집니다. 전체 약관 및 적용 가능한 리베이트 요율은 귀하의 IB 계약서를 참조하십시오. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- VN -->
+      <div id="e2-vn" class="lang-content" lang="vn">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">Cách tính toán đằng sau Chương trình IB của TMGM</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Ví dụ minh họa về cách tính tiền hoàn lại (rebate)</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Tìm hiểu thêm &amp; Đăng ký</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Cách tính toán đằng sau Chương trình IB của TMGM</div>
+          <div class="salutation">Xin chào [Name],</div>
+          <div class="content-block">Trong email trước, chúng tôi đã giới thiệu Chương trình IB của TMGM. Dưới đây là cái nhìn chi tiết hơn về cách tính tiền hoàn lại — kèm theo các ví dụ minh họa.</div>
+          <div class="content-block cb-header">Cách tiền hoàn lại có thể được tính toán</div>
+          <div class="content-block">Tiền hoàn lại trong Chương trình IB của TMGM dựa trên hoạt động giao dịch của khách hàng được bạn giới thiệu. Mỗi cách tính phụ thuộc vào:
+
+• Sản phẩm giao dịch (Forex, Kim loại quý, v.v.)
+
+• Loại tài khoản của khách hàng
+
+• Khối lượng giao dịch (tính bằng lot)
+
+• Thỏa thuận IB của bạn</div>
+          <div class="content-block">Để minh họa, cách tính thông thường sẽ theo cấu trúc như sau:</div>
+          <div class="calc-formula">Số lượng khách hàng × Số Lot giao dịch × Tiền hoàn lại trên mỗi Lot = Tiền hoàn lại hàng tháng</div>
+          <div class="content-block cb-header">Ví dụ minh họa</div>
+          <div class="content-block">Bảng dưới đây cho thấy các phạm vi tiền hoàn lại hàng tháng minh họa, giả sử có 5 khách hàng được giới thiệu giao dịch với khối lượng được hiển thị.</div>
+          <div class="illustrative-note">Các số liệu này chỉ mang tính minh họa — tiền hoàn lại thực tế có thể thay đổi tùy thuộc vào thỏa thuận IB, loại tài khoản, khu vực và các điều khoản chương trình áp dụng.</div>
+          <table class="rebate-table"><thead><tr><th>Sản phẩm</th><th>Mức trên mỗi lot</th><th>Với 10 lot/tháng</th><th>Với 20 lot/tháng</th></tr></thead><tbody><tr><td>Forex</td><td>$1 – $10 USD</td><td>$50 – $500</td><td>$100 – $1,000</td></tr><tr><td>Bullion (Vàng)</td><td>$1 – $20 USD</td><td>$50 – $1,000</td><td>$100 – $2,000</td></tr></tbody></table>
+          <div class="content-block tertiary">Mức trên mỗi lot được hiển thị phản ánh mức tối thiểu và tối đa áp dụng cho từng loại tài khoản và cấp độ khối lượng giao dịch. Mức thực tế sẽ phụ thuộc vào thỏa thuận IB của bạn và cấu hình tài khoản của khách hàng.</div>
+          <div class="content-block cb-header">Các sản phẩm khác có sẵn</div>
+          <div class="content-block">Chương trình IB của TMGM cũng bao gồm tiền hoàn lại cho các sản phẩm khác như Bitcoin (BTCUSD), Altcoins, Dầu, Chỉ số, Chỉ số Châu Á và Cổ phiếu — với mức phí có thể khác với các ví dụ trên. Tham khảo thỏa thuận IB của bạn để biết danh sách sản phẩm đầy đủ và mức phí áp dụng.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Tìm hiểu thêm &amp; Đăng ký →</a>
+          <div class="disclaimer">Đầu tư vào CFD mang lại rủi ro đáng kể và không phù hợp với tất cả các nhà đầu tư. Các số liệu hiển thị chỉ mang tính minh họa. Tiền hoàn lại thực tế có thể thay đổi và phụ thuộc vào thỏa thuận IB, loại tài khoản, khu vực, cấp độ khối lượng giao dịch, các điều khoản chương trình áp dụng và các tiêu chí đủ điều kiện khác. Vui lòng tham khảo thỏa thuận IB của bạn để biết đầy đủ các điều khoản và mức rebate áp dụng. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- TH -->
+      <div id="e2-th" class="lang-content" lang="th">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">เจาะลึกการคำนวณเบื้องหลังโปรแกรม TMGM IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">ตัวอย่างภาพประกอบวิธีการคำนวณค่าคอมมิชชั่น (Rebate)</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">เรียนรู้เพิ่มเติมและสมัคร</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">เจาะลึกการคำนวณเบื้องหลังโปรแกรม TMGM IB</div>
+          <div class="salutation">เรียนคุณ [Name],</div>
+          <div class="content-block">ในอีเมลก่อนหน้า เราได้พาคุณทำความรู้จักกับโปรแกรม TMGM IB ไปแล้ว ครั้งนี้เราจะพาคุณเจาะลึกเรื่องการคำนวณค่าคอมมิชชั่น พร้อมตัวอย่างแบบเข้าใจง่าย</div>
+          <div class="content-block cb-header">วิธีการคำนวณค่าคอมมิชชั่น (Rebate)</div>
+          <div class="content-block">ค่าคอมมิชชั่นในโปรแกรม TMGM IB ขึ้นอยู่กับกิจกรรมการเทรดของลูกค้าที่คุณแนะนำ การคำนวณแต่ละครั้งขึ้นอยู่กับ:
+
+• ผลิตภัณฑ์ที่เทรด (Forex, Bullion ฯลฯ)
+
+• ประเภทบัญชีของลูกค้า
+
+• ปริมาณการเทรด (ในหน่วยล็อต)
+
+• สัญญา IB ของคุณ</div>
+          <div class="content-block">เพื่อให้เข้าใจง่ายขึ้น นี่คือตัวอย่างการคำนวณโดยทั่วไปจะมีโครงสร้างดังต่อไปนี้:</div>
+          <div class="calc-formula">สูตรการคำนวณมีดังนี้: จำนวนลูกค้า × จำนวนล็อตที่เทรด × ค่าคอมมิชชั่นต่อล็อต = รายได้รายเดือน</div>
+          <div class="content-block cb-header">ตัวอย่างภาพประกอบ</div>
+          <div class="content-block">ตารางด้านล่างแสดงช่วงรายได้ค่าคอมมิชชั่นรายเดือนโดยประมาณ โดยสมมติว่ามีลูกค้าแนะนำจำนวน 5 ราย และมีปริมาณการเทรดตามที่ระบุ.</div>
+          <div class="illustrative-note">ตัวเลขที่แสดงเป็นเพียงตัวอย่างประกอบเท่านั้น โดยค่าคอมมิชชั่น (Rebate) จริงอาจจะแตกต่างกันไปขึ้นอยู่กับสัญญา IB ประเภทบัญชี ภูมิภาค และเงื่อนไขของโปรแกรมที่เกี่ยวข้อง</div>
+          <table class="rebate-table"><thead><tr><th>ผลิตภัณฑ์</th><th>ค่าคอมมิชชั่นต่อล็อตโดยประมาณ</th><th>10 ล็อต/เดือน</th><th>20 ล็อต/เดือน</th></tr></thead><tbody><tr><td>Forex</td><td>$1 – $10 USD</td><td>$50 – $500</td><td>$100 – $1,000</td></tr><tr><td>Bullion (ทองคำ)</td><td>$1 – $20 USD</td><td>$50 – $1,000</td><td>$100 – $2,000</td></tr></tbody></table>
+          <div class="content-block tertiary">ช่วงค่าคอมมิชชั่นต่อล็อตที่แสดงข้างต้นเป็นอัตราขั้นต่ำและสูงสุด ซึ่งอาจแตกต่างกันไปตามประเภทบัญชีและระดับปริมาณการเทรดของลูกค้า โดยอัตราจริงจะขึ้นอยู่กับเงื่อนไขของข้อตกลง IB และการตั้งค่าบัญชีของลูกค้าแต่ละราย</div>
+          <div class="content-block cb-header">ผลิตภัณฑ์อื่นๆ ที่พร้อมให้บริการ</div>
+          <div class="content-block">โปรแกรม TMGM IB ยังรวมถึงค่าคอมมิชชั่นสำหรับผลิตภัณฑ์อื่นๆ เช่น Bitcoin (BTCUSD), Altcoins, น้ำมัน, ดัชนี, ดัชนีเอเชีย และหุ้น — โดยมีอัตราที่อาจแตกต่างจากตัวอย่างข้างต้น โปรดดูสัญญา IB ของคุณสำหรับรายการผลิตภัณฑ์ทั้งหมดและอัตราที่เกี่ยวข้อง</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">เรียนรู้เพิ่มเติมและสมัคร →</a>
+          <div class="disclaimer">การลงทุนใน CFD มีความเสี่ยงสูงและอาจไม่เหมาะสำหรับนักลงทุนทุกคน ตัวเลขที่แสดงเป็นเพียงตัวอย่างประกอบเท่านั้น ค่าคอมมิชชั่นจริงอาจแตกต่างกันไปและขึ้นอยู่กับสัญญา IB ประเภทบัญชี ภูมิภาค ระดับปริมาณการเทรด ข้อกำหนดของโปรแกรม และเกณฑ์คุณสมบัติอื่นๆ โปรดดูสัญญา IB ของคุณสำหรับข้อกำหนดทั้งหมดและอัตราที่เกี่ยวข้อง VFSC 40356</div>
+        </div>
+      </div>
+      <!-- AR -->
+      <div id="e2-ar" class="lang-content" dir="rtl" lang="ar">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">الحسابات وراء برنامج TMGM IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">أمثلة توضيحية لكيفية حساب العمولات المستردة (Rebates)</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">اكتشف المزيد وقدم طلبك</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">الحسابات وراء برنامج TMGM IB</div>
+          <div class="salutation">عزيزي [Name]،</div>
+          <div class="content-block">في رسالتنا السابقة، قدمنا لك برنامج TMGM IB. إليك نظرة أوضح على كيفية احتساب العمولات المستردة — مع أمثلة توضيحية.</div>
+          <div class="content-block cb-header">كيف يتم احتساب العمولات المستردة</div>
+          <div class="content-block">تعتمد العمولات المستردة في برنامج TMGM IB على نشاط تداول العملاء الذين تقوم بإحالتهم. ويعتمد احتساب العمولات على:
+• المنتج المتداول (الفوركس، الذهب، وغيرها)
+• نوع حساب العميل
+• حجم التداول (بالعقود)
+• اتفاقية IB الخاصة بك</div>
+          <div class="content-block">لأغراض توضيحية، تعتمد طريقة الحساب عادةً على الصيغة التالية:</div>
+          <div class="calc-formula">المعادلة: عدد العملاء × حجم التداول (اللوت) × الخصم لكل لوت = إجمالي الخصومات الشهرية التقديرية</div>
+          <div class="content-block cb-header">أمثلة توضيحية</div>
+          <div class="content-block">يوضح الجدول أدناه نطاقات تقديرية للخصومات الشهرية، بافتراض وجود 5 عملاء مُحالين يتداولون بالأحجام الموضحة.</div>
+          <div class="illustrative-note">هذه الأرقام لأغراض توضيحية فقط — وقد تختلف الخصومات الفعلية وفقاً لاتفاقية الشريك المعرف (IB)، ونوع الحساب، والمنطقة، وشروط البرنامج المعمول بها.</div>
+          <table class="rebate-table"><thead><tr><th>المنتج</th><th>نطاق العمولة لكل لوت</th><th>عند تداول 10 لوت شهرياً</th><th>عند تداول 20 لوت شهرياً</th></tr></thead><tbody><tr><td>الفوركس</td><td>من 1 إلى 10 دولار أمريكي</td><td>من 50 إلى 500 دولار أمريكي</td><td>من 100 إلى 1,000 دولار أمريكي</td></tr><tr><td>الذهب</td><td>من 1 إلى 20 دولار أمريكي</td><td>من 50 إلى 1,000 دولار أمريكي</td><td>من 100 إلى 2,000 دولار أمريكي</td></tr></tbody></table>
+          <div class="content-block tertiary">تعكس نطاقات العمولة لكل لوت المعروضة الحد الأدنى والحد الأقصى للمعدلات المطبقة وفقاً لأنواع الحسابات ومستويات أحجام التداول المختلفة. وتعتمد المعدلات الفعلية على اتفاقية الشريك المعرف (IB) الخاصة بك ونوع حساب العميل.</div>
+          <div class="content-block cb-header">منتجات أخرى متاحة</div>
+          <div class="content-block">يتضمن برنامج TMGM IB أيضاً عمولات مستردة على منتجات أخرى مثل البيتكوين (BTCUSD)، والعملات الرقمية البديلة، والنفط، والمؤشرات، والمؤشرات الآسيوية، والأسهم — وقد تختلف معدلات العمولات عن الأمثلة المذكورة أعلاه. يرجى الرجوع إلى اتفاقية IB الخاصة بك للاطلاع على القائمة الكاملة للمنتجات والمعدلات المعمول بها.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">اكتشف المزيد وقدم طلبك ←</a>
+          <div class="disclaimer">ينطوي تداول عقود الفروقات (CFDs) على مخاطر عالية، وقد لا يكون مناسباً لجميع المستثمرين. الأرقام المعروضة هي لأغراض توضيحية فقط. وقد تختلف الخصومات أو العوائد الفعلية وفقاً لاتفاقية الشريك المعرف (IB) الخاصة بك، ونوع الحساب، والمنطقة، ومستوى حجم التداول، وشروط البرنامج المعمول بها، ومعايير الأهلية الأخرى. يُرجى الرجوع إلى اتفاقية الشريك المعرف (IB) الخاصة بك للاطلاع على الشروط الكاملة ومعدلات الخصومات أو العوائد المطبقة. VFSC 40356</div>
+        </div>
+      </div>
+
+    </div><!-- /info-body -->
+  </div><!-- /info-collapsible -->
+</div><!-- /info-card (section-10) -->
+<!-- ============ SECTION 11 — EMAIL E3 ============ -->
+<div class="section-title">Section 11 — Email E3</div>
+
+<div id="section-11" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">📧</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Email E3 — Common Questions Answered</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">After 2 rest days · Q&amp;A format addressing common partner concerns · 6 language variants</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Phase 1.0</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang(this,'e3','en')">EN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e3','id')">ID</button>
+        <button class="lang-tab" onclick="switchLang(this,'e3','ko')">KO</button>
+        <button class="lang-tab" onclick="switchLang(this,'e3','vn')">VN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e3','th')">TH</button>
+        <button class="lang-tab" onclick="switchLang(this,'e3','ar')">AR</button>
+      </div>
+
+      <!-- EN -->
+      <div id="e3-en" class="lang-content active" lang="en">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">3 common questions about the IB Program — answered</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Time, network size, and promotion — what to know</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Learn More &amp; Apply</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">3 Common Questions About the IB Program — Answered</div>
+          <div class="salutation">Dear [Name],</div>
+          <div class="content-block">You&#x27;ve seen how the TMGM IB Program works and how rebates may be calculated. Here are 3 common questions partners often have before applying — and what to know about each.</div>
+          <div class="content-block cb-question">❝ Will this take a lot of my time? ❞</div>
+          <div class="content-block">The program is designed to require minimal ongoing effort once your referrals are made. Rebates may be earned from your referred clients&#x27; trading activity, subject to your IB agreement and applicable program terms. There is no daily content to create, no client management responsibilities, and no required ongoing engagement once a client is referred.</div>
+          <div class="content-block cb-question">❝ Do I need a large network? ❞</div>
+          <div class="content-block">You don&#x27;t need a large network. The program is designed to work whether you have a few trading-interested contacts or many. Rebate amounts depend on the trading activity of your referred clients and your IB agreement. The program is designed to scale with your level of involvement.</div>
+          <div class="content-block cb-question">❝ Do I need experience promoting financial products? ❞</div>
+          <div class="content-block">As a TMGM IB, partners may have access to materials and resources to support their activities, such as: 
+• An IB Portal for tracking referrals and program activity 
+• Marketing materials such as banners and templates 
+• A unique referral tracking link 
+• Account support from TMGM, where applicable
+
+Specific resources and support available depend on your IB agreement and program terms.</div>
+          <div class="content-block">If you&#x27;re interested, the next step is reviewing the program details on our partner page.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Learn More &amp; Apply →</a>
+          <div class="disclaimer">Investing in CFDs carries significant risks and is not suitable for all investors. Program features, support, and rebates are subject to your IB agreement, account type, region, and applicable program terms. Specific resources and support may vary. Refer to your IB agreement for full terms. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- ID -->
+      <div id="e3-id" class="lang-content" lang="id">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">3 Pertanyaan Umum Tentang Program IB — Terjawab</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Waktu, ukuran jaringan, dan promosi — hal yang perlu diketahui</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Pelajari Lebih Lanjut &amp; Daftar</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">3 Pertanyaan Umum Tentang Program IB — Terjawab</div>
+          <div class="salutation">Yth. [Name],</div>
+          <div class="content-block">Anda telah melihat cara kerja Program IB TMGM dan bagaimana rebate dihitung. Berikut adalah 3 pertanyaan umum yang sering diajukan partner sebelum bergabung — beserta penjelasannya.</div>
+          <div class="content-block cb-question">❝ Apakah ini akan menyita banyak waktu saya? ❞</div>
+          <div class="content-block">Program ini dirancang untuk membutuhkan upaya minimal setelah referral dilakukan. Rebate dapat diperoleh dari aktivitas trading klien referral Anda, sesuai dengan perjanjian IB dan ketentuan program yang berlaku. Tidak ada kewajiban membuat konten setiap hari, tidak ada tanggung jawab mengelola klien, dan tidak ada keterlibatan rutin yang diwajibkan setelah klien berhasil direferensikan.</div>
+          <div class="content-block cb-question">❝ Apakah saya butuh jaringan yang besar? ❞</div>
+          <div class="content-block">Anda tidak perlu memiliki jaringan yang besar. Program ini dirancang agar tetap dapat berjalan baik, baik Anda hanya memiliki beberapa kontak yang tertarik pada trading maupun jaringan yang lebih luas. Besaran rebate bergantung pada aktivitas trading klien referral Anda dan perjanjian IB Anda. Program ini dirancang untuk berkembang sesuai dengan tingkat keterlibatan Anda.</div>
+          <div class="content-block cb-question">❝ Apakah saya butuh pengalaman mempromosikan produk keuangan? ❞</div>
+          <div class="content-block">Sebagai TMGM IB, partner dapat memperoleh akses ke materi dan sumber daya untuk mendukung aktivitas mereka, seperti:
+
+• Portal IB untuk melacak referral dan aktivitas program
+• Materi pemasaran seperti banner dan template
+• Link referral unik untuk pelacakan
+• Dukungan akun dari TMGM, jika berlaku
+
+Sumber daya dan dukungan yang tersedia akan bergantung pada perjanjian IB dan ketentuan program Anda.</div>
+          <div class="content-block">Jika Anda tertarik, langkah selanjutnya adalah meninjau detail program di halaman mitra kami.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Pelajari Lebih Lanjut &amp; Daftar →</a>
+          <div class="disclaimer">Berinvestasi dalam CFD memiliki risiko yang signifikan dan tidak cocok untuk semua investor. Fitur program, dukungan, dan rebate tunduk pada perjanjian IB Anda, jenis akun, wilayah, dan ketentuan program yang berlaku. Sumber daya dan dukungan tertentu dapat berbeda-beda. Silakan merujuk pada perjanjian IB Anda untuk syarat dan ketentuan lengkap. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- KO -->
+      <div id="e3-ko" class="lang-content" lang="ko">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">자주 묻는 IB 프로그램 관련 질문</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">소요 시간, 네트워크 규모 및 홍보 관련 필수 정보</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">자세히 알아보기 및 신청하기</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">자주 묻는 IB 프로그램 관련 질문 3가지</div>
+          <div class="salutation">안녕하세요 [Name]님,</div>
+          <div class="content-block">확인하신 TMGM IB 프로그램의 운영 방식과 리베이트 계산 방식과 더불어 파트너들이 신청 전 가장 자주 묻는 3가지 질문과 그 답변을 정리해 드리겠습니다.</div>
+          <div class="content-block cb-question">❝ 시간이 많이 소요되나요? ❞</div>
+          <div class="content-block">이 프로그램은 추천이 완료된 후 최소한의 지속적인 노력만 필요하도록 설계되었습니다. 리베이트는 IB 계약 및 프로그램 약관에 따라 추천 고객의 거래 활동에서 발생합니다. 매일 콘텐츠를 제작하거나 고객을 관리할 책임이 없으며, 고객 추천 후 지속적인 관리가 요구되지 않습니다.</div>
+          <div class="content-block cb-question">❝ 대규모 네트워크가 필요한가요? ❞</div>
+          <div class="content-block">대규모 네트워크가 필요하지 않습니다. 이 프로그램은 몇 명의 관심 있는 지인부터 다수의 네트워크까지 모두 대응할 수 있도록 설계되었습니다. 리베이트 금액은 추천 고객의 거래 활동과 귀하의 IB 계약에 따라 달라집니다. 또한 귀하의 참여 수준에 맞춰 확장할 수 있도록 설계되었습니다.</div>
+          <div class="content-block cb-question">❝ 금융 상품 홍보 경험이 필요한가요? ❞</div>
+          <div class="content-block">TMGM IB 파트너는 활동을 지원하기 위해 다음과 같은 자료와 리소스를 이용할 수 있습니다:
+• 추천 및 프로그램 활동 추적을 위한 IB 포털
+• 배너 및 템플릿과 같은 마케팅 자료
+• 고유 추천 추적 링크
+• 해당되는 경우 TMGM의 계정 지원
+
+제공되는 리소스 및 지원은 귀하의 IB 계약 및 프로그램 약관에 따라 달라질 수 있습니다.</div>
+          <div class="content-block">관심이 있으시다면 파트너 페이지에서 프로그램 세부 정보를 확인해주시기 바랍니다.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">자세히 알아보기 및 신청하기 →</a>
+          <div class="disclaimer">CFD 투자는 상당한 위험을 수반하며 모든 투자자에게 적합하지 않을 수 있습니다. 프로그램 기능, 지원 및 리베이트는 귀하의 IB 계약, 계정 유형, 지역 및 적용 가능한 프로그램 약관에 따라 달라집니다. 제공되는 특정 리소스 및 지원은 달라질 수 있습니다. 전체 약관은 귀하의 IB 계약서를 참조하십시오. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- VN -->
+      <div id="e3-vn" class="lang-content" lang="vn">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">Giải đáp 3 câu hỏi thường gặp về Chương trình IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Thời gian, quy mô mạng lưới và quảng bá — những điều cần biết</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Tìm hiểu thêm &amp; Đăng ký</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Giải đáp 3 câu hỏi thường gặp về Chương trình IB</div>
+          <div class="salutation">Xin chào [Name],</div>
+          <div class="content-block">Bạn đã thấy Chương trình IB của TMGM hoạt động như thế nào và cách tính tiền hoàn lại. Dưới đây là 3 câu hỏi thường gặp mà các đối tác thường thắc mắc trước khi đăng ký — và những điều cần biết về từng câu hỏi.</div>
+          <div class="content-block cb-question">❝ Việc này có tốn nhiều thời gian không? ❞</div>
+          <div class="content-block">Chương trình được thiết kế để yêu cầu nỗ lực duy trì tối thiểu sau khi việc giới thiệu được thực hiện. Tiền hoàn lại có thể được tích lũy từ hoạt động giao dịch của khách hàng được bạn giới thiệu, tuân theo thỏa thuận IB và các điều khoản chương trình. Không cần tạo nội dung hàng ngày, không có trách nhiệm quản lý khách hàng và không yêu cầu cam kết liên tục sau khi khách hàng đã được giới thiệu.</div>
+          <div class="content-block cb-question">❝ Tôi có cần một mạng lưới rộng lớn không? ❞</div>
+          <div class="content-block">Bạn không cần mạng lưới lớn. Chương trình được thiết kế để hoạt động dù bạn chỉ có vài người quen quan tâm đến giao dịch hay nhiều người. Số tiền hoàn lại phụ thuộc vào hoạt động giao dịch của khách hàng giới thiệu và thỏa thuận IB của bạn.</div>
+          <div class="content-block cb-question">❝ Tôi có cần kinh nghiệm quảng bá sản phẩm tài chính không? ❞</div>
+          <div class="content-block">Với tư cách là IB của TMGM, các đối tác có thể truy cập vào các tài liệu và nguồn lực để hỗ trợ hoạt động của mình, chẳng hạn như:
+
+• Cổng thông tin IB để theo dõi khách hàng giới thiệu và hoạt động chương trình
+
+• Tài liệu marketing như banner và mẫu có sẵn
+
+• Liên kết theo dõi giới thiệu duy nhất
+
+• Hỗ trợ tài khoản từ TMGM mọi nơi
+
+Các tài nguyên và hỗ trợ cụ thể được cung cấp sẽ phụ thuộc vào thỏa thuận IB và các điều khoản chương trình của bạn.</div>
+          <div class="content-block">Nếu bạn quan tâm, bước tiếp theo là xem chi tiết chương trình trên trang đối tác của chúng tôi.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Tìm hiểu thêm &amp; Đăng ký →</a>
+          <div class="disclaimer">Đầu tư vào CFD mang lại rủi ro đáng kể và không phù hợp với tất cả các nhà đầu tư. Các tính năng, hỗ trợ và tiền hoàn lại của chương trình tùy thuộc vào thỏa thuận IB, loại tài khoản, khu vực và các điều khoản áp dụng. Các nguồn lực cụ thể có thể thay đổi. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- TH -->
+      <div id="e3-th" class="lang-content" lang="th">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">รวม 3 คำถามที่พบบ่อยเกี่ยวกับโปรแกรม IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">ทุกเรื่องที่ควรรู้เกี่ยวกับเวลา เครือข่าย และการโปรโมต</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">เรียนรู้เพิ่มเติมและสมัคร</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">รวม 3 คำถามที่พบบ่อยเกี่ยวกับโปรแกรม IB</div>
+          <div class="salutation">เรียนคุณ [Name],</div>
+          <div class="content-block">หลังจากที่คุณได้รู้จักวิธีการทำงานของ TMGM IB และระบบค่าคอมมิชชั่นแล้ว นี่คือ 3 คำถามยอดฮิตที่พาร์ทเนอร์มักถามก่อนเริ่มต้น</div>
+          <div class="content-block cb-question">ต้องใช้เวลามากไหม?</div>
+          <div class="content-block">โปรแกรม IB ของ TMGM ถูกออกแบบมาเพื่อให้คุณเริ่มต้นได้ง่าย โดยไม่จำเป็นต้องทำคอนเทนต์ทุกวันหรือดูแลลูกค้าแบบเต็มเวลา หลังจากการแนะนำลูกค้าแล้ว ระบบค่าคอมมิชชั่นจะทำงานตามเงื่อนไขของสัญญา</div>
+          <div class="content-block cb-question">❝ ฉันจำเป็นต้องมีเครือข่ายขนาดใหญ่ไหม? ❞</div>
+          <div class="content-block">ไม่จำเป็นต้องมีเครือข่ายขนาดใหญ่ โปรแกรมนี้ถูกออกแบบมาให้เหมาะทั้งสำหรับผู้ที่มีผู้ติดต่อเพียงไม่กี่คน ไปจนถึงผู้ที่มีคอมมูนิตี้ขนาดใหญ่ โดยรายได้จะขึ้นอยู่กับกิจกรรมการเทรดของลูกค้าและเงื่อนไขในสัญญา IB ของคุณ</div>
+          <div class="content-block cb-question">❝ ฉันจำเป็นต้องมีประสบการณ์โปรโมตผลิตภัณฑ์ทางการเงินไหม? ❞</div>
+          <div class="content-block">ในฐานะ TMGM IB พาร์ทเนอร์คุณสามารถเข้าถึงทรัพยากรต่างๆ เพื่อสนับสนุนกิจกรรมได้ เช่น:
+
+• พอร์ทัล IB สำหรับติดตามการแนะนำและกิจกรรมในโปรแกรม
+
+• สื่อการตลาด เช่น แบนเนอร์และเทมเพลต
+
+• ลิงก์แนะนำเฉพาะของคุณ
+
+• บริการช่วยเหลือด้านบัญชีจาก TMGM ตามความเหมาะสม
+
+ทรัพยากรและการสนับสนุนที่ได้รับจะขึ้นอยู่กับข้อตกลงของสัญญา IB และเงื่อนไขของโปรแกรมที่คุณเข้าร่วม</div>
+          <div class="content-block">หากคุณสนใจ สามารถศึกษารายละเอียดเพิ่มเติมได้ที่หน้าโปรแกรมพาร์ทเนอร์ของเรา</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">เรียนรู้เพิ่มเติมและสมัคร →</a>
+          <div class="disclaimer">การลงทุนใน CFD มีความเสี่ยงสูงและอาจไม่เหมาะสำหรับนักลงทุนทุกคน คุณสมบัติของโปรแกรม การสนับสนุน และค่าคอมมิชชั่นขึ้นอยู่กับสัญญา IB ประเภทบัญชี ภูมิภาค และเงื่อนไขของโปรแกรม ทรัพยากรที่จัดเตรียมให้อาจแตกต่างกันไปตามกรณี VFSC 40356</div>
+        </div>
+      </div>
+      <!-- AR -->
+      <div id="e3-ar" class="lang-content" dir="rtl" lang="ar">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">إجابات على 3 أسئلة شائعة حول برنامج IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">الوقت، حجم الشبكة، والترويج — ما الذي يجب معرفته</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">اكتشف المزيد وقدم طلبك</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">إجابات على 3 أسئلة شائعة حول برنامج IB</div>
+          <div class="salutation">عزيزي [Name]،</div>
+          <div class="content-block">لقد تعرّفت على كيفية عمل برنامج TMGM IB وكيفية احتساب العمولات المستردة. إليك 3 أسئلة شائعة يطرحها الشركاء عادةً قبل التقديم — وما يجب معرفته حول كل منها.</div>
+          <div class="content-block cb-question">❝ هل سيستغرق هذا الكثير من وقتي؟ ❞</div>
+          <div class="content-block">تم تصميم البرنامج ليتطلب الحد الأدنى من الجهد المستمر بعد إحالة العملاء. يمكن كسب العمولات المستردة من نشاط التداول للعملاء الذين تقوم بإحالتهم، وذلك وفقاً لاتفاقية IB الخاصة بك وشروط البرنامج المعمول بها. لا يوجد محتوى يومي يتطلب إنشاؤه، ولا مسؤوليات لإدارة العملاء، ولا حاجة لمتابعة مستمرة بعد إحالة العميل.</div>
+          <div class="content-block cb-question">❝ هل أحتاج إلى شبكة علاقات واسعة؟ ❞</div>
+          <div class="content-block">لا تحتاج إلى شبكة علاقات كبيرة. تم تصميم البرنامج ليعمل سواء كان لديك عدد قليل من الأشخاص المهتمين بالتداول أو شبكة أكبر. تعتمد قيمة العمولات المستردة على نشاط التداول للعملائك الذين تقوم بإحالتهم وعلى اتفاقية IB الخاصة بك. وقد تم تصميم البرنامج لينمو مع مستوى مشاركتك.</div>
+          <div class="content-block cb-question">❝ هل أحتاج إلى خبرة في الترويج للمنتجات المالية؟ ❞</div>
+          <div class="content-block">كشريك في برنامج TMGM IB، قد تتوفر لك مواد وموارد تساعدك في دعم أنشطتك، مثل:
+• بوابة IB لتتبع الإحالات ونشاط البرنامج
+• مواد تسويقية مثل البنرات والقوالب
+• رابط إحالة فريد لتتبع العملاء
+• دعم للحساب من TMGM، حيثما ينطبق ذلك
+
+تعتمد الموارد وخدمات الدعم المتاحة على اتفاقية IB الخاصة بك وشروط البرنامج المعمول بها.</div>
+          <div class="content-block">إذا كنت مهتماً، فالخطوة التالية هي مراجعة تفاصيل البرنامج على صفحة الشركاء الخاصة بنا.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">اكتشف المزيد وقدم طلبك ←</a>
+          <div class="disclaimer">ينطوي تداول عقود الفروقات (CFDs) على مخاطر عالية، وقد لا يكون مناسباً لجميع المستثمرين. تخضع ميزات البرنامج والدعم والعمولات المستردة لاتفاقية الشريك المعرف (IB) الخاصة بك، ونوع الحساب، والمنطقة، وشروط البرنامج المعمول بها. قد تختلف الموارد والدعم المتاحان. يُرجى الرجوع إلى اتفاقية الشريك المعرف (IB) الخاصة بك للاطلاع على الشروط الكاملة. VFSC 40356</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /info-card (section-11) -->
+<!-- ============ SECTION 12 — EMAIL E4 ============ -->
+<div class="section-title">Section 12 — Email E4</div>
+
+<div id="section-12" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">📧</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Email E4 — IB Program at a Glance</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">After 1 rest day · summary &amp; nudge to decide · 6 language variants · personalised with first-name</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Phase 1.0</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang(this,'e4','en')">EN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e4','id')">ID</button>
+        <button class="lang-tab" onclick="switchLang(this,'e4','ko')">KO</button>
+        <button class="lang-tab" onclick="switchLang(this,'e4','vn')">VN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e4','th')">TH</button>
+        <button class="lang-tab" onclick="switchLang(this,'e4','ar')">AR</button>
+      </div>
+
+      <!-- EN -->
+      <div id="e4-en" class="lang-content active" lang="en">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, the IB Program at a glance</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Everything you need to know — in one quick read</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Learn More &amp; Apply</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">The TMGM IB Program — At a Glance</div>
+          <div class="salutation">Dear [Name],</div>
+          <div class="content-block">Over the past week, we&#x27;ve covered the basics of the TMGM IB Program — what it is, how rebates may be calculated, and answers to common questions partners often have.</div>
+          <div class="content-block cb-subhead">A Quick Summary</div>
+          <div class="content-block">The TMGM IB Program is open to eligible partners who introduce clients to TMGM. Rebates may be earned from the trading activity of your referred clients, subject to your IB agreement and applicable program terms.
+
+Key things we&#x27;ve shared: 
+• How the program works — referrals, rebates, and the role of an IB 
+• Illustrative examples of how rebate calculations may be structured 
+• Common questions about time commitment, network size, and tools</div>
+          <div class="content-block cb-subhead">If You&#x27;re Considering the Program</div>
+          <div class="content-block">If you&#x27;ve been thinking about whether the IB Program might be a fit for your situation, this may be a useful time to take a closer look. Full program details, eligibility criteria, applicable rebate rates, and program terms are available on our partner program page.
+
+If you&#x27;d like to explore the program further, the next step is reviewing the partner program details.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Learn More &amp; Apply →</a>
+          <div class="content-block secondary">If the IB role doesn&#x27;t feel like the right fit, the TMGM Finfluencer program may be worth exploring — designed for creators and content-led partners.</div>
+          <div class="disclaimer">Investing in CFDs carries significant risks and is not suitable for all investors. The TMGM IB Program is subject to eligibility, your IB agreement, account type, region, and applicable program terms. Refer to the partner program page or your IB agreement for full terms and applicable rebate rates. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- ID -->
+      <div id="e4-id" class="lang-content" lang="id">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, sekilas tentang Program IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Semua yang perlu Anda ketahui — dalam satu bacaan singkat</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Pelajari Lebih Lanjut &amp; Daftar</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Program IB TMGM — Sekilas</div>
+          <div class="salutation">Yth. [Name],</div>
+          <div class="content-block">Selama seminggu terakhir, kami telah membahas dasar-dasar Program IB TMGM — apa itu program ini, bagaimana rebate dapat dihitung, serta jawaban atas pertanyaan umum yang sering diajukan para partner.</div>
+          <div class="content-block cb-subhead">Ringkasan Singkat</div>
+          <div class="content-block">Program IB TMGM terbuka bagi mitra yang memenuhi syarat yang memperkenalkan klien ke TMGM. Rebate dapat diperoleh dari aktivitas trading klien yang Anda referensikan, sesuai dengan perjanjian IB Anda dan ketentuan program yang berlaku.
+
+Hal-hal utama yang telah kami bagikan:
+
+• Cara kerja program — referral, rebate, dan peran seorang IB
+• Contoh ilustratif mengenai bagaimana perhitungan rebate dapat disusun
+• Pertanyaan umum seputar komitmen waktu, ukuran jaringan, dan alat dukung yang tersedia</div>
+          <div class="content-block cb-subhead">Jika Anda Sedang Mempertimbangkan Program Ini</div>
+          <div class="content-block">Jika Anda telah memikirkan apakah Program IB ini mungkin cocok untuk situasi Anda, ini bisa menjadi waktu yang tepat untuk melihat lebih dekat. Detail lengkap program, kriteria kelayakan, tarif rebate yang berlaku, dan ketentuan program tersedia di halaman program mitra kami.
+
+Jika Anda ingin mempelajari program ini lebih lanjut, langkah berikutnya adalah meninjau detail program mitra.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Pelajari Lebih Lanjut &amp; Daftar →</a>
+          <div class="content-block secondary">Jika peran IB terasa kurang cocok untuk Anda, program TMGM Finfluencer mungkin layak untuk dipertimbangkan — dirancang untuk kreator dan mitra berbasis konten.</div>
+          <div class="disclaimer">Berinvestasi dalam CFD memiliki risiko yang signifikan dan tidak cocok untuk semua investor. Program IB TMGM tunduk pada persyaratan kelayakan, perjanjian IB Anda, jenis akun, wilayah, dan ketentuan program yang berlaku. Silakan merujuk ke halaman program mitra atau perjanjian IB Anda untuk syarat dan ketentuan lengkap serta tarif rebate yang berlaku. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- KO -->
+      <div id="e4-ko" class="lang-content" lang="ko">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}님, IB 프로그램을 한눈에 확인하세요</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">필요한 모든 정보를 한 번에 읽어보세요</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">자세히 알아보기 / 신청하기</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">TMGM IB 프로그램 — 요약</div>
+          <div class="salutation">안녕하세요 [Name]님,</div>
+          <div class="content-block">지난 한 주 동안 TMGM IB 프로그램의 기본 사항(정의, 리베이트 계산 방식, 파트너들의 자주 묻는 질문)을 살펴보았습니다.</div>
+          <div class="content-block cb-subhead">핵심 요약</div>
+          <div class="content-block">TMGM IB 프로그램은 TMGM에 고객을 소개하는 자격 있는 파트너에게 열려 있습니다. 리베이트는 IB 계약 및 프로그램 약관에 따라 추천 고객의 거래 활동에서 발생할 수 있습니다.
+
+주요 내용:
+• 프로그램 운영 방식 — 추천, 리베이트 및 IB의 역할
+• 리베이트 계산 구조의 예시 안내
+• 소요 시간, 네트워크 규모 및 도구에 관한 자주 묻는 질문</div>
+          <div class="content-block cb-subhead">프로그램 가입을 고려 중이시라면</div>
+          <div class="content-block">IB 프로그램이 귀하의 상황에 적합한지 고민 중이셨다면, 지금이 더 자세히 살펴볼 좋은 기회입니다. 전체 프로그램 세부 정보, 자격 요건, 적용 가능한 리베이트 요율 및 프로그램 약관은 파트너 프로그램 페이지에서 확인하실 수 있습니다.
+
+프로그램에 대해 더 자세히 알아보고 싶으시다면, 파트너 프로그램 세부 정보를 확인해주시기 바랍니다.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">자세히 알아보기 / 신청하기 →</a>
+          <div class="content-block secondary">IB 역할이 본인에게 적합하지 않다고 느껴진다면, 크리에이터 및 콘텐츠 중심 파트너를 위해 설계된 TMGM Finfluencer 프로그램도 고려해볼 만합니다.</div>
+          <div class="disclaimer">CFD 투자는 상당한 위험을 수반하며 모든 투자자에게 적합하지 않을 수 있습니다. TMGM IB 프로그램은 자격 요건, IB 계약, 계정 유형, 지역 및 적용되는 프로그램 약관에 따라 달라집니다. 전체 약관 및 적용 가능한 리베이트 요율은 파트너 프로그램 페이지 또는 IB 계약서를 참조하십시오. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- VN -->
+      <div id="e4-vn" class="lang-content" lang="vn">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, tóm tắt về Chương trình IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Tất cả những gì bạn cần biết — trong một bài đọc nhanh</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Tìm hiểu thêm &amp; Đăng ký</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">Chương trình IB của TMGM — Tóm tắt</div>
+          <div class="salutation">Xin chào [Name],</div>
+          <div class="content-block">Trong tuần qua, chúng ta đã tìm hiểu những kiến thức cơ bản về Chương trình IB của TMGM — chương trình là gì, cách tính tiền hoàn lại và giải đáp các câu hỏi thường gặp của đối tác.</div>
+          <div class="content-block cb-subhead">Tóm tắt nhanh</div>
+          <div class="content-block">Chương trình IB của TMGM mở rộng cho các đối tác đủ điều kiện giới thiệu khách hàng đến với TMGM. Tiền hoàn lại có thể được tích lũy từ hoạt động giao dịch của khách hàng giới thiệu, tuân theo thỏa thuận IB và các điều khoản chương trình.
+
+Những điểm chính chúng tôi đã chia sẻ:
+
+• Cách chương trình hoạt động — giới thiệu, tiền hoàn lại và vai trò của một IB
+
+• Ví dụ minh họa về cấu trúc tính toán tiền hoàn lại
+
+• Các câu hỏi thường gặp về thời gian cam kết, quy mô mạng lưới và công cụ hỗ trợ</div>
+          <div class="content-block cb-subhead">Nếu bạn đang cân nhắc tham gia chương trình</div>
+          <div class="content-block">Nếu bạn đang cân nhắc liệu Chương trình IB có phù hợp với mình hay không, đây có thể là thời điểm thích hợp để tìm hiểu kỹ hơn. Thông tin chi tiết về chương trình, tiêu chí đủ điều kiện, mức rebate áp dụng và các điều khoản đều có trên trang chương trình đối tác của chúng tôi.
+
+Nếu bạn muốn tìm hiểu thêm về chương trình, bước tiếp theo là xem chi tiết chương trình đối tác.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Tìm hiểu thêm &amp; Đăng ký →</a>
+          <div class="content-block secondary">Nếu vai trò IB không thực sự phù hợp với bạn, chương trình TMGM Finfluencer có thể là một lựa chọn đáng cân nhắc — được thiết kế dành cho các nhà sáng tạo nội dung và đối tác định hướng nội dung.</div>
+          <div class="disclaimer">Đầu tư vào CFD mang lại rủi ro đáng kể và không phù hợp với tất cả các nhà đầu tư. Chương trình IB của TMGM phụ thuộc vào điều kiện đủ tiêu chuẩn, thỏa thuận IB, loại tài khoản, khu vực và các điều khoản chương trình áp dụng. Vui lòng tham khảo trang chương trình đối tác hoặc thỏa thuận IB của bạn để biết đầy đủ các điều khoản và mức rebate áp dụng. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- TH -->
+      <div id="e4-th" class="lang-content" lang="th">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}} สรุปข้อมูลโปรแกรม IB ในหน้าเดียว</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">ทุกสิ่งที่คุณจำเป็นต้องรู้ — จบในอ่านเดียว</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">เรียนรู้เพิ่มเติมและสมัคร</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">โปรแกรม TMGM IB — สรุปข้อมูลเบื้องต้น</div>
+          <div class="salutation">เรียนคุณ [Name],</div>
+          <div class="content-block">ในช่วงสัปดาห์ที่ผ่านมา เราได้พาคุณทำความรู้จักกับพื้นฐานของโปรแกรม TMGM IB — ตั้งแต่โปรแกรมคืออะไร วิธีคำนวณรายได้ ไปจนถึงคำถามที่พาร์ทเนอร์มักสงสัย</div>
+          <div class="content-block cb-subhead">สรุปสั้นๆ</div>
+          <div class="content-block">โปรแกรม TMGM IB เปิดรับพาร์ทเนอร์ที่มีคุณสมบัติเหมาะสมในการแนะนำลูกค้าให้รู้จัก TMGM ค่าคอมมิชชั่นจะเกิดขึ้นจากกิจกรรมการเทรดของลูกค้าที่คุณแนะนำ ภายใต้สัญญา IB และเงื่อนไขของโปรแกรม
+
+สิ่งสำคัญที่เราได้แชร์:
+
+• วิธีการทำงาน — การแนะนำ, ค่าคอมมิชชั่น และบทบาทของ IB
+
+• ตัวอย่างโครงสร้างการคำนวณรายได้
+
+• คำถามทั่วไปเกี่ยวกับเวลา ขนาดเครือข่าย และเครื่องมือ</div>
+          <div class="content-block cb-subhead">หากคุณกำลังพิจารณาโปรแกรมนี้</div>
+          <div class="content-block">หากคุณกำลังคิดว่าโปรแกรม IB นี้เหมาะกับคุณหรือไม่ นี่คือเวลาที่เหมาะสมในการศึกษาข้อมูลเพิ่มเติม รายละเอียดโปรแกรม คุณสมบัติ อัตราค่าคอมมิชชั่น และเงื่อนไขต่างๆ มีอยู่ในหน้าโปรแกรมพาร์ทเนอร์ของเรา
+
+หากคุณต้องการศึกษารายละเอียดของโปรแกรมเพิ่มเติม ขั้นตอนถัดไปคือการดูรายละเอียดของโปรแกรมพาร์ทเนอร์</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">เรียนรู้เพิ่มเติมและสมัคร →</a>
+          <div class="content-block secondary">หากบทบาท IB อาจยังไม่ใช่สิ่งที่เหมาะกับคุณ โปรแกรม TMGM Finfluencer อาจเป็นอีกทางเลือกที่น่าสนใจ — ซึ่งออกแบบมาสำหรับสายคอนเทนต์และครีเอเตอร์โดยเฉพาะ</div>
+          <div class="disclaimer">การลงทุนใน CFD มีความเสี่ยงสูงและอาจไม่เหมาะสำหรับนักลงทุนทุกประเภท โปรแกรม TMGM IB อยู่ภายใต้เงื่อนไขด้านคุณสมบัติ ข้อตกลง IB ประเภทบัญชี ภูมิภาค และข้อกำหนดของโปรแกรมที่เกี่ยวข้อง โปรดศึกษารายละเอียดเงื่อนไขทั้งหมด รวมถึงอัตราค่าคอมมิชชั่น (Rebate) ที่เกี่ยวข้อง ได้จากหน้าโปรแกรมพาร์ทเนอร์หรือข้อตกลง IB ของท่าน
+VFSC 40356</div>
+        </div>
+      </div>
+      <!-- AR -->
+      <div id="e4-ar" class="lang-content" dir="rtl" lang="ar">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}، نظرة عامة على برنامج IB</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">كل ما تحتاج لمعرفته — في قراءة سريعة</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">اكتشف المزيد وقدم طلبك</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">برنامج TMGM IB — نظرة عامة</div>
+          <div class="salutation">عزيزي [Name]،</div>
+          <div class="content-block">خلال الأسبوع الماضي، استعرضنا أساسيات برنامج TMGM IB — ما هو البرنامج، وكيفية احتساب العمولات المستردة، بالإضافة إلى الإجابة على أبرز الأسئلة الشائعة التي يطرحها الشركاء.</div>
+          <div class="content-block cb-subhead">ملخص سريع</div>
+          <div class="content-block">برنامج TMGM IB متاح للشركاء المؤهلين الذين يقومون بإحالة العملاء إلى TMGM. يمكن كسب العمولات المستردة من نشاط تداول العملاء الذين تقوم بإحالتهم، وذلك وفقاً لاتفاقية IB الخاصة بك وشروط البرنامج المعمول بها.
+
+النقاط الرئيسية التي شاركناها:
+
+• كيف يعمل البرنامج — الإحالات، العمولات المستردة، ودور شريك IB
+
+• أمثلة توضيحية لكيفية احتساب العمولات المستردة
+
+• أسئلة شائعة حول الوقت المطلوب، حجم الشبكة، والأدوات المتاحة</div>
+          <div class="content-block cb-subhead">إذا كنت تفكر في الانضمام للبرنامج</div>
+          <div class="content-block">إذا كنت تفكر فيما إذا كان برنامج IB مناسباً لك، فقد يكون هذا الوقت مناسباً لإلقاء نظرة أقرب. تتوفر تفاصيل البرنامج الكاملة، ومعايير الأهلية، ومعدلات العمولات المطبقة، وشروط البرنامج على صفحة برنامج الشركاء الخاصة بنا.
+
+إذا كنت ترغب في استكشاف البرنامج بشكل أعمق، فالخطوة التالية هي مراجعة تفاصيل برنامج الشركاء.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">اكتشف المزيد وقدم طلبك ←</a>
+          <div class="content-block secondary">إذا شعرت أن دور IB قد لا يكون الخيار المناسب لك، فقد يكون برنامج TMGM Finfluencer خياراً يستحق الاستكشاف — وهو مصمم لصناع المحتوى والشركاء المعتمدين على المحتوى.</div>
+          <div class="disclaimer">ينطوي تداول عقود الفروقات (CFDs) على مخاطر عالية، وقد لا يكون مناسباً لجميع المستثمرين. يخضع برنامج TMGM للشركاء المعرفين (IB) للأهلية، واتفاقية الشريك المعرف (IB) الخاصة بك، ونوع الحساب، والمنطقة، وشروط البرنامج المعمول بها. يُرجى الرجوع إلى صفحة برنامج الشركاء أو اتفاقية الشريك المعرف (IB) الخاصة بك للاطلاع على الشروط الكاملة ومعدلات العمولات المستردة المطبقة. VFSC 40356</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /info-card (section-12) -->
+<!-- ============ SECTION 13 — EMAIL E5 ============ -->
+<div class="section-title">Section 13 — Email E5</div>
+
+<div id="section-13" class="info-card">
+  <div class="info-header" onclick="toggleInfoCard(this)">
+    <div class="info-header-left">
+      <div class="info-icon">📧</div>
+      <div class="info-meta">
+        <h2 onclick="event.stopPropagation()">Email E5 — A Note Before We Step Back</h2>
+        <div class="info-subtitle" onclick="event.stopPropagation()">Back-to-back with E4 · final email in the journey · 6 language variants · CTA mid-email layout</div>
+      </div>
+    </div>
+    <div class="info-header-right">
+      <span class="info-badge">Phase 1.0</span>
+      <span class="expand-hint">Click to expand</span>
+      <div class="info-toggle">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="info-collapsible">
+    <div class="info-body">
+
+      <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang(this,'e5','en')">EN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e5','id')">ID</button>
+        <button class="lang-tab" onclick="switchLang(this,'e5','ko')">KO</button>
+        <button class="lang-tab" onclick="switchLang(this,'e5','vn')">VN</button>
+        <button class="lang-tab" onclick="switchLang(this,'e5','th')">TH</button>
+        <button class="lang-tab" onclick="switchLang(this,'e5','ar')">AR</button>
+      </div>
+
+      <!-- EN -->
+      <div id="e5-en" class="lang-content active" lang="en">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, just a quick note before we step back</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">We&#x27;ll check back in with you next month</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Learn More &amp; Apply</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">[Name], A Quick Note Before We Step Back</div>
+          <div class="salutation">Dear [Name],</div>
+          <div class="content-block">Over the past week, we&#x27;ve shared an introduction to the TMGM IB Program — what it is, how rebates may be calculated, and what&#x27;s available to support partners. 
+
+If the program is something you&#x27;d like to explore further, full details, eligibility criteria, and applicable terms are available on our partner program page.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Learn More &amp; Apply →</a>
+          <div class="content-block post-cta">For now, we&#x27;ll give you some space and check back in with you next month. The partner program page is open whenever you&#x27;re ready to take a closer look. 
+
+Either way, thank you for trading with TMGM.</div>
+          <div class="disclaimer">Investing in CFDs carries significant risks and is not suitable for all investors. The TMGM IB Program is subject to eligibility, your IB agreement, account type, region, and applicable program terms. Refer to the partner program page or your IB agreement for full terms and applicable rebate rates. VFSC 40356</div>
+        </div>
+      </div>
+      <!-- ID -->
+      <div id="e5-id" class="lang-content" lang="id">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, sekadar catatan singkat sebelum kami undur diri</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Kami akan menghubungi Anda kembali bulan depan</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Untuk saat ini, kami akan memberi Anda ruang dan kembali menghubungi Anda bulan depan. Halaman program mitra terbuka kapan pun Anda siap untuk melihat lebih dekat. 
+
+Apa pun pilihan Anda, terima kasih telah trading bersama TMGM.</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">[Name], Catatan Singkat Sebelum Kami Undur Diri</div>
+          <div class="salutation">Yth. [Name],</div>
+          <div class="content-block">Selama seminggu terakhir, kami telah membagikan pengenalan tentang Program IB TMGM — apa itu programnya, bagaimana rebate dihitung, dan apa saja yang tersedia untuk mendukung mitra.
+
+Jika program ini adalah sesuatu yang ingin Anda pelajari lebih lanjut, detail lengkap, kriteria kelayakan, dan ketentuan yang berlaku tersedia di halaman program mitra kami.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Untuk saat ini, kami akan memberi Anda ruang dan kembali menghubungi Anda bulan depan. Halaman program mitra terbuka kapan pun Anda siap untuk melihat lebih dekat. 
+
+Apa pun pilihan Anda, terima kasih telah trading bersama TMGM. →</a>
+          <div class="content-block post-cta">Pelajari Lebih Lanjut &amp; Daftar</div>
+          <div class="disclaimer">Berinvestasi dalam CFD memiliki risiko yang signifikan dan tidak cocok untuk semua investor. Program IB TMGM tunduk pada persyaratan kelayakan, perjanjian IB Anda, jenis akun, wilayah, dan ketentuan program yang berlaku. Silakan merujuk ke halaman program mitra atau perjanjian IB Anda untuk syarat dan ketentuan lengkap serta tarif rebate yang berlaku. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- KO -->
+      <div id="e5-ko" class="lang-content" lang="ko">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}님, 잠시 연락에 텀을 드리기 전에 드리는 짧은 메시지입니다</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">다음 달에 다시 연락드리겠습니다</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">잠시 시간을 드린 후 다음 달에 다시 안내해 드리겠습니다. 파트너 프로그램 페이지는 귀하가 준비되셨을 때 언제든지 열려 있습니다.
+
+
+TMGM과 함께 거래해 주셔서 감사합니다.</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">[Name]님, 마무리 전 드리는 짧은 메시지</div>
+          <div class="salutation">안녕하세요 [Name]님,</div>
+          <div class="content-block">지난 한 주 동안 TMGM IB 프로그램에 대한 소개(정의, 리베이트 계산 방식, 파트너 지원 사항)를 공유해 드렸습니다.
+
+프로그램을 더 자세히 알아보고 싶으시다면 전체 세부 정보, 자격 요건 및 적용 약관을 파트너 프로그램 페이지에서 확인하실 수 있습니다.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">잠시 시간을 드린 후 다음 달에 다시 안내해 드리겠습니다. 파트너 프로그램 페이지는 귀하가 준비되셨을 때 언제든지 열려 있습니다.
+
+
+TMGM과 함께 거래해 주셔서 감사합니다. →</a>
+          <div class="content-block post-cta">자세히 알아보기 / 신청하기</div>
+          <div class="disclaimer">CFD 투자는 상당한 위험을 수반하며 모든 투자자에게 적합하지 않을 수 있습니다. TMGM IB 프로그램은 자격 요건, IB 계약, 계정 유형, 지역 및 적용되는 프로그램 약관에 따라 달라집니다. 전체 약관 및 적용 가능한 리베이트 요율은 파트너 프로그램 페이지 또는 IB 계약서를 참조하십시오. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- VN -->
+      <div id="e5-vn" class="lang-content" lang="vn">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}, một lưu ý nhỏ trước khi chúng tôi tạm dừng</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">Chúng tôi sẽ liên hệ lại với bạn vào tháng tới</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">Hiện tại, chúng tôi sẽ để bạn có không gian riêng và sẽ liên hệ lại với bạn vào tháng sau. Trang chương trình đối tác luôn mở bất cứ khi nào bạn sẵn sàng tìm hiểu kỹ hơn.
+
+
+Dù bằng cách nào, cảm ơn bạn đã giao dịch với TMGM.</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">[Name], Một lưu ý nhỏ trước khi chúng tôi tạm dừng</div>
+          <div class="salutation">Xin chào [Name],</div>
+          <div class="content-block">Trong tuần qua, chúng tôi đã chia sẻ phần giới thiệu về Chương trình IB của TMGM — chương trình là gì, cách tính tiền hoàn lại và những gì có sẵn để hỗ trợ đối tác.
+
+Nếu chương trình là thứ bạn muốn tìm hiểu sâu hơn, thông tin chi tiết đầy đủ, đủ điều kiện và các điều khoản áp dụng đều có sẵn trên trang chương trình đối tác của chúng tôi.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">Hiện tại, chúng tôi sẽ để bạn có không gian riêng và sẽ liên hệ lại với bạn vào tháng sau. Trang chương trình đối tác luôn mở bất cứ khi nào bạn sẵn sàng tìm hiểu kỹ hơn.
+
+
+Dù bằng cách nào, cảm ơn bạn đã giao dịch với TMGM. →</a>
+          <div class="content-block post-cta">Tìm hiểu thêm &amp; Đăng ký</div>
+          <div class="disclaimer">Đầu tư vào CFD mang lại rủi ro đáng kể và không phù hợp với tất cả các nhà đầu tư. Chương trình IB của TMGM phụ thuộc vào điều kiện đủ tiêu chuẩn, thỏa thuận IB, loại tài khoản, khu vực và các điều khoản chương trình áp dụng. Vui lòng tham khảo trang chương trình đối tác hoặc thỏa thuận IB của bạn để biết đầy đủ các điều khoản và mức rebate áp dụng. VFSC 40356.</div>
+        </div>
+      </div>
+      <!-- TH -->
+      <div id="e5-th" class="lang-content" lang="th">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}} ฝากข้อความสั้นๆ</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">เราจะติดต่อกลับมาอีกครั้งในเดือนหน้า</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">สำหรับตอนนี้ เราจะเว้นช่วงการติดต่อไว้ก่อน และจะกลับมาอีกครั้งในเดือนหน้า คุณสามารถเข้าไปดูรายละเอียดโปรแกรมพาร์ทเนอร์ได้ตลอดเวลาเมื่อคุณพร้อม
+
+ขอบคุณที่ไว้วางใจและเลือกเทรดกับ TMGM เสมอ</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">คุณ [Name], ฝากข้อความสั้นๆ</div>
+          <div class="salutation">เรียนคุณ [Name],</div>
+          <div class="content-block">ในช่วงสัปดาห์ที่ผ่านมา เราได้แชร์ข้อมูลเบื้องต้นเกี่ยวกับโปรแกรม TMGM IB — ว่ามันคืออะไร คำนวณรายได้อย่างไร และจะช่วยสนับสนุนพาร์ทเนอร์ได้ยังไง
+
+หากคุณต้องการศึกษาข้อมูลโปรแกรมเพิ่มเติม รายละเอียดทั้งหมด คุณสมบัติ และเงื่อนไข มีระบุไว้ในหน้าโปรแกรมพาร์ทเนอร์ของเรา</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">สำหรับตอนนี้ เราจะเว้นช่วงการติดต่อไว้ก่อน และจะกลับมาอีกครั้งในเดือนหน้า คุณสามารถเข้าไปดูรายละเอียดโปรแกรมพาร์ทเนอร์ได้ตลอดเวลาเมื่อคุณพร้อม
+
+ขอบคุณที่ไว้วางใจและเลือกเทรดกับ TMGM เสมอ →</a>
+          <div class="content-block post-cta">เรียนรู้เพิ่มเติมและสมัคร</div>
+          <div class="disclaimer">การลงทุนใน CFD มีความเสี่ยงสูงและอาจไม่เหมาะสำหรับนักลงทุนทุกประเภท โปรแกรม TMGM IB ขึ้นอยู่กับคุณสมบัติของผู้สมัคร ข้อตกลง IB ประเภทบัญชี ภูมิภาค และเงื่อนไขของโปรแกรมที่เกี่ยวข้อง โปรดศึกษารายละเอียดข้อกำหนดทั้งหมด รวมถึงอัตราค่าคอมมิชชั่น (Rebate) ที่เกี่ยวข้อง ได้จากหน้าโปรแกรมพาร์ทเนอร์หรือข้อตกลง IB ของท่าน VFSC 40356</div>
+        </div>
+      </div>
+      <!-- AR -->
+      <div id="e5-ar" class="lang-content" dir="rtl" lang="ar">
+        <div class="email-fields">
+          <div class="email-field"><span class="email-field-label">Email Subject</span><span class="email-field-value subject">{{contact.firstname}}، مجرد ملاحظة سريعة قبل أن نتوقف مؤقتاً</span></div>
+          <div class="email-field"><span class="email-field-label">Preview Text</span><span class="email-field-value">سنعاود التواصل معك خلال الشهر القادم</span></div>
+          <div class="email-field"><span class="email-field-label">CTA</span><span class="email-field-value">في الوقت الحالي، سنمنحك بعض الوقت وسنعاود التواصل معك خلال الشهر القادم. تظل صفحة برنامج الشركاء متاحة دائماً عندما تكون مستعداً لإلقاء نظرة أقرب.
+وفي جميع الأحوال، نشكرك على التداول مع TMGM.</span></div>
+        </div>
+        <div class="email-preview">
+          <div class="banner">[Name]، ملاحظة سريعة قبل أن نتوقف مؤقتاً</div>
+          <div class="salutation">عزيزي [Name]،</div>
+          <div class="content-block">خلال الأسبوع الماضي، شاركنا معك مقدمة عن برنامج TMGM IB — ما هو البرنامج، وكيفية احتساب العمولات المستردة، والموارد المتاحة لدعم الشركاء.
+إذا كان البرنامج شيئاً ترغب في استكشافه بشكل أعمق، فإن التفاصيل الكاملة، ومعايير الأهلية، والشروط المعمول بها متاحة على صفحة برنامج الشركاء الخاصة بنا.</div>
+          <a class="cta-block" href="https://www.tmgmpartners.com/en/partners-program/introducing-broker" target="_blank" rel="noopener noreferrer">في الوقت الحالي، سنمنحك بعض الوقت وسنعاود التواصل معك خلال الشهر القادم. تظل صفحة برنامج الشركاء متاحة دائماً عندما تكون مستعداً لإلقاء نظرة أقرب.
+وفي جميع الأحوال، نشكرك على التداول مع TMGM. ←</a>
+          <div class="content-block post-cta">اكتشف المزيد وقدم طلبك</div>
+          <div class="disclaimer">ينطوي تداول عقود الفروقات (CFDs) على مخاطر عالية، وقد لا يكون مناسباً لجميع المستثمرين. يخضع برنامج TMGM للشركاء المعرفين (IB) للأهلية، واتفاقية الشريك المعرف (IB) الخاصة بك، ونوع الحساب، والمنطقة، وشروط البرنامج المعمول بها. يُرجى الرجوع إلى صفحة برنامج الشركاء أو اتفاقية الشريك المعرف (IB) الخاصة بك للاطلاع على الشروط الكاملة ومعدلات العمولات المستردة المطبقة. VFSC 40356</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /info-card (section-13) -->
+
+
+
+
+
 </div>
 
 <script>
@@ -5429,11 +6546,11 @@ function toggleEmailCard(header) {
   card.classList.toggle('expanded');
 }
 
-// Language tab switching inside email cards
+// Language tab switching inside email cards / info cards
 function switchLang(btn, emailId, lang) {
-  const card = btn.closest('.email-card');
-  card.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
-  card.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
+  const container = btn.closest('.email-card') || btn.closest('.info-card');
+  container.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
+  container.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(emailId + '-' + lang).classList.add('active');
 }
