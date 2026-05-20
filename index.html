@@ -2124,7 +2124,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
 .s3-combined-query .sql-string { color:#FED7AA; }
 .s3-combined-query .sql-comment { color:#64748B; font-style:italic; }
 
-/* Hygiene note (separate from 8 filters) */
+/* Hygiene note (separate from 9 filters) */
 .s3-hygiene-note {
   display:flex;
   gap:10px;
@@ -3093,8 +3093,8 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       </div>
       <div class="qr-stat theme-purple">
         <div class="qr-stat-tooltip">
-          <strong>8 Filter Conditions</strong><br>
-          All 8 must be true for a client to enter the journey: KYC verified, FTD completed, 7-day buffer met, not existing IB, not IB-referred, not Sales-acquired, not Partnership, valid country.
+          <strong>9 Filter Conditions</strong><br>
+          All 9 must be true for a client to enter the journey: KYC verified, FTD completed, 7-day buffer met, not existing IB, not IB-referred, not Sales-acquired, not Partnership, valid country, and at least 3 referrals.
           <span class="qr-stat-tooltip-ref">→ See Section 4 (Filter Logic — full HubSpot syntax)</span>
         </div>
         <span class="qr-stat-icon">🚦</span>
@@ -3256,9 +3256,9 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         <div class="qf-vline"></div>
 
         <div class="qf-box qf-upstream">
-          <div class="qf-tooltip tip-below">HubSpot continuously re-evaluates every contact against the Phase 1.0 Active List criteria. The moment a contact matches all 8 filter conditions, they automatically enroll in the workflow.</div>
+          <div class="qf-tooltip tip-below">HubSpot continuously re-evaluates every contact against the Phase 1.0 Active List criteria. The moment a contact matches all 9 filter conditions, they automatically enroll in the workflow.</div>
           <div class="qf-box-title">⏳ Continuous Filter Check</div>
-          <div class="qf-box-sub">All 8 filter conditions matched? (real-time)</div>
+          <div class="qf-box-sub">All 9 filter conditions matched? (real-time)</div>
         </div>
 
         <div class="qf-upstream-divider"></div>
@@ -3655,7 +3655,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
           <div class="nd-tech-field"><div class="nd-tech-label">🔄 Trigger Source</div><div class="nd-tech-value">Automated filter — Section 4 entry criteria match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">⏱ Wait Time</div><div class="nd-tech-value">None — sends immediately on filter match</div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">✓ Pre-Send Check</div><div class="nd-tech-value">N/A (first email)</div></div>
-          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Fields Checked</div><div class="nd-tech-value"><code>portal - client_status</code> <code>portal - user_type</code> <code>source_marketing_campaign</code> <code>portal - country</code> <code>ta_first_deposit_time</code></div></div>
+          <div class="nd-tech-field"><div class="nd-tech-label">🗂 Data Fields Checked</div><div class="nd-tech-value"><code>portal - client_status</code> <code>portal - user_type</code> <code>source_marketing_campaign</code> <code>portal - country</code> <code>ta_first_deposit_time</code> <code>portal - total_referrals</code></div></div>
           <div class="nd-tech-field"><div class="nd-tech-label">🚪 Exit Trigger</div><div class="nd-tech-value"><code>portal - user_type</code> becomes <code>"IB"</code> or <code>"IB + Client"</code> → route to <code>MKTOP-7576</code></div></div>
         </div>
       </div>
@@ -3883,7 +3883,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="info-icon">🚪</div>
       <div class="info-meta">
         <h2 onclick="event.stopPropagation()">Entry Criteria &amp; Filter Logic</h2>
-        <div class="info-subtitle" onclick="event.stopPropagation()">8 filter conditions · point-and-click setup · edge cases · all 8 confirmed · ready for build</div>
+        <div class="info-subtitle" onclick="event.stopPropagation()">9 filter conditions · point-and-click setup · edge cases · all 9 confirmed · ready for build</div>
       </div>
     </div>
     <div class="info-header-right">
@@ -3918,8 +3918,8 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         </div>
       </div>
 
-      <!-- 8 FILTER CARDS -->
-      <div class="s3-sub-title"><span class="s3-sub-icon">🚦</span>8 Filter Conditions — Each Must Be True for Entry</div>
+      <!-- 9 FILTER CARDS -->
+      <div class="s3-sub-title"><span class="s3-sub-icon">🚦</span>9 Filter Conditions — Each Must Be True for Entry</div>
 
       <!-- FILTER 1: KYC VERIFIED -->
       <div id="filter-1" class="filter-card">
@@ -4519,7 +4519,85 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
         </div>
       </div>
 
-      <!-- HUBSPOT PLATFORM-LEVEL REQUIREMENTS (separate from the 8 filters) -->
+      <div id="filter-9" class="filter-card">
+        <div class="filter-header" onclick="toggleFilterCard(this)">
+          <div class="filter-header-left">
+            <div class="filter-number">9</div>
+            <div class="filter-meta">
+              <div class="filter-title">Minimum Referrals (≥ 3)</div>
+              <div class="filter-subtitle">Client must have brought in at least 3 sign-up referrals via Refer-a-Friend</div>
+            </div>
+          </div>
+          <div class="filter-header-right">
+            <span class="filter-status confirmed">Confirmed</span>
+            <span class="expand-hint">Expand</span>
+            <div class="filter-toggle">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition:transform 0.3s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="filter-collapsible">
+          <div class="filter-body">
+
+            <div class="filter-builder-block">
+              <div class="filter-section-label">🎛️ HubSpot Workflow enrollment filter — point &amp; click setup (no code)</div>
+              <div class="filter-builder">
+                <div class="fb-row"><div class="fb-key">Field</div><div class="fb-val"><code>portal - total_referrals</code></div></div>
+                <div class="fb-row"><div class="fb-key">Operator</div><div class="fb-val"><span class="fb-operator">is greater than or equal to</span></div></div>
+                <div class="fb-row"><div class="fb-key">Value</div><div class="fb-val"><span class="fb-value-pill">3</span></div></div>
+              </div>
+            </div>
+
+            <div class="filter-twocol">
+              <div class="filter-block">
+                <div class="filter-section-label">🔧 Technical Spec</div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Field:</span><span class="filter-spec-val"><code>portal - total_referrals</code></span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Source:</span><span class="filter-spec-val"><code>HubSpot Contacts</code> (synced from CRM)</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Data Type:</span><span class="filter-spec-val">Number (count of sign-up referrals)</span></div>
+                <div class="filter-spec-row"><span class="filter-spec-key">Operator:</span><span class="filter-spec-val"><code>is greater than or equal to</code></span></div>
+              </div>
+
+              <div class="filter-block">
+                <div class="filter-section-label">📥 Allowed / ❌ Blocked Values</div>
+                <div class="filter-values-group">
+                  <div class="filter-values-heading allowed">✅ Allowed (passes the filter)</div>
+                  <div class="filter-values-list">
+                    <span class="filter-value-pill allowed">3</span>
+                    <span class="filter-value-pill allowed">4</span>
+                    <span class="filter-value-pill allowed">5+ (any count ≥ 3)</span>
+                  </div>
+                </div>
+                <div class="filter-values-group">
+                  <div class="filter-values-heading blocked">❌ Blocked (does not pass)</div>
+                  <div class="filter-values-list">
+                    <span class="filter-value-pill blocked">0</span>
+                    <span class="filter-value-pill blocked">1</span>
+                    <span class="filter-value-pill blocked">2</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-note">
+              <div class="filter-section-label">📋 NULL Handling</div>
+              <div class="filter-note-text"><strong>NULL treated as 0 → does not pass.</strong> Only contacts with an explicit referral count of 3 or more pass this filter. If <code>portal - total_referrals</code> is NULL (no referrals tracked), the contact is excluded.</div>
+            </div>
+
+            <div class="filter-note">
+              <div class="filter-section-label">🎯 Why This Filter Exists</div>
+              <div class="filter-note-text">Only clients who've already demonstrated engagement by introducing at least 3 sign-ups to TMGM should be pitched the IB program. They're already actively bringing in friends, which makes them substantially warmer leads for IB conversion than passive retail clients. Also helps narrow the audience to qualified-intent partners, improving the campaign's signal-to-noise ratio.</div>
+            </div>
+
+            <div class="filter-note" style="background:#ECFDF5;border-color:#A7F3D0;">
+              <div class="filter-section-label" style="color:#047857;">✅ Field Source Confirmation</div>
+              <div class="filter-note-text">Field confirmed by Nick (15 May 2026): <code>portal - total_referrals</code> is the existing HubSpot number field used in the inviter/invitee journey. Same field, no new ticket required, syncs via the standard 4-hour CRM pipeline.</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- HUBSPOT PLATFORM-LEVEL REQUIREMENTS (separate from the 9 filters) -->
       <div class="s3-sub-title"><span class="s3-sub-icon">🛡️</span>HubSpot Platform Requirements (in addition to the 8 filters)</div>
 
       <div class="s3-platform-grid">
@@ -4624,7 +4702,7 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <div class="info-icon">📋</div>
       <div class="info-meta">
         <h2 onclick="event.stopPropagation()">Data Fields Required</h2>
-        <div class="info-subtitle" onclick="event.stopPropagation()">7 fields total · all confirmed · ready for build</div>
+        <div class="info-subtitle" onclick="event.stopPropagation()">8 fields total · all confirmed · ready for build</div>
       </div>
     </div>
     <div class="info-header-right">
@@ -4649,21 +4727,21 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
       <!-- Stat strip -->
       <div class="s4-stats">
         <div class="s4-stat-pill">
-          <div class="s4-stat-pill-num">7</div>
+          <div class="s4-stat-pill-num">8</div>
           <div class="s4-stat-pill-label">Total Fields Required</div>
           <div class="s4-stat-pill-tooltip">
             <strong>All fields read by the journey.</strong><br>
             • <strong>2 HubSpot standard:</strong> <code>email</code>, <code>firstname</code><br>
-            • <strong>5 business fields:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>
+            • <strong>6 business fields:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>, <code>portal - total_referrals</code>
           </div>
         </div>
         <div class="s4-stat-pill confirmed">
-          <div class="s4-stat-pill-num">7</div>
+          <div class="s4-stat-pill-num">8</div>
           <div class="s4-stat-pill-label">✅ All Confirmed / Standard</div>
           <div class="s4-stat-pill-tooltip">
             <strong>All fields ready to use in build.</strong><br>
             • <strong>2 HubSpot standard</strong> (always present): <code>email</code>, <code>firstname</code><br>
-            • <strong>5 confirmed by Nick &amp; Sichen:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>
+            • <strong>6 confirmed by Nick &amp; Sichen:</strong> <code>portal - client_status</code>, <code>ta_first_deposit_time</code>, <code>portal - user_type</code>, <code>source_marketing_campaign</code>, <code>portal - country</code>, <code>portal - total_referrals</code>
           </div>
         </div>
         <div class="s4-stat-pill confirmed">
@@ -4742,6 +4820,14 @@ body { font-family:var(--font); color:var(--dark); background:var(--bg); line-he
               <td><span class="s4-status-confirmed">Confirmed</span></td>
               <td><div class="s4-field-notes">Confirmed by Nick. <strong>Full country names</strong> (not ISO-2 codes) — e.g. <code>"China"</code>, <code>"Hong Kong"</code>, <code>"United Kingdom"</code>. Synced from CRM every 4 hours.</div></td>
             </tr>
+            <tr>
+              <td><span class="s4-field-name">portal - total_referrals</span></td>
+              <td><span class="s4-field-type-pill">Number</span></td>
+              <td><div class="s4-field-purpose">Filter 9 — minimum 3 sign-up referrals</div></td>
+              <td><span class="s4-status-confirmed">Confirmed</span></td>
+              <td><div class="s4-field-notes">Confirmed by Nick (15 May 2026) — existing HubSpot number field used in the inviter/invitee journey, same one Nick referenced when scoping Tom's 3-referrals requirement. Synced via the standard 4-hour CRM pipeline.</div></td>
+            </tr>
+
           </tbody>
         </table>
       </div>
@@ -5409,7 +5495,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">Depends on Nick's pipeline behavior — <strong>confirmed by Nick:</strong> <code>ta_first_deposit_time</code> <em>doesn't change</em> when a client closes and re-opens. So Filter 3's 7-day buffer stays anchored to the original FTD. A returning client doesn't get a fresh 7-day wait — they re-enter on the next cycle after the 30-day cool-down (assuming they still match all 8 filters and aren't already an IB).</div>
+          <div class="s3-faq-a">Depends on Nick's pipeline behavior — <strong>confirmed by Nick:</strong> <code>ta_first_deposit_time</code> <em>doesn't change</em> when a client closes and re-opens. So Filter 3's 7-day buffer stays anchored to the original FTD. A returning client doesn't get a fresh 7-day wait — they re-enter on the next cycle after the 30-day cool-down (assuming they still match all 9 filters and aren't already an IB).</div>
         </div>
       </div>
 
@@ -5429,7 +5515,7 @@ Hi {% <span class="ampscript-keyword">if</span> <span class="ampscript-var">cont
           <span class="s3-faq-toggle">⌄</span>
         </div>
         <div class="s3-faq-collapsible">
-          <div class="s3-faq-a">Edge case — unlikely in practice but worth flagging.<br><br>If <code>portal - user_type</code> reverts away from <code>"IB"</code> / <code>"IB + Client"</code>, the contact technically re-matches all 8 entry filters and could re-enter the Retail-to-IB workflow. <strong>Recommendation:</strong> add an additional Active List criterion <em>"<code>portal - user_type</code> has never been any of IB or IB + Client"</em> (using HubSpot's "has ever been" operator) so a former IB doesn't get re-pitched. Worth a brief conversation with Compliance.</div>
+          <div class="s3-faq-a">Edge case — unlikely in practice but worth flagging.<br><br>If <code>portal - user_type</code> reverts away from <code>"IB"</code> / <code>"IB + Client"</code>, the contact technically re-matches all 9 entry filters and could re-enter the Retail-to-IB workflow. <strong>Recommendation:</strong> add an additional Active List criterion <em>"<code>portal - user_type</code> has never been any of IB or IB + Client"</em> (using HubSpot's "has ever been" operator) so a former IB doesn't get re-pitched. Worth a brief conversation with Compliance.</div>
         </div>
       </div>
 
